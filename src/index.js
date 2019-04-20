@@ -1,0 +1,1 @@
+console.log('Reactify Politico is ready, and Anayo I know you can do this');
