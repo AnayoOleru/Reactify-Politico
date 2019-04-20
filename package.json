@@ -1,0 +1,22 @@
+{
+  "name": "reactify-politico",
+  "version": "1.0.0",
+  "description": "A Nigerian E-voting system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnayoOleru/Reactify-Politico.git"
+  },
+  "keywords": [
+    "evote"
+  ],
+  "author": "Anayo Oleru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AnayoOleru/Reactify-Politico/issues"
+  },
+  "homepage": "https://github.com/AnayoOleru/Reactify-Politico#readme"
+}
