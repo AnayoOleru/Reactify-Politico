@@ -1,31 +1,24 @@
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
 
+import '../styles/navbar-style.css';
+import logo from '../images/pogo.png';
+import '../styles/media-queries/candidates-style.css';
+import '../styles/media-queries/queries-style.css';
+
 const NavBar = () => {
   return (
-    <div>
-      <nav className="navbar navbar-default">
-        <div className="container-fluid">
-          <div className="navbar-header">
-            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
-              <span className="sr-only">POLITICO</span>
-              <span className="icon-bar"/>
-              <span className="icon-bar"/>
-              <span className="icon-bar"/>
-            </button>
-            <Link to="/" className="navbar-brand navbrand-wrapper">POLITICO</Link>
-          </div>
+    <nav>
+      <div className="row">
+        <a><img src={logo} className="logo" /></a>
+        <a><img src="../images/pogo.png" className="logo-black"/></a>
+        <ul className="main-nav">
+          <li><Link to="/sign-in">Sign in</Link></li>
+          <li><Link to="/sign-up">Sign up</Link></li>
+        </ul>
+      </div>
+    </nav>
 
-          <div className="collapse navbar-collapse" id="navbar-collapse">
-            <ul className="nav navbar-nav navbar-right">
-              <li><IndexLink activeClassName="nav-item-active" to="/">Home</IndexLink></li>
-              <li><Link activeClassName="nav-item-active" to="/sign-up">Sign up</Link></li>
-              <li><Link activeClassName="nav-item-active" to="/contact-us">Sign in</Link></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
   );
 };
 

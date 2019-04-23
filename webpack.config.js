@@ -13,7 +13,37 @@ module.exports = {
               test: /\.js$/,
               exclude: /node_modules/,
               use: ['babel-loader', 'eslint-loader']
-          }
+          },
+          {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader'],
+          },
+          {
+            test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            use: {
+              loader: 'url-loader',
+              options: {
+                sourceMap: true,
+                importLoaders: 1,
+              },
+            },
+          },
+          {
+            test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            use: {
+              loader: 'file-loader',
+            },
+          },
+          {
+            test: /\.(png|svg|gif|jpg|jpeg)$/,
+            use: {
+              loader: 'url-loader',
+              options: {
+                limit: 25000,
+                name: 'images/[name].[ext]',
+              },
+            },
+          },
         ]
       },
       resolve: {
@@ -29,6 +59,7 @@ module.exports = {
       ],
     devServer: {
       contentBase: './public',
-      hot: true
+      hot: true,
+      historyApiFallback: true
     }
   };

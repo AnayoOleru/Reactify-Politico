@@ -1,0 +1,39 @@
+footer {
+    background-color: rgb(10, 65, 86);
+    padding: 50px;
+    font-size: 80%;
+}
+
+.footer-nav {
+    list-style: none;
+    float: left;
+}
+
+.footer-nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.footer-nav li:last-child{
+    margin-right: 0;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited {
+    text-decoration: none;
+    border: 0;
+    color: #888;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+    color: #ddd;
+}
+
+footer p {
+    color: rgb(172, 171, 171);
+    text-align: center;
+    margin-top: 20px;
+}
