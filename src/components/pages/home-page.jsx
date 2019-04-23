@@ -17,8 +17,9 @@ export default class Home extends Component {
         <div className="wsskyline-text-box" >
         <h1 className="sitename">POLITICO</h1>
         <h1 className="sitetitle">Building trust through transparency</h1>
-        <p className="siteintro">Credible elections are characterized by inclusiveness, transparency and accountability, where all eligible citizens are given equal opportunities to vote.
-                            And that's what POLITICO does </p>
+        <p className="siteintro">Credible elections are characterized by inclusiveness, transparency</p> <p className="siteintro"> and accountability, where all eligible citizens are given equal opportunities to vote.</p>
+                            <p className="siteintro"> And that's what POLITICO does </p>
+
                             <a className="btn btn-full" href="/views/sign-up.html">Sign up</a>
                 <a className="btn btn-full" id="small-screen" href="/views/sign-in.html">Sign in</a>
         </div>

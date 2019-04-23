@@ -11,7 +11,7 @@ const NavBar = () => {
     <nav>
       <div className="row">
         <a><img src={logo} className="logo" /></a>
-        <a><img src="../images/pogo.png" className="logo-black"/></a>
+        <a><img src={logo} className="logo-black"/></a>
         <ul className="main-nav">
           <li><Link to="/sign-in">Sign in</Link></li>
           <li><Link to="/sign-up">Sign up</Link></li>
