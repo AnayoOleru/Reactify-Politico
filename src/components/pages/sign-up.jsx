@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, IndexLink } from 'react-router';
 import SignUpNavBar from '../reuseable component/signup-navbar-component.jsx';
 
 import '../styles/signup.style.css';
@@ -35,7 +36,8 @@ export default class SignUp extends Component {
             <div id="result" />
         <p><input id="button" type="submit" value="Create an account" /></p>
     </form>
-    <p align="center">Already have an account? <a href="sign-in.html">sign in</a></p>
+    <p align="center">Already have an account?
+    <Link to="/sign-in">sign in</Link></p>
         </React.Fragment>
     );
   }

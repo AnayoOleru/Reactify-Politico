@@ -10,8 +10,8 @@ const NavBar = () => {
   return (
     <nav>
       <div className="row">
-        <a><img src={logo} className="logo" /></a>
-        <a><img src={logo} className="logo-black"/></a>
+        <Link to="/"><img src={logo} className="logo" /></Link>
+        <Link to="/"><img src={logo} className="logo-black"/></Link>
         <ul className="main-nav">
           <li><Link to="/sign-in">Sign in</Link></li>
           <li><Link to="/sign-up">Sign up</Link></li>

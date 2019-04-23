@@ -8,10 +8,10 @@ const SignUpNavBar = () => {
   return (
     <div className="container">
 <nav>
-        <a href="index.html"><img src={logo} /></a>
+        <Link to="/"><img src={logo} /></Link>
         <ul>
-            <li><a href="sign-up.html">Sign up</a></li>
-            <li><a href="sign-in.html" className="active">Sign in</a></li>
+            <li><Link to="/sign-up">Sign up</Link></li>
+            <li><Link to="/sign-in">Sign in</Link></li>
         </ul>
     </nav>
     </div>

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, IndexLink } from 'react-router';
 
 import '../styles/footer-style.css';
-// import '../images/pogo.png';
 import '../styles/media-queries/candidates-style.css';
 import '../styles/media-queries/queries-style.css';
 
@@ -12,9 +11,9 @@ const Footer = () => {
     <div className="row">
         <div className="col span-1-of-2">
             <ul className="footer-nav">
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Privacy Policy</a></li>
+                <li><Link to="/about-us">About us</Link></li>
+                <li><Link to="/contact-us">Contact us</Link></li>
+                <li><Link to="/priavcy-policy">Privacy Policy</Link></li>
             </ul>
         </div>
     </div>
