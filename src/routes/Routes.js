@@ -7,5 +7,6 @@ export default (
   <React.Fragment>
   <Route path="/" component={homePage} />
   <Route path="/sign-up" component={Signup} />
+
   </React.Fragment>
 );

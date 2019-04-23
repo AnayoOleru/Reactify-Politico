@@ -19,6 +19,7 @@ export default class Home extends Component {
         <h1 className="sitetitle">Building trust through transparency</h1>
         <p className="siteintro">Credible elections are characterized by inclusiveness, transparency</p> <p className="siteintro"> and accountability, where all eligible citizens are given equal opportunities to vote.</p>
                             <p className="siteintro"> And that's what POLITICO does </p>
+
                             <a className="btn btn-full" href="/views/sign-up.html">Sign up</a>
                 <a className="btn btn-full" id="small-screen" href="/views/sign-in.html">Sign in</a>
         </div>
