@@ -13,9 +13,9 @@ class App extends Component{
     <Router>
     <Switch>
     <React.Fragment>
-  <Route path="/" component={homePage} />
-  <Route path="/sign-up" component={Signup} />
-  <Route path="/sign-in" component={Signin} />
+  <Route exact path="/" component={homePage} />
+  <Route exact path="/sign-up" component={Signup} />
+  <Route exact path="/sign-in" component={Signin} />
   </React.Fragment>
     </Switch>
   </Router>
