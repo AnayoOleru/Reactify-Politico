@@ -1,4 +1,4 @@
-import { FETCH_POSTS, NEW_POST, NEW_PARTY } from './types';
+import { FETCH_POSTS, NEW_POST, NEW_PARTY, NEW_OFFICE } from './types';
 import jwt_decode from 'jwt-decode';
 
 // signup action
@@ -69,6 +69,24 @@ export const CreateParty = (partyData) => dispatch =>  {
   .then(posts =>
     dispatch({
     type: NEW_PARTY,
+    payload: posts
+  }));
+};
+
+// admin can create a  political office
+export const CreateOffice = (officeData) => dispatch =>  {
+  fetch('https://trustpolitico.herokuapp.com/api/v1/offices',{
+    headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify(officeData)
+  })
+  .then((response) => response.json())
+  .then(posts =>
+    dispatch({
+    type: NEW_OFFICE,
     payload: posts
   }));
 };
