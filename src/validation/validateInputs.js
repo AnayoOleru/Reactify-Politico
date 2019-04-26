@@ -16,6 +16,28 @@ export function validatePassword(Pasword) {
     return ['isPasswordError', true];
   }
 
+//validate logo
+export function validateLogo(logo) {
+  const regexVal = /https?:\/\/[^\s]+/;
+  if (!regexVal.test(logo)) return ['isLogoError', false];
+  return ['isLogoError', true];
+}
+
+// validate headquaters address
+export function validateHeadquarter(headquater) {
+  // eslint-disable-next-line no-useless-escape
+  const regexVal = /[A-Za-z0-9'\.\-\s\,]/;
+  if (!regexVal.test(headquater)) return ['isHeadquaterError', false];
+  return ['isHeadquaterError', true];
+}
+
+// validate political party name
+export function validatePartyName(partyName) {
+  const regexVal = /^[A-Za-z\s]+$/;
+  if (!regexVal.test(partyName)) return ['isNameError', false];
+  return ['isNameError', true];
+}
+
   export function validateInputs(inputname, inputValue) {
     let result;
     switch (inputname) {
