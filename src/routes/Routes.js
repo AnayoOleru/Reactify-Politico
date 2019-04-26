@@ -4,6 +4,7 @@ import homePage from '../components/pages/home-page.jsx';
 import Signup from '../components/pages/sign-up.jsx';
 import Signin from '../components/pages/sign-in.jsx';
 import Parties from '../components/pages/party-page.jsx';
+import addParties from '../components/pages/add-party.jsx';
 import { Provider } from 'react-redux';
 import store  from '../store';
 class App extends Component{
@@ -18,6 +19,7 @@ class App extends Component{
   <Route exact path="/sign-up" component={Signup} />
   <Route exact path="/sign-in" component={Signin} />
   <Route exact path="/parties" component={Parties} />
+  <Route exact path="/add-party" component={addParties} />
   </React.Fragment>
     </Switch>
   </Router>
