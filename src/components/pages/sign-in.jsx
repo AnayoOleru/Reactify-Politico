@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Provider } from 'react-redux';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { createPost } from '../../actions/postActions';
 import store from '../../store';
 import SignUpNavBar from '../reuseable component/signup-navbar-component.jsx';
 import validateB4Submission from '../../validation/validateB4Submission';
@@ -55,25 +58,8 @@ class SignIn extends Component {
        
       // console.log(data, 'data');
 
-      fetch('https://trustpolitico.herokuapp.com/api/v1/auth/login', {
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-type': 'application/json'
-      },
-      method: 'POST',
-      body: JSON.stringify({ 
-        email: data.email, 
-        password: data.password
-    })
-    }).then((response) => response.json())
-    .then(res => {
-      console.log(res);
-      if(res.ok){
-        console.log('success');
-      }
-    }).catch(err => {
-      console.log(err);
-    });
+    //  call action 
+     this.props.createPost(data);  
   }
 
   render() {
@@ -116,4 +102,8 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+SignIn.propTypes = {
+  createPost:  PropTypes.func.isRequired
+} 
+
+export default connect(null,  { createPost })(SignIn);
