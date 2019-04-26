@@ -1,4 +1,4 @@
-import { FETCH_POSTS, NEW_POST, NEW_PARTY, NEW_OFFICE } from './types';
+import { FETCH_POSTS, NEW_POST, NEW_PARTY, NEW_OFFICE, NEW_VOTE } from './types';
 import jwt_decode from 'jwt-decode';
 
 // signup action
@@ -87,6 +87,23 @@ export const CreateOffice = (officeData) => dispatch =>  {
   .then(posts =>
     dispatch({
     type: NEW_OFFICE,
+    payload: posts
+  }));
+};
+
+export const UserVote = (voteeData) => dispatch =>  {
+  fetch('https://trustpolitico.herokuapp.com/api/v1/votes',{
+    headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify(voteeData)
+  })
+  .then((response) => response.json())
+  .then(posts =>
+    dispatch({
+    type: NEW_VOTE,
     payload: posts
   }));
 };
