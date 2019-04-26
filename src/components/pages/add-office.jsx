@@ -7,21 +7,19 @@ import { connect } from 'react-redux';
 // import { ClipLoader } from 'react-spinners';
 import { CreateOffice } from '../../actions/postActions';
 import store from '../../store';
-import validatePartySubmission  from '../../validation/addParty-validation';
+import validateOfficeSubmission  from '../../validation/addOffice-validation';
 
 import '../styles/signup.style.css';
 
 
-class AddParty extends Component {
+class AddOffice extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
-      headquarters: '',
-      logo: '',
+      type: '',
       isNameError: false,
-      isHeadquaterError: false,
-      isLogoError: false,
+      isTypeError: false,
       loading: false,
     };
     this.onChange = this.onChange.bind(this);
@@ -49,7 +47,7 @@ class AddParty extends Component {
     e.preventDefault();
 
     const userInput = this.state;
-    const result = validatePartySubmission(userInput);
+    const result = validateOfficeSubmission(userInput);
     if(!result) {
       // eslint-disable-next-line no-console
       console.log('Inputs must be valid before submission');
@@ -58,19 +56,16 @@ class AddParty extends Component {
     this.ShowSpinner();
     // clear the state
     this.setState({
-        name: '',
-        headquarters: '',
-        logo: '',
-        isNameError: false,
-        isHeadquaterError: false,
-        isLogoError: false,
-        loading: false,
+      name: '',
+      type: '',
+      isNameError: false,
+      isTypeError: false,
+      loading: false,
     });
 
       const data = {
       name: userInput.name,
-      headquarters: userInput.headquarters,
-      logo: userInput.logo
+      type: userInput.type,
       };
        
       // console.log(data, 'data');
@@ -82,10 +77,9 @@ class AddParty extends Component {
   render() {
     const {
       name,
-      headquarters,
-      logo,
+      type,
       isNameError,
-      isHeadquaterError,
+      isTypeError,
     } = this.state;
     // setup the loader
 //     const override = css`
@@ -115,8 +109,8 @@ class AddParty extends Component {
   }
 }
 
-AddParty.propTypes = {
-  CreateParty:  PropTypes.func.isRequired
+AddOffice.propTypes = {
+  CreateOffice:  PropTypes.func.isRequired
 } 
 
-export default connect(null,  { CreateParty })(AddParty );
+export default connect(null,  { CreateOffice })(AddOffice);

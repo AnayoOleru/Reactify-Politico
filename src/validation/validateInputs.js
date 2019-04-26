@@ -1,4 +1,3 @@
-let PasswordToCampare;
 
 // validate email
 export function validateEmail(Email) {
@@ -10,7 +9,6 @@ export function validateEmail(Email) {
 
 //validate password
 export function validatePassword(Pasword) {
-    PasswordToCampare = Pasword;
     const regexVal = /^[a-zA-Z0-9]{5,15}$/;
     if (!regexVal.test(Pasword)) return ['isPasswordError', false];
     return ['isPasswordError', true];
@@ -36,6 +34,20 @@ export function validatePartyName(partyName) {
   const regexVal = /^[A-Za-z\s]+$/;
   if (!regexVal.test(partyName)) return ['isNameError', false];
   return ['isNameError', true];
+}
+
+// validate political office name
+export function validateOfficeName(officeName) {
+  const regexVal = /^[A-Za-z\s]+$/;
+  if (!regexVal.test(officeName)) return ['isNameError', false];
+  return ['isNameError', true];
+}
+
+// validate political office name
+export function validateOfficeType(officeType) {
+  const regexVal = /^[A-Za-z\s]+$/;
+  if (!regexVal.test(officeType)) return ['isTypeError', false];
+  return ['isTypeError', true];
 }
 
   export function validateInputs(inputname, inputValue) {
