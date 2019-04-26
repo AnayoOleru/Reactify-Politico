@@ -56,4 +56,4 @@ const mapStateToProps = state => ({
     posts: state.posts.items
 })
 
-export default connect(mapStateToProps, fetchParties)(Posts);
+export default connect(mapStateToProps, fetchParties)(Parties);

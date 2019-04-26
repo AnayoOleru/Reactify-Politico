@@ -2,6 +2,7 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: './src/index.jsx',
+    devtool: 'source-map',
     module: {
         rules: [
           {
@@ -61,5 +62,5 @@ module.exports = {
       contentBase: './public',
       hot: true,
       historyApiFallback: true
-    }
+    },
   };
