@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import NavBar from '../reuseable component/auth-user-navbar.component.jsx';
 import Card from '../reuseable component/footer-component.jsx';
 import { connect } from 'react-redux';
-import { fetchParties } from '../../actions/getActions';
+import { getAllParties } from '../../actions/getActions';
 
 class Parties extends Component {
     componentWillMount(){
-        this.props.fetchParties();
+        // eslint-disable-next-line react/prop-types
+        this.props.getAllParties();
     }
   render() {
     //   here declare how you want the posts to be structured like
+      // eslint-disable-next-line react/prop-types
       const postItems = this.props.posts.map(post => (
         //   for example
         <div key={post.id}>
@@ -53,7 +55,7 @@ class Parties extends Component {
 }
 // get the new data in the state, or get data from redux
 const mapStateToProps = state => ({
-    posts: state.posts.items
+    posts: state.get.items
 });
 
-export default connect(mapStateToProps, fetchParties)(Parties);
+export default connect(mapStateToProps, getAllParties)(Parties);
