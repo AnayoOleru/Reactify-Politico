@@ -34,6 +34,7 @@ class App extends Component{
   <Route exact path="/offices" component={office} />
   <Route exact path="/party" component={specificParty} />
   <Route exact path="/office/result" component={electionResult} />
+  {/* <Route exact path="/party/delete" component={electionResult} /> */}
   </React.Fragment>
     </Switch>
   </Router>

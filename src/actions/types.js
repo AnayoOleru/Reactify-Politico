@@ -10,3 +10,4 @@ export const FETCH_RESULT = 'FETCH_RESULT';
 export const NEW_OFFICE = 'NEW_OFFICE';
 export const NEW_VOTE = 'NEW_VOTE';
 export const NEW_CANDIDATE = 'NEW_CANDIDATE';
+export const DROP_PARTY = 'DROP_PARTY';
