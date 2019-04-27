@@ -11,6 +11,7 @@ import allUsers from '../components/pages/users-page.jsx';
 import candidates from '../components/pages/candidates-page.jsx';
 import office from '../components/pages/office-page.jsx';
 import specificParty from '../components/pages/specific-party-page.jsx';
+import electionResult from '../components/pages/election-result-page.jsx';
 import { Provider } from 'react-redux';
 import store  from '../store';
 class App extends Component{
@@ -32,6 +33,7 @@ class App extends Component{
   <Route exact path="/candidates" component={candidates} />
   <Route exact path="/offices" component={office} />
   <Route exact path="/party" component={specificParty} />
+  <Route exact path="/office/result" component={electionResult} />
   </React.Fragment>
     </Switch>
   </Router>
