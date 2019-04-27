@@ -89,7 +89,7 @@ export const getAllOffice = (officeData) => dispatch =>  {
 // get all political offices
 export const getSpecificParty = (partyData) => dispatch =>  {
   try{
-  fetch('https://trustpolitico.herokuapp.com/api/v1/offices',{
+  fetch(`https://trustpolitico.herokuapp.com/api/v1/offices/${id}`,{
     headers: {
         'Accept': 'application/json, text/plain, */*',
         'Content-type': 'application/json',
