@@ -115,8 +115,8 @@ class AddParty extends Component {
   }
 }
 
-AddParty.propTypes = {
-  CreateParty:  PropTypes.func.isRequired
-} 
+// AddParty.propTypes = {
+//   CreateParty:  PropTypes.func.isRequired
+// } 
 
-export default connect(null,  { CreateParty })(AddParty );
+export default AddParty;

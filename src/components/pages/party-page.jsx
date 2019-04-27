@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavBar from '../reuseable component/auth-user-navbar.component.jsx';
 import Card from '../reuseable component/footer-component.jsx';
 import { connect } from 'react-redux';
-import fetchParties from '../../actions/getActions';
+import { fetchParties } from '../../actions/getActions';
 
 class Parties extends Component {
     componentWillMount(){
@@ -51,9 +51,9 @@ class Parties extends Component {
     );
   }
 }
-
+// get the new data in the state, or get data from redux
 const mapStateToProps = state => ({
     posts: state.posts.items
-})
+});
 
 export default connect(mapStateToProps, fetchParties)(Parties);

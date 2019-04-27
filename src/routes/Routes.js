@@ -7,6 +7,7 @@ import Parties from '../components/pages/party-page.jsx';
 import addParties from '../components/pages/add-party.jsx';
 import userVote from '../components/pages/user-vote.jsx';
 import registerUser from '../components/pages/register-user-page.jsx';
+import allUsers from '../components/pages/users-page.jsx';
 import { Provider } from 'react-redux';
 import store  from '../store';
 class App extends Component{
@@ -24,6 +25,7 @@ class App extends Component{
   <Route exact path="/add-party" component={addParties} />
   <Route exact path="/vote" component={userVote} />
   <Route exact path="/register/user" component={registerUser} />
+  <Route exact path="/users" component={allUsers} />
   </React.Fragment>
     </Switch>
   </Router>
