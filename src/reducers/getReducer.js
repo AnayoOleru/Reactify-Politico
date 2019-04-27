@@ -1,4 +1,4 @@
-import { FETCH_USER, FETCH_PARTIES } from '../actions/types';
+import { FETCH_USER, FETCH_PARTIES, FETCH_CANDIDATES } from '../actions/types';
 
 const initialState = {
     items: [],
@@ -13,6 +13,11 @@ export default function(state = initialState, action ) {
             items: action.payload
         };
         case FETCH_PARTIES:
+        return {
+            ...state,
+            items: action.payload
+        };
+        case FETCH_CANDIDATES:
         return {
             ...state,
             items: action.payload
