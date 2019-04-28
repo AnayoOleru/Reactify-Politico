@@ -9,7 +9,7 @@ import { CreateOffice } from '../../actions/postActions';
 import store from '../../store';
 import validatePartySubmission  from '../../validation/addParty-validation';
 
-import '../styles/signup.style.css';
+// import '../../styles/signup.style.css';
 
 
 class AddParty extends Component {

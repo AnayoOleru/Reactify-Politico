@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
 
-import userImage from '../images/userimg.png';
-import '../styles/second-navbar.css';
+import userImage from '../../../public/images/userimg.png';
+import '../../styles/second-navbar.css';
 
 const registeredUserNavbar = () => {
   return (

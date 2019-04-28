@@ -156,7 +156,7 @@ header {
 
 .wsskyline-text-box {
     position: absolute;
-    width: 1140px;
+    width: 95vw;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);

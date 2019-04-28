@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
-import '../../styles/home-style.css';
-import '../../styles/media-queries/queries-style.css';
+// import '../../styles/home-style.css';
+// import '../../styles/media-queries/queries-style.css';
+
 
 import logo from '../../../public/images/pogo.png';
 
@@ -29,6 +30,7 @@ const NavBar = () => {
 </p>
         <Link to="/sign-up" className="btn btn-full">Sign up</Link>
         <Link to="/sign-in" className="btn btn-full" id="small-screen">Sign in</Link>
+        
     </div>
 
 </header>

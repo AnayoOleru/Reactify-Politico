@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
 // import { css } from '@emotion/core';
 // import { ClipLoader } from 'react-spinners';
 import { createPost } from '../../actions/postActions';
@@ -11,7 +12,7 @@ import SignUpNavBar from '../reuseable component/signup-navbar-component.jsx';
 import validateB4Submission from '../../validation/validateB4Submission';
 import { validateInputs } from '../../validation/validateInputs';
 
-import '../styles/signup.style.css';
+// import '../../styles/signup.style.css';
 
 
 class SignIn extends Component {
