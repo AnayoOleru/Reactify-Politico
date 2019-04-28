@@ -1,5 +1,5 @@
 import { FETCH_POSTS, NEW_POST, NEW_PARTY, NEW_OFFICE, NEW_VOTE, NEW_CANDIDATE } from './types';
-import jwt_decode from 'jwt-decode';
+// import jwt_decode from 'jwt-decode';
 
 // signup action
 export const SignupAction = (signupData) => dispatch =>  {

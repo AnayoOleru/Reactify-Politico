@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { SignupAction } from '../../actions/postActions';
 import store from '../../store';
-import '../styles/signup.style.css';
+// import '../../styles/signup.style.css';
 import validateB4Submission from '../../validation/validateB4Submission';
 
 class SignUp extends Component {

@@ -145,8 +145,8 @@ input[type=submit]:active {
 /* header */
 
 header {
-    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/vote3.jpg);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/vote3.jpg);
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../public/images/vote2.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../public/images/vote3.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -156,7 +156,7 @@ header {
 
 .wsskyline-text-box {
     position: absolute;
-    width: 1140px;
+    width: 95vw;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -226,4 +226,45 @@ header {
 .main-nav li a:hover,
 .main-nav li a:active {
     border-bottom: 2px solid rgb(10, 65, 86);
+}
+
+
+footer {
+    background-color: rgb(10, 65, 86);
+    padding: 50px;
+    font-size: 80%;
+}
+
+.footer-nav {
+    list-style: none;
+    float: left;
+}
+
+.footer-nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.footer-nav li:last-child{
+    margin-right: 0;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited {
+    text-decoration: none;
+    border: 0;
+    color: #888;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+    color: #ddd;
+}
+
+footer p {
+    color: rgb(172, 171, 171);
+    text-align: center;
+    margin-top: 20px;
 }
