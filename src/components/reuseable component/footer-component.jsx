@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
 
-import '../styles/footer-style.css';
-import '../styles/media-queries/candidates-style.css';
-import '../styles/media-queries/queries-style.css';
+// import '../styles/index.css';
+// import '../styles/footer-style.css';
+// import '../styles/media-queries/candidates-style.css';
+// import '../styles/media-queries/queries-style.css';
+import '../../styles/home-style.css';
+import '../../styles/media-queries/queries-style.css';
 
 const Footer = () => {
   return (

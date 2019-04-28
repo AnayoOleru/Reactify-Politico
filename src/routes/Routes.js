@@ -19,7 +19,6 @@ class App extends Component{
 
    render (){
      return (
-       <Provider store ={store} >
     <Router>
     <Switch>
     <React.Fragment>
@@ -29,20 +28,18 @@ class App extends Component{
   <Route exact path="/parties" component={Parties} />
   <Route exact path="/add-party" component={addParties} />
   <Route exact path="/vote" component={userVote} />
-  <Route exact path="/register/user" component={registerUser} />
+  {/* <Route exact path="/register/user" component={registerUser} /> */}
   <Route exact path="/users" component={allUsers} />
   <Route exact path="/candidates" component={candidates} />
   <Route exact path="/offices" component={office} />
-  <Route exact path="/party" component={specificParty} />
-  <Route exact path="/office/result" component={electionResult} />
+  {/* <Route exact path="/party" component={specificParty} /> */}
+  {/* <Route exact path="/office/result" component={electionResult} /> */}
   {/* <Route exact path="/party/delete" component={electionResult} /> */}
   {/* <Route exact path="/party/edit/name" component={electionResult} /> */}
-  <Route exact path="*" component={fourOFour} />
+  {/* <Route exact path="*" component={fourOFour} /> */}
   </React.Fragment>
     </Switch>
   </Router>
-       </Provider>
-
      );
    }
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
 
-import logo from '../images/pogo.png';
-import '../styles/signup.style.css';
+import logo from '../../../public/images/pogo.png';
+import '../../styles/signup.style.css';
 
 const SignUpNavBar = () => {
   return (

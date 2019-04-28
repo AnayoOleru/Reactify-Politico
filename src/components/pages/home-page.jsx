@@ -2,28 +2,20 @@ import React, { Component } from 'react';
 import NavBar from '../reuseable component/navbar-component.jsx';
 import Footer from '../reuseable component/footer-component.jsx';
 
-import '../styles/media-queries/candidates-style.css';
-import '../styles/media-queries/queries-style.css';
-import homeImageOne from '../images/politician1.jpg';
-import homeImageTwo from '../images/locals.jpg';
+// import '../styles/media-queries/candidates-style.css';
+// import '../styles/media-queries/queries-style.css';
+import '../../styles/home-style.css';
+import '../../styles/media-queries/queries-style.css';
+
+import homeImageOne from '../../../public/images/politician1.jpg';
+import homeImageTwo from '../../../public/images/locals.jpg';
 
 
 export default class Home extends Component {
   render() {
     return (
         <React.Fragment>
-        <header>
         <NavBar />
-        <div className="wsskyline-text-box" >
-        <h1 className="sitename">POLITICO</h1>
-        <h1 className="sitetitle">Building trust through transparency</h1>
-        <p className="siteintro">Credible elections are characterized by inclusiveness, transparency</p> <p className="siteintro"> and accountability, where all eligible citizens are given equal opportunities to vote.</p>
-                            <p className="siteintro"> And that's what POLITICO does </p>
-
-                            <a className="btn btn-full" href="/views/sign-up.html">Sign up</a>
-                <a className="btn btn-full" id="small-screen" href="/views/sign-in.html">Sign in</a>
-        </div>
-        </header>
         <section className="section-features" id="ride">
             <div className="row">
                         <h2>As a Voter Politico helps you shine your eye</h2>

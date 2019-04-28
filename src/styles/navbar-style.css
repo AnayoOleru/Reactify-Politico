@@ -1,0 +1,8 @@
+body{
+    background-color: black;
+}
+
+.row{
+    background-color: red;
+    display: none;
+}
