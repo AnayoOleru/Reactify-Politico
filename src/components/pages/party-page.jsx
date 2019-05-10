@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { getAllParties } from '../../actions/getActions';
 
 class Parties extends Component {
-    componentWillMount(){
+    componentDidMount(){
         // eslint-disable-next-line react/prop-types
         this.props.getAllParties();
     }
