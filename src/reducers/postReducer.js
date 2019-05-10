@@ -2,10 +2,13 @@ import { FETCH_POSTS, NEW_POST, NEW_PARTY, NEW_OFFICE, NEW_VOTE, NEW_CANDIDATE }
 
 const initialState = {
     items: [],
-    item: {}
+    item: {},
+    sucess:false
 };
 
 export default function(state = initialState, action ) {
+    // eslint-disable-next-line no-console
+    console.log('4');
     switch(action.type) {
         case FETCH_POSTS:
         return {
@@ -15,7 +18,8 @@ export default function(state = initialState, action ) {
         case NEW_POST:
         return {
             ...state,
-            item: action.payload
+            item: action.payload,
+            success: true
         };
         case NEW_PARTY:
         return {

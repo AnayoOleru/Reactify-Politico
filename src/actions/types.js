@@ -12,3 +12,4 @@ export const NEW_VOTE = 'NEW_VOTE';
 export const NEW_CANDIDATE = 'NEW_CANDIDATE';
 export const DROP_PARTY = 'DROP_PARTY';
 export const EDIT_PARTY = 'EDIT_PARTY';
+export const GET_ERRORS = 'GET_ERRORS';

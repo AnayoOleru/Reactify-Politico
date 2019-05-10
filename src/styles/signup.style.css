@@ -1,14 +1,5 @@
-* {
-    margin:0;
-    padding: 0;
-    box-sizing: border-box}
-
-body{
-	font-family: 'K2D', sans-serif;
-	background-color: #ffffff;
-}
-
- .container{
+.container{
+   
 	width: 80%;
 	padding: 16px;
 	margin: auto;
@@ -16,7 +7,7 @@ body{
 	color: #000000;
 }
 
-nav{
+.nav{
     position: fixed;
     top:0px;
     left :0px;
@@ -28,22 +19,23 @@ nav{
     transition: .3s;
 }
 
-nav ul{
+.nav ul{
     list-style: none;
     float: right;
     margin: 0;
     padding: 0;
     display:flex;
 }
-nav img{
+
+.nav img{
     padding: 10px 18px;
     height: 70px;
     float: left;
 }
-nav ul li{
+.nav ul li{
     list-style: none;
 }
-nav ul li a {
+.nav ul li a {
     line-height: 80px;
     color:rgb(245, 242, 240);
     padding: 12px 30px;
@@ -51,7 +43,7 @@ nav ul li a {
     text-transform: uppercase;
     transition:.3s;
 }
-nav ul li a:hover {
+.nav ul li a:hover {
     
     color:rgb(10, 65, 86);
     font-weight: bold;
@@ -59,49 +51,8 @@ nav ul li a:hover {
     background-color:rgb(245, 242, 240);
 }
 
-
-/*header*/
-header{
-	background:#1f5582;
-	color:#ffffff;
-	padding-top: 30px;
-	min-height: 70px;
-	border-bottom: #c16f03 3px solid;
-}
-
-header a{
-	color: white; /*change */
-	text-decoration: none;
-	text-transform: uppercase;
-	font-size: 16px;
-}
-
-header li{
-	float: left;
-	display: inline;
-	padding: 0 20px 0 20px;
-}
-
-header #logo{
-	float: left;
-}
-
-header #logo h1{
-	margin: 0;
-}
-
-header nav{
-	float: right;
-	margin-top: 10px;
-}
-
-header .logoColor, header .home a{
-	color: #c16f03;
-	font-weight: bold;
-}
-
-header a:hover{
-	color: #cccccc;
+ .form{
+    text-align: center;
 }
 
 input{
@@ -114,27 +65,6 @@ input{
     background-repeat: no-repeat;
     padding: 11px 20px 11px 40px;
     margin: 12px;
-}
-.input1{
-    width: 100%;
-    box-sizing: border-box;
-    /* border: 2px solid #ccc; */
-    padding-right: 30px;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white; 
-    background-repeat: no-repeat;
-    padding: 11px 20px 11px 40px;
-    /* margin: 12px; */
-}
-h1{
-    font-family: 'Montserrat', sans-serif;
-    padding-top: 44px;
-    padding-bottom: 40px;
-}
-
-p{
-    font-family: 'Montserrat', sans-serif;
 }
 
 #result{
@@ -162,18 +92,11 @@ p{
     border: solid rgb(10, 65, 86) 2px;
 }
 
- .header{
-    text-align: center;
-    padding-right: 175px;
-} 
 
 /* .form{
     text-align: center;
 } */ 
 
-header, .form{
-    text-align: center;
-}
 @media screen and (max-width: 768px){
     .container li a{
         display: none;

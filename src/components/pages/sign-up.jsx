@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, IndexLink } from 'react-router';
+import { Redirect, withRouter } from 'react-router-dom';
 import SignUpNavBar from '../reuseable component/signup-navbar-component.jsx';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -13,12 +14,12 @@ class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: '',
+      passportUrl: '',
       firstname: '',
       lastname: '',
       othername: '',
       email: '',
-      phone: '',
+      phonenumber: '',
       password: '',
       isEmailError: false,
       isPasswordError: false,
@@ -27,6 +28,12 @@ class SignUp extends Component {
     };
     this.onChange = this.onChange.bind(this);
     // this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    if (localStorage.token) {
+      this.props.history.push('/parties');
+    }
   }
 
   // in here before the component loads
@@ -51,12 +58,12 @@ class SignUp extends Component {
     // do this, clear state
     // clear the state
     this.setState({
-      image: '',
+      passportUrl: '',
       firstname: '',
       lastname: '',
       othername: '',
       email: '',
-      phone: '',
+      phonenumber: '',
       password: '',
       isEmailError: false,
       isPasswordError: false,
@@ -64,19 +71,23 @@ class SignUp extends Component {
     });
 
       const data = {
-      image: userInput.image,
+      passportUrl: userInput.passportUrl,
       firstname: userInput.firstname,
       lastname: userInput.lastname,
       othername: userInput.othername,
       email: userInput.email,
-      phone: userInput.phone,
+      phonenumber: userInput.phonenumber,
       password: userInput.password,
       };
        
       console.log(data, 'data');
 
       // Call Action
-      this.props.SignupAction(data); 
+      this.props.SignupAction(data);
+      // if (localStorage.token) {
+      //   console.log('got hereee<<<<<<<<<<<<<');
+      //   this.props.history.push('/parties');
+      // } 
   }
     // const res = await response.json();
     // if (res.message === 'User with that EMAIL already exist') {
@@ -112,13 +123,20 @@ class SignUp extends Component {
     // }
     // }
   render() {
+    const {token, success} = this.props;
+    if (success) {
+      this.props.history.push('/parties');
+    }
+    // if (token) {
+    //   return <Redirect to='/parties' />;
+    // }
     const {
-      image,
+      passportUrl,
       firstname,
       lastname,
       othername,
       email,
-      phone,
+      phonenumber,
       password,
       isEmailError,
       isPasswordError,
@@ -137,9 +155,9 @@ class SignUp extends Component {
             <input type="text"
             id="file"
             placeholder="logoUrl"
-            name="image"
+            name="passportUrl"
             onChange={this.onChange}
-            value={ image }
+            value={ passportUrl }
             required />
             </p>
 
@@ -172,6 +190,7 @@ class SignUp extends Component {
             value={ othername }
             required />
             </p>
+
             <p className="input1">Email
             <input type="text"
             id="file"
@@ -181,26 +200,21 @@ class SignUp extends Component {
             value={ email }
             required />
             </p>
-            <br/>
 
 { isEmailError ? (<small className="invalid-feedback-show i-f"> Email not valid </small>)
   : null }
-      <br/>
-
             <p className="input1">Phone
             <input type="text"
             id="file"
             placeholder="07069583653"
-            name="phone"
+            name="phonenumber"
             onChange={this.onChange}
-            value={ phone }
+            value={ phonenumber }
             required />
             </p>
-            <br />
 
 { isPhoneError ? (<small className="invalid-feedback-show i-f"> Not a valid Nigerian phone number </small>)
 : null }
-    <br/>
 
             <p className="input1">Password
             <input type="text"
@@ -211,11 +225,9 @@ class SignUp extends Component {
             value={ password }
             required />
             </p>
-            <br />
 
 { isPasswordError ? (<small className="invalid-feedback-show i-f"> Password not valid </small>)
 : null }
-    <br/>
 
             <div id="result" />
         <p><input id="button" type="submit" value="Create an account" /></p>
@@ -229,8 +241,13 @@ class SignUp extends Component {
   }
 }
 
+const mapStateToProps = ({posts}) =>({
+  success: posts.success
+});
+
 SignUp.propTypes = {
-  SignupAction:  PropTypes.func.isRequired
+  SignupAction:  PropTypes.func.isRequired,
+  success:  PropTypes.bool.isRequired
 } 
 
-export default connect(null,  { SignupAction })(SignUp);
+export default connect(mapStateToProps,  { SignupAction })(withRouter( SignUp));

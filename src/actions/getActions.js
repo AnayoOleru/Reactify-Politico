@@ -16,7 +16,10 @@ export const getAllParties = (partyData) => dispatch =>  {
         dispatch({
         type: FETCH_PARTIES,
         payload: parties
-      }));
+      })).catch((err)=>{
+        // eslint-disable-next-line no-console
+        console.log(err, 'errorrr here');
+      });
     };
 
     // get all users

@@ -1,8 +1,10 @@
 import { FETCH_POSTS, NEW_POST, NEW_PARTY, NEW_OFFICE, NEW_VOTE, NEW_CANDIDATE } from './types';
-// import jwt_decode from 'jwt-decode';
-
+import jwt_decode from 'jwt-decode';
+import swal from 'sweetalert';
 // signup action
 export const SignupAction = (signupData) => dispatch =>  {
+  // eslint-disable-next-line no-console
+  console.log('1');
       fetch('https://trustpolitico.herokuapp.com/api/v1/auth/signup',{
         headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -11,12 +13,38 @@ export const SignupAction = (signupData) => dispatch =>  {
           method: 'POST',
           body: JSON.stringify(signupData)
       })
-      .then((response) => response.json())
-      .then(posts =>
-        dispatch({
-        type: NEW_POST,
-        payload: posts
-      }));
+      .then((response) => response.json()
+      .then((posts) => {
+        const { data } = posts;
+        if(posts.status === 201 & data[0].user.isadmin === false) {
+          localStorage.setItem('token', posts.data[0].token);
+          const decoded = jwt_decode(posts.data[0].token);
+          return dispatch({ type: 'NEW_POST', payload: decoded });
+        }
+      }
+      )
+      .catch((err) => {
+        if(!err.response) {
+          swal({
+            icon: 'warning',
+            title: err,
+          });
+          dispatch({
+            type: 'GET_ERRORS',
+            payload: err,
+          });
+        } else {
+          swal({
+            icon: 'warning',
+            title: err.response.data.message
+          });
+          dispatch({
+            type: 'GET_ERRORS',
+            payload: err.response.data.message,
+          });
+        }
+      })
+      );
     };
 
 
