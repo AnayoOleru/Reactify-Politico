@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Redirect, withRouter } from 'react-router-dom';
 
 // import { css } from '@emotion/core';
 // import { ClipLoader } from 'react-spinners';
@@ -28,9 +29,12 @@ class SignIn extends Component {
     this.onChange = this.onChange.bind(this);
     // this.onSubmit = this.onSubmit.bind(this);
   }
-  // componentDidMount() {
-
-  // }
+  componentDidMount() {
+    swal({
+      icon: 'success',
+      title: 'Welcome back, please sign in',
+    });
+  }
 
   // componentWillReceiveProps() {
     
@@ -82,6 +86,16 @@ class SignIn extends Component {
   }
 
   render() {
+
+    const {token, success} = this.props;
+    if (success) {
+      console.log('success');
+      swal({
+        icon: 'success',
+        title: 'Signin successful',
+      });
+      this.props.history.push('/parties');
+    }
     const {
       email,
       password,
@@ -135,8 +149,14 @@ class SignIn extends Component {
   }
 }
 
+const mapStateToProps = ({posts}) =>({
+  success: posts.token,
+  token: posts.token
+});
+
 SignIn.propTypes = {
-  createPost:  PropTypes.func.isRequired
+  createPost:  PropTypes.func.isRequired,
+  success:  PropTypes.bool.isRequired
 } 
 
-export default connect(null,  { createPost })(SignIn);
+export default connect(mapStateToProps,  { createPost  })(withRouter( SignIn));

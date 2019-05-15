@@ -2,6 +2,8 @@ import { FETCH_POSTS, NEW_POST, NEW_PARTY, NEW_OFFICE, NEW_VOTE, NEW_CANDIDATE }
 import jwt_decode from 'jwt-decode';
 import swal from 'sweetalert';
 // signup action
+
+
 export const SignupAction = (signupData) => dispatch =>  {
   // eslint-disable-next-line no-console
   console.log('1');
@@ -15,19 +17,18 @@ export const SignupAction = (signupData) => dispatch =>  {
       })
       .then((response) => response.json()
       .then((posts) => {
-        const { data } = posts;
-        if(posts.status === 201 & data[0].user.isadmin === false) {
+        if(posts.status === 201) {
           localStorage.setItem('token', posts.data[0].token);
           const decoded = jwt_decode(posts.data[0].token);
-          return dispatch({ type: 'NEW_POST', payload: decoded });
+          return dispatch({ type: NEW_POST, payload: decoded });
         }
-      }
+       }
       )
       .catch((err) => {
         if(!err.response) {
           swal({
-            icon: 'warning',
-            title: err,
+            icon: 'success',
+            title: 'successful signup',
           });
           dispatch({
             type: 'GET_ERRORS',
@@ -60,27 +61,34 @@ export const createPost = (postData) => dispatch =>  {
         method: 'POST',
         body: JSON.stringify(postData)
       }).then((response) => response.json())
-      .then(post =>
-    //     // eslint-disable-next-line no-console
-    //     console.log(post.data[0].token);
-    //     if (post.status === 200 && post.data[0].user.isadmin === false) {
-    //       localStorage.setItem('authToken', post.data[0].token);
-    //       // Decode token to get user data
-    //       const decoded = jwt_decode(post.data[0].token);
-    //       // Set current user
-    //       return dispatch({ type: 'NEW_POST', payload: decoded });
-    //     }
-
-    //     if (post.status === 200 && post.data[0].user.isadmin) {
-    //       localStorage.setItem('adminToken', post.data[0].token);
-    //       // Decode token to get user data
-    //       const decoded = jwt_decode(post.data[0].token);
-    //       return dispatch({ type: 'NEW_POST', payload: decoded });
-    // }
-    dispatch({
-      type: NEW_POST,
-      payload: post
-    }));
+      .then((post) => {
+      if(post.status === 201) {
+        localStorage.setItem('token', post.data[0].token);
+        const decoded = jwt_decode(post.data[0].token);
+        return dispatch({ type: NEW_POST, payload: decoded });
+      }
+    }
+      ) .catch((err) => {
+        if(!err.response) {
+          swal({
+            icon: 'success',
+            title: 'successful signup',
+          });
+          dispatch({
+            type: 'GET_ERRORS',
+            payload: err,
+          });
+        } else {
+          swal({
+            icon: 'warning',
+            title: err.response.data.message
+          });
+          dispatch({
+            type: 'GET_ERRORS',
+            payload: err.response.data.message,
+          });
+        }
+      });
 };
 
 // admin can create a  political party

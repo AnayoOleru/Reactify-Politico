@@ -3,7 +3,7 @@ import { FETCH_POSTS, NEW_POST, NEW_PARTY, NEW_OFFICE, NEW_VOTE, NEW_CANDIDATE }
 const initialState = {
     items: [],
     item: {},
-    sucess:false
+    success: false
 };
 
 export default function(state = initialState, action ) {

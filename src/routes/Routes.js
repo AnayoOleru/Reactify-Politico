@@ -6,13 +6,14 @@ import Signin from '../components/pages/sign-in.jsx';
 import Parties from '../components/pages/party-page.jsx';
 import addParties from '../components/pages/add-party.jsx';
 import userVote from '../components/pages/user-vote.jsx';
-import registerUser from '../components/pages/register-user-page.jsx';
+// import registerUser from '../components/pages/register-user-page.jsx';
 import allUsers from '../components/pages/users-page.jsx';
 import candidates from '../components/pages/candidates-page.jsx';
 import office from '../components/pages/office-page.jsx';
-import specificParty from '../components/pages/specific-party-page.jsx';
-import electionResult from '../components/pages/election-result-page.jsx';
-import fourOFour from '../components/pages/404-page.jsx';
+// import NotFoundPage from '../components/pages/404-page.jsx';
+// import specificParty from '../components/pages/specific-party-page.jsx';
+// import electionResult from '../components/pages/election-result-page.jsx';
+// import fourOFour from '../components/pages/404-page.jsx';
 import { Provider } from 'react-redux';
 import store  from '../store';
 class App extends Component{

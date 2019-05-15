@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Link, IndexLink } from 'react-router';
-import { Redirect, withRouter } from 'react-router-dom';
+import { Link } from 'react-router';
+import {  withRouter } from 'react-router-dom';
 import SignUpNavBar from '../reuseable component/signup-navbar-component.jsx';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import swal from 'sweetalert';
 import { SignupAction } from '../../actions/postActions';
 import store from '../../store';
-// import '../../styles/signup.style.css';
 import validateB4Submission from '../../validation/validateB4Submission';
 
 class SignUp extends Component {
@@ -27,17 +27,7 @@ class SignUp extends Component {
       loading: false,
     };
     this.onChange = this.onChange.bind(this);
-    // this.onSubmit = this.onSubmit.bind(this);
   }
-
-  componentDidMount() {
-    if (localStorage.token) {
-      this.props.history.push('/parties');
-    }
-  }
-
-  // in here before the component loads
-  // show spinner
 
   onChange(e) {
     this.setState({[e.target.name]: e.target.value});
@@ -45,15 +35,14 @@ class SignUp extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-
     const userInput = this.state;
-    // if error
-    // const result = validateB4Submission(userInput);
-    // if(!result) {
-    //   // eslint-disable-next-line no-console
-    //   console.log('Inputs must be valid before submission');
-    // }
-    // here shore the spinner(add)
+    const result = validateB4Submission(userInput);
+    if (!result) {
+      return swal({
+        icon: 'warning',
+        title: 'Inputs Must be Valid Before Submission',
+      });
+    }
 
     // do this, clear state
     // clear the state
@@ -84,52 +73,18 @@ class SignUp extends Component {
 
       // Call Action
       this.props.SignupAction(data);
-      // if (localStorage.token) {
-      //   console.log('got hereee<<<<<<<<<<<<<');
-      //   this.props.history.push('/parties');
-      // } 
   }
-    // const res = await response.json();
-    // if (res.message === 'User with that EMAIL already exist') {
-    //   this.setState({
-    //     loading: false,
-    //     isEmailError: false,
-    //     isPasswordError: false,
-    //     isPhoneError: false
-    //   });
-    //   console.log('User with that email already exist')
-    // }
-    // if (res.status === 201) {
-    //   // swal({ icon: 'success', title: 'Successfully signed Up. Log In with your credentials' });
-    //   console.log('Successfully signed in');
-    //   // this.props.history.push('/Sign-in');
-    // } else {
-    //   // eslint-disable-next-line consistent-return
-    //   this.setState({ loading: false });
-    //   // return swal({ icon: 'warning', title: 'Sign Up Failed Try Again' });
-    //   console.log('signed up failed, try again later');
-    //   }
-    // } catch(err) {
-    //   console.log(err);
-    //   this.setState({
-    //     loading: false,
-    //     isEmailError: false,
-    //     isPasswordError: false,
-    //     isPhoneError: false
-    //   });
-    //   // swal({ icon: 'warning', title: 'Network Error' });
-    //   console.log('server error');
-      
-    // }
-    // }
   render() {
     const {token, success} = this.props;
     if (success) {
+      console.log(success);
+      swal({
+        icon: 'success',
+        title: 'Signup successful',
+      });
       this.props.history.push('/parties');
     }
-    // if (token) {
-    //   return <Redirect to='/parties' />;
-    // }
+
     const {
       passportUrl,
       firstname,
@@ -142,7 +97,6 @@ class SignUp extends Component {
       isPasswordError,
       isPhoneError,
     } = this.state;
-    // setup the loader
 
     return (
       <Provider store={store}>
@@ -242,7 +196,8 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = ({posts}) =>({
-  success: posts.success
+  success: posts.success,
+  token: posts.token
 });
 
 SignUp.propTypes = {
