@@ -7,6 +7,14 @@ export function validateEmail(Email) {
     return ['isEmailError', true];
   }
 
+  // validate Phone number
+export function validatePhoneNumber(Email) {
+  // eslint-disable-next-line no-useless-escape
+  const regexVal = /^[0]\d{10}$/;
+  if (!regexVal.test(Email)) return ['isNumberError', false];
+  return ['isNumberError', true];
+}
+
 //validate password
 export function validatePassword(Pasword) {
     const regexVal = /^[a-zA-Z0-9]{5,15}$/;
@@ -30,9 +38,9 @@ export function validateHeadquarter(headquater) {
 }
 
 // validate political party name
-export function validatePartyName(partyName) {
+export function validateName(Name) {
   const regexVal = /^[A-Za-z\s]+$/;
-  if (!regexVal.test(partyName)) return ['isNameError', false];
+  if (!regexVal.test(Name)) return ['isNameError', false];
   return ['isNameError', true];
 }
 
