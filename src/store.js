@@ -8,7 +8,7 @@ const initialState = {
     posts:{
         items: [],
         item: {},
-        sucess:false
+        success:false
     }
 };
 const loggerMiddleware = createLogger();

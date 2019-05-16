@@ -10,6 +10,7 @@ import userVote from '../components/pages/user-vote.jsx';
 import allUsers from '../components/pages/users-page.jsx';
 import candidates from '../components/pages/candidates-page.jsx';
 import office from '../components/pages/office-page.jsx';
+import NotFound from '../components/pages/404-page.jsx';
 // import NotFoundPage from '../components/pages/404-page.jsx';
 // import specificParty from '../components/pages/specific-party-page.jsx';
 // import electionResult from '../components/pages/election-result-page.jsx';
@@ -23,8 +24,7 @@ class App extends Component{
     <Router>
     <Switch>
     <React.Fragment>
-  <Route exact path="/" component={homePage} />
-  <Route exact path="/sign-up" component={Signup} />
+  <Route exact path="/sign-up/" component={Signup} />
   <Route exact path="/sign-in" component={Signin} />
   <Route exact path="/parties" component={Parties} />
   <Route exact path="/add-party" component={addParties} />
@@ -38,6 +38,8 @@ class App extends Component{
   {/* <Route exact path="/party/delete" component={electionResult} /> */}
   {/* <Route exact path="/party/edit/name" component={electionResult} /> */}
   {/* <Route exact path="*" component={fourOFour} /> */}
+  <Route exact path="/" component={homePage} />
+  <Route path="*" component={NotFound} />
   </React.Fragment>
     </Switch>
   </Router>
