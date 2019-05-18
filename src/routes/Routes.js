@@ -39,7 +39,7 @@ class App extends Component{
   {/* <Route exact path="/party/edit/name" component={electionResult} /> */}
   {/* <Route exact path="*" component={fourOFour} /> */}
   <Route exact path="/" component={homePage} />
-  <Route path="*" component={NotFound} />
+  {/* <Route path="*" component={NotFound} /> */}
   </React.Fragment>
     </Switch>
   </Router>
