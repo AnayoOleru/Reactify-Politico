@@ -24,6 +24,7 @@ class SignIn extends Component {
     this.onChange = this.onChange.bind(this);
   }
   componentDidMount() {
+    localStorage.clear();
     swal({
       icon: 'success',
       title: 'Welcome back, please sign in',
@@ -77,7 +78,6 @@ class SignIn extends Component {
   render() {
 
     const {token, success, history } = this.props;
-
     console.log(this.props)
     if (success) {
       swal({

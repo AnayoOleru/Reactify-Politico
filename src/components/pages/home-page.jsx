@@ -17,8 +17,8 @@ export default class Home extends Component {
         <React.Fragment>
         <NavBar />
         <section className="section-features" id="ride">
-            <div className="row">
-                        <h2>As a Voter Politico helps you shine your eye</h2>
+            <div className="home-row">
+                        <h2 className="label">As a Voter Politico helps you shine your eye</h2>
                         <p />
                         <p className="long-copy">
                                 Your choice, Your vote
@@ -27,8 +27,8 @@ export default class Home extends Component {
                                 <img className="info" src={homeImageTwo} alt="create-account" />
                                 </div>
 
-                                <div className="row">
-                <h2>As a politician Politico
+                                <div className="home-row">
+                <h2 className="label">As a politician Politico
                 helps bring out your credibility </h2>
                 <p className="long-copy">
                        Show voters your credibility. Sign up with Politico

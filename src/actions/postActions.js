@@ -62,9 +62,14 @@ export const createPost = (postData) => dispatch =>  {
         body: JSON.stringify(postData)
       }).then((response) => response.json())
       .then((post) => {
-      if(post.status === 201) {
         localStorage.setItem('token', post.data[0].token);
         const decoded = jwt_decode(post.data[0].token);
+      if(post.status === 201 && decoded.isAdmin === true) {
+        window.location = '/add-party';
+        return dispatch({ type: NEW_POST, payload: decoded });
+      }
+      if(post.status === 201 && decoded.isAdmin === false) {
+        window.location = '/parties';
         return dispatch({ type: NEW_POST, payload: decoded });
       }
     }

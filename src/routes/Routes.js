@@ -4,7 +4,7 @@ import homePage from '../components/pages/home-page.jsx';
 import Signup from '../components/pages/sign-up.jsx';
 import Signin from '../components/pages/sign-in.jsx';
 import Parties from '../components/pages/party-page.jsx';
-import addParties from '../components/pages/add-party.jsx';
+// import addParties from '../components/pages/add-party.jsx';
 import userVote from '../components/pages/user-vote.jsx';
 // import registerUser from '../components/pages/register-user-page.jsx';
 import allUsers from '../components/pages/users-page.jsx';
@@ -13,8 +13,9 @@ import office from '../components/pages/office-page.jsx';
 import NotFound from '../components/pages/404-page.jsx';
 // import NotFoundPage from '../components/pages/404-page.jsx';
 // import specificParty from '../components/pages/specific-party-page.jsx';
-// import electionResult from '../components/pages/election-result-page.jsx';
+import Result from '../components/pages/election-results.jsx';
 // import fourOFour from '../components/pages/404-page.jsx';
+import addParties from '../components/pages/adminPages/add-parties.jsx';
 import { Provider } from 'react-redux';
 import store  from '../store';
 class App extends Component{
@@ -33,8 +34,7 @@ class App extends Component{
   <Route exact path="/users" component={allUsers} />
   <Route exact path="/candidates" component={candidates} />
   <Route exact path="/offices" component={office} />
-  {/* <Route exact path="/party" component={specificParty} /> */}
-  {/* <Route exact path="/office/result" component={electionResult} /> */}
+  <Route exact path="/result" component={Result} />
   {/* <Route exact path="/party/delete" component={electionResult} /> */}
   {/* <Route exact path="/party/edit/name" component={electionResult} /> */}
   {/* <Route exact path="*" component={fourOFour} /> */}

@@ -13,12 +13,12 @@ const NavBar = () => {
   return (
     <header>
     <nav>
-        <div className="row">
-            <a><img src={logo} alt="Politico logo" className="logo" /></a>
+        <div className="nav-row">
+            <a href={'/'}><img src={logo} alt="" className="homepage-logo" /></a>
             <a><img alt="Politico logo" className="logo-black" /></a>
             <ul className="main-nav">
-                <li><Link to="/sign-in">Sign in</Link></li>
-                <li><Link to="/sign-up">Sign up</Link></li>
+                <li><a href={'/sign-in'}>Sign in</a></li>
+                <li><a href={'/sign-up'}>Sign up</a></li>
             </ul>
         </div>
     </nav>
@@ -28,8 +28,8 @@ const NavBar = () => {
             <p className="siteintro">Credible elections are characterized by inclusiveness, transparency <br /> and accountability, where all eligible citizens are given equal opportunities to vote.<br />
                     And that's what POLITICO does
 </p>
-        <Link to="/sign-up" className="btn btn-full">Sign up</Link>
-        <Link to="/sign-in" className="btn btn-full" id="small-screen">Sign in</Link>
+        <a className="btn btn-full" href={'/sign-up'}>Sign up</a>
+        <a className="btn btn-full" id="small-screen" href={'/sign-in'}>Sign in</a>
         
     </div>
 

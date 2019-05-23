@@ -9,7 +9,7 @@ const registeredUserNavbar = () => {
         <div id="mySidenav" className="sidenav">
     <a href="#" className="closebtn"><i className="fa fa-chevron-circle-right" /></a>
 
-    <img className="profile-image" src={userImage} />
+    <a href={'/'}><img className="profile-image" src={userImage} /></a>
     <h1 id="nameside" />
     <a href="index.html"><span>Home</span></a>
     <a className="active" href="parties.html"><i className="far fa-handshake" /><span>Parties</span></a>
