@@ -1,6 +1,8 @@
 # Reactify-Politico
 [![Maintainability](https://api.codeclimate.com/v1/badges/d5c56c173b7afde4ea43/maintainability)](https://codeclimate.com/github/AnayoOleru/Reactify-Politico/maintainability)
 
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d5c56c173b7afde4ea43/test_coverage)](https://codeclimate.com/github/AnayoOleru/Reactify-Politico/test_coverage)
+
 # POLITICO
  > :ng: A Nigerian E-voting platform
 
