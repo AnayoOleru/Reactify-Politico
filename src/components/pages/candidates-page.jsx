@@ -49,7 +49,7 @@ class Candidates extends Component {
                 <a href={'/'}><span>Home</span></a>
                 <a href={'/parties'}><i className="far fa-handshake" /><span>Parties</span></a>
                 <a className="active" href={'/candidates'}><i className="fas fa-users" /><span>Candidates</span></a>
-                <a href={'/results'}><i className="fas fa-box-open" /><span>Results</span></a>
+                <a href={'/result'}><i className="fas fa-box-open" /><span>Results</span></a>
                 <a href={'/sign-out'}><i className="fas fa-sign-out-alt" /><span>Sign out</span></a>
             </div>
             <div className="nav">

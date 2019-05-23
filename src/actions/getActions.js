@@ -78,7 +78,8 @@ export const getAllCandidates = (candidateData) => dispatch =>  {
     headers: {
         'Accept': 'application/json, text/plain, */*',
         'Content-type': 'application/json',
-        'x-access-token': token
+        'x-access-token': token,
+        mode: 'cors',
       },
       method: 'GET',
       body: JSON.stringify(candidateData)
