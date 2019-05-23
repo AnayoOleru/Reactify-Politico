@@ -8,7 +8,7 @@ const SignUpNavBar = () => {
   return (
     <div className="container">
 <nav className="nav">
-        <Link to="/"><img src={logo} /></Link>
+        <a href={'/'}><img src={logo} /></a>
         <ul>
             <li><a href={'/sign-up'}>Sign up</a></li>
             <li><a href={'/sign-in'}>Sign in</a></li>

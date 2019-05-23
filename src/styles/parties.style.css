@@ -79,7 +79,7 @@
     max-width:114rem;
    /* background-color: #eee;*/
     margin: 0 auto;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
 }
 
 .row:not(:last-child) {
@@ -259,7 +259,7 @@ body {
 }
 
 .btn:link,
-.btn:visited {
+/* .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
     padding: 1.5rem 4rem;
@@ -274,7 +274,7 @@ body {
     -webkit-clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 10% 100%, 10% 51%, 10% 0%);
     clip-path:polygon(75% 0%, 100% 50%, 75% 100%, 10% 100%, 10% 51%, 10% 0%);
     text-align: center;
-}
+} */
 
 .btn:hover,
 .btn:active {

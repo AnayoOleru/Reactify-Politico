@@ -2,7 +2,14 @@ body{
     background-color: black;
 }
 
-.row{
+/* .nav-row{
     background-color: red;
     display: none;
+} */
+
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-top: 55px;
+    margin-right: 40px;
 }
