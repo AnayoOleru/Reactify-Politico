@@ -1,27 +1,20 @@
 import React from 'react';
-import { Link, IndexLink } from 'react-router';
-
-// import '../styles/index.css';
-// import '../styles/footer-style.css';
-// import '../styles/media-queries/candidates-style.css';
-// import '../styles/media-queries/queries-style.css';
-// import '../../styles/home-style.css';
-import '../../styles/media-queries/queries-style.css';
+import '../../styles/footer-style.css';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="global-footer">
     <div className="row">
         <div className="col span-1-of-2">
-            <ul className="footer-nav">
-                <li><Link to="/about-us">About us</Link></li>
-                <li><Link to="/contact-us">Contact us</Link></li>
-                <li><Link to="/priavcy-policy">Privacy Policy</Link></li>
+            <ul className="global-footer-nav">
+                <li className="global-footer-nav-list"><a className="global-footer-nav-list-title" href={"/about-us"}>About us</a></li>
+                <li className="global-footer-nav-list"><a className="global-footer-nav-list-title" href={"/contact-us"}>Contact us</a></li>
+                <li className="global-footer-nav-list"><a className="global-footer-nav-list-title" href={"/priavcy-policy"}>Privacy Policy</a></li>
             </ul>
         </div>
     </div>
     <div className="row">
-        <p>
+        <p className="global-footer-nav-copyright">
             Copyright &copy; 2019 by Politico. All rights reserved.
         </p>
     </div>

@@ -1,116 +1,85 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import { css } from '@emotion/core';
-// import { ClipLoader } from 'react-spinners';
-import { CreateOffice } from '../../actions/postActions';
-import store from '../../store';
-import validateOfficeSubmission  from '../../validation/addOffice-validation';
+import { getAllOffice } from '../../../actions/getActions';
+import '../../../styles/govOffice.css';
+import AdminNavBar from '../../reuseable component/admin-navbar.component';
+// import store from '../../store';
+// import validateOfficeSubmission  from '../../validation/addOffice-validation';
 
 // import '../styles/signup.style.css';
 
 
 class AddOffice extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      type: '',
-      isNameError: false,
-      isTypeError: false,
-      loading: false,
-    };
-    this.onChange = this.onChange.bind(this);
-    // this.onSubmit = this.onSubmit.bind(this);
-  }
-  // componentDidMount() {
+  componentDidMount(){
+    const { getAllOffice } = this.props;
+     getAllOffice();
+ }
+render() {
+ const style1 = {
+   width: '80px',
+   paddingLeft: '30px',
+ };
 
-  // }
+ const style2 = {
+   paddingLeft: '30px',
+   color: '#ffffff',
+   fontSize:'20px',
+ };
 
-  // componentWillReceiveProps() {
-    
-  // }
-  
-  ShowSpinner = () => {
-    return this.setState({ loading: true });
-  }
-  // in here before the component loads
-  // show spinner
+ const style3 = {
+   fontSize:'30px',
+   cursor:'pointer',
+   height: '30px',
+ };
 
-  onChange(e) {
-    this.setState({[e.target.name]: e.target.value});
-  }
+ this.openNav = () => {
+   document.getElementById('mySidenav').style.width = '250px';
+ };
+ this.closeNav = () => {
+   document.getElementById('mySidenav').style.width = '0';
+ };
+   const getOffice = this.props.get && this.props.get.map(office => (
+     <div key={office.id} className="box box2">
+     <p className="type">{office.type}</p>
+     <p className="people">{office.name}</p>
+</div>
+   ));
 
-  handleSubmit = async (e) => {
-    e.preventDefault();
+ return (
+     <React.Fragment>
+       <AdminNavBar />
+         <h1 className="title">Add Office</h1>
+         <div className="container" id="officeResult">{getOffice}</div>
 
-    const userInput = this.state;
-    const result = validateOfficeSubmission(userInput);
-    if(!result) {
-      // eslint-disable-next-line no-console
-      console.log('Inputs must be valid before submission');
-    }
-    // here show the spinner(add)
-    this.ShowSpinner();
-    // clear the state
-    this.setState({
-      name: '',
-      type: '',
-      isNameError: false,
-      isTypeError: false,
-      loading: false,
-    });
 
-      const data = {
-      name: userInput.name,
-      type: userInput.type,
-      };
-       
-      // console.log(data, 'data');
 
-    //  call action 
-     this.props.CreateOffice(data);  
-  }
+         <div className="modal" id="openmodal">
+             <form id="addOffice">
+                 <h1>Add Political office</h1>
+                 <input type="text" placeholder="type e.g State" id="type" />
+                 <input type="text" placeholder="name e.g Minister" id="name" required />
+                 <br />
+                 <div id="result" />
+                 <input type="submit" value="Cancel" />
+                 <input type="submit" />
+             </form>
+         </div>
 
-  render() {
-    const {
-      name,
-      type,
-      isNameError,
-      isTypeError,
-    } = this.state;
-    // setup the loader
-//     const override = css`
-//     display: block;
-//     margin: 0 auto;
-//     margin-right:10px;
-//     border-color: red;
-// `;
 
-// const spinner = (<span className='sweet-loading'>
-// <ClipLoader
-//   css={override}
-//   sizeUnit={'px'}
-//   size={10}
-//   color={'white'}
-//   loading={loading}
-// />
-// </span>);
-
-    return (
-      <Provider store={store}>
-        <React.Fragment>
-             {/* render components here, pass onsubmit, onchange, name, and value{pass the state} to the inputs */}
-        </React.Fragment>
-        </Provider>
-    );
-  }
+         <button className="add" >+</button>
+     </React.Fragment>
+ );
 }
-
+}
 AddOffice.propTypes = {
-  CreateOffice:  PropTypes.func.isRequired
-} 
+getAllOffice: PropTypes.func.isRequired,
+};
 
-export default connect(null,  { CreateOffice })(AddOffice);
+const mapStateToProps = state => ({
+ posts: state.payload,
+ get: state.get.items.data,
+});
+
+export default connect(mapStateToProps, { getAllOffice })(AddOffice);
+

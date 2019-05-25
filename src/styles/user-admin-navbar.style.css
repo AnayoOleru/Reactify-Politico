@@ -1,0 +1,17 @@
+.navbar-mobile{
+    display: none;
+}
+/* #active{
+    background-color: #ffffff;
+    font-size: bolder;
+    color:rgb(10, 65, 86);
+} */
+
+@media only screen and (max-width: 1090px) {
+.navbar-mobile{
+    display: block;
+    }
+    .user-admin-container{
+        display: none;
+    }
+}
