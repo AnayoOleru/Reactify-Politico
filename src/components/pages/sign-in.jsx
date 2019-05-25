@@ -6,9 +6,10 @@ import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
 import { createPost } from '../../actions/postActions';
 import store from '../../store';
-import SignUpNavBar from '../reuseable component/signup-navbar-component.jsx';
+import EntryNavBar from '../reuseable component/entry-navbar-component.jsx';
 import validateB4Submission from '../../validation/validateB4Submission';
 import { validateInputs } from '../../validation/validateInputs';
+import '../../styles/sign-up-form.style.css';
 
 
 class SignIn extends Component {
@@ -78,7 +79,7 @@ class SignIn extends Component {
   render() {
 
     const {token, success, history } = this.props;
-    console.log(this.props)
+   console.log(this.props)
     if (success) {
       swal({
         icon: 'success',
@@ -97,26 +98,30 @@ class SignIn extends Component {
     return (
       <Provider store={store}>
         <React.Fragment>
-        <SignUpNavBar />
-        <h1 className="header">Sign up</h1>
-    <form className="form" id="addpost" onSubmit={this.handleSubmit}>
-            <p className="input1">Email
-            <input type="text" id="file" placeholder="e.g john@doe.com" name = 'email'
-         onChange = {this.onChange}  value= { email } required />
-            </p>
-            { isEmailError ? (<small className="invalid-feedback-show i-f"> Email not valid </small>)
-  : null }
-            <p className="input1">Password
-            <input type="text" id="file" placeholder="****" name = 'password'
-         onChange = {this.onChange} value= { password } required />
-            </p>
-            { isPasswordError ? (<small className="invalid-feedback-show i-f"> Password not valid </small>)
-  : null }
-            <div id="result" />
-        <p><input id="button" type="submit" value="Sign in" /></p>
-    </form>
-    <p align="center">Already have an account?
-    <Link to="/sign-up">sign up</Link></p>
+        <EntryNavBar />
+        <form className="entry-form" onSubmit={this.handleSubmit}>
+   <header className="entry-header">
+      <h1 className="entry-title">Sign in</h1>
+   </header>
+   <main className="entry-main">
+      <div className="entry-group">
+         <input className="entry-input" type="text" name="email" onChange={this.onChange}
+            value={ email } required />
+         <label className="entry-label">Email </label>
+         <div className="entry-bar"></div>
+      </div>
+      <div className="entry-group">
+         <input className="entry-input" type="password" name="password" onChange={this.onChange}
+            value={ password } required />
+         <label className="entry-label">Password</label>
+         <div className="entry-bar"></div>
+      </div>
+      <h4 className="entry-error terms">Error</h4>
+   </main>
+   <footer className="entry-footer">
+     <input className="entry-button" type="submit" name="btn_signin" value="Sign in" />
+   </footer>
+</form>
         </React.Fragment>
         </Provider>
     );

@@ -11,14 +11,14 @@ import logo from '../../../public/images/pogo.png';
 
 const NavBar = () => {
   return (
-    <header>
+    <header className="hero-page">
     <nav>
         <div className="nav-row">
             <a href={'/'}><img src={logo} alt="" className="homepage-logo" /></a>
             <a><img alt="Politico logo" className="logo-black" /></a>
-            <ul className="main-nav">
-                <li><a href={'/sign-in'}>Sign in</a></li>
-                <li><a href={'/sign-up'}>Sign up</a></li>
+            <ul className="homepage-main-nav">
+                <li className="homepage-main-nav-list"><a className="homepage-main-nav-list-title" href={'/sign-in'}>Sign in</a></li>
+                <li className="homepage-main-nav-list"><a className="homepage-main-nav-list-title" href={'/sign-up'}>Sign up</a></li>
             </ul>
         </div>
     </nav>
@@ -28,8 +28,8 @@ const NavBar = () => {
             <p className="siteintro">Credible elections are characterized by inclusiveness, transparency <br /> and accountability, where all eligible citizens are given equal opportunities to vote.<br />
                     And that's what POLITICO does
 </p>
-        <a className="btn btn-full" href={'/sign-up'}>Sign up</a>
-        <a className="btn btn-full" id="small-screen" href={'/sign-in'}>Sign in</a>
+        <a className="homepage-nav-btn" href={'/sign-up'}>Sign up</a>
+        <a className="homepage-nav-btn" id="homepage-small-screen" href={'/sign-in'}>Sign in</a>
         
     </div>
 

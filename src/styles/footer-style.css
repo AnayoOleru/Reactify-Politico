@@ -1,0 +1,39 @@
+.global-footer {
+    background-color: rgb(10, 65, 86);
+    padding: 50px;
+    font-size: 80%;
+}
+
+.global-footer-nav{
+    list-style: none;
+    float: left;
+}
+
+.global-footer-nav-list {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.global-footer-nav-list:last-child{
+    margin-right: 0;
+}
+
+.global-footer-nav-list-title:link,
+.global-footer-nav-list-title:visited {
+    text-decoration: none;
+    border: 0;
+    color: #888;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.global-footer-nav-list-title:hover,
+.global-footer-nav-list-title:active {
+    color: #ddd;
+}
+
+.global-footer-nav-copyright {
+    color: rgb(172, 171, 171);
+    text-align: center;
+    margin-top: 20px;
+}

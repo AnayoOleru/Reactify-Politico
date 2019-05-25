@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getAllCandidates } from '../../actions/getActions';
+import UserNavBar from '../reuseable component/user-navbar.component.jsx';
+import '../../styles/candidates-style.css';
 
 class Candidates extends Component {
-    componentWillMount(){
+    componentDidMount(){
         const { getAllCandidates } = this.props;
       getAllCandidates();
     }
@@ -25,6 +27,12 @@ class Candidates extends Component {
       const style4 = {
         backgroundColor:'#ffffff',
       };
+      const style5 = {
+        fontSize: '19px',  
+      };
+      const style6 = {
+        fontSize: '20px',  
+      };
       this.openNav = () => {
         document.getElementById('mySidenav').style.width = '250px';
       };
@@ -32,38 +40,48 @@ class Candidates extends Component {
         document.getElementById('mySidenav').style.width = '0';
       };
 
-      const getCandidates = this.props.get && this.props.get.forEach(candidate => (
-
-        <div key={candidate.id}>
-        <h3>{candidate.title}</h3>
-        <p>{candidate.body}</p>
+      // eslint-disable-next-line react/prop-types
+      const getCandidates = () => { return this.props.get && this.props.get.length !== 0 && this.props.get.map(candidate => (
+        <div className="row" key={candidate.candidateid}>
+        <div className="col-1-of-3">
+                    <div className="card">
+            <div className="card__side card__side--front">
+             <div className="card__picture card__picture--1">&nbsp;</div>
+            <h4 className="card__heading">
+        {/* <span className="card__heading-span card__heading-span--1" >{candidate.officename}</span> */}
+        </h4>
+        <div className="card__details">
+           <ul>
+        <li style={style5}>{candidate.candidatename}</li>
+        <li style={style6} >{candidate.officename}</li>
+        </ul>
         </div>
+         </div>
+        <div className="card__side card__side--back card__side--back-1">
+         <div className="card__cta">
+         <div className="card__price-box">
+        <p className="card__price-only">{candidate.partyname}</p>
+        <p className="card__price-value">{candidate.candidatename}</p>
+          </div>
+        <a href="#" className="btn">Vote</a>
+            </div>
+                </div>
+                    </div>
+                    </div>
+                    </div>
 
-      ));
+      ));};
     return (
         <React.Fragment>
-            <div id="mySidenav" className="sidenav">
-                <a href="#" className="closebtn" onClick={this.closeNav} ><i className="fa fa-chevron-circle-right" /></a>
-                <img style={style1} src="../../images/userimg.png" />
-                <h1 id="nameside" style={style2} />
-                <a href={'/'}><span>Home</span></a>
-                <a href={'/parties'}><i className="far fa-handshake" /><span>Parties</span></a>
-                <a className="active" href={'/candidates'}><i className="fas fa-users" /><span>Candidates</span></a>
-                <a href={'/result'}><i className="fas fa-box-open" /><span>Results</span></a>
-                <a href={'/sign-out'}><i className="fas fa-sign-out-alt" /><span>Sign out</span></a>
-            </div>
-            <div className="nav">
-            <span className="openbutton" style={style3} onClick={this.openNav} ><i className="fas fa-align-justify" /></span>
-                    <ul id="username" />
-            </div>
+          <UserNavBar />
                                     <main style={style4}>
                                         <section className="section-cards" id="candidatescard">
                                             <div className="text-cards">
                                                 <h1 className="heading-primary">
                                                     Candidates
                                                 </h1>
-                                                {getCandidates}
                                             </div>
+                                            {getCandidates()}
                                         </section>
 
                                     </main>

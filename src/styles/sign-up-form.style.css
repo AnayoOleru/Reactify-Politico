@@ -1,0 +1,150 @@
+
+.entry-form {
+    background: #fff;
+    color: #333;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 5px
+}
+.entry-form .entry-header{
+    padding-top: 30px;
+    text-align: center;
+    margin-bottom: 60px
+}
+.entry-form .entry-header .entry-title {
+    font-size: 24px;
+    font-weight: 400
+}
+.entry-form .entry-main {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto
+}
+.entry-form .entry-main .entry-group {
+    position: relative
+}
+.entry-form .entry-main .entry-group .entry-input {
+    margin-top: 50px;
+    padding: 10px 10px 10px 5px;
+    color: #333;
+    font-family: "Open Sans", sans-serif;
+    width: 100%;
+    font-size: 16px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #d0dce7;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+.entry-form .entry-main .entry-group .entry-input:focus {
+    outline: none
+}
+.entry-form .entry-main .entry-group .entry-input:focus ~ label,
+.entry-form .entry-main .entry-group .entry-input:valid ~ label {
+    top: -20px;
+    font-size: 12px;
+    text-transform: uppercase
+}
+.entry-form .entry-main .entry-group .entry-label {
+    color: #333;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    -webkit-transition: .2s ease all;
+    transition: .2s ease all
+}
+.entry-form .entry-main .entry-terms {
+    font-size: 14px;
+    color: #a8b8c4;
+    margin: 40px auto;
+    line-height: 19px;
+}
+.entry-form .entry-main .entry-terms a {
+    text-decoration: none;
+    color: #007ee5
+}
+.entry-form .entry-button {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 100%;
+    background: rgb(10, 65, 86);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    height: 45px;
+    font-size: 14px;
+    bottom: 0;
+    position: absolute
+}
+
+.entry-button:hover {
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+  color: rgb(10, 65, 86);
+  border: 1px solid rgb(10, 65, 86);
+}
+
+.entry-bar {
+    position: relative;
+    display: block
+}
+.entry-bar:before,
+.entry-bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: rgb(10, 65, 86);
+    transition: .2s ease all;
+    -moz-transition: .2s ease all;
+    -webkit-transition: .2s ease all
+}
+.entry-error{
+    color: #ff0000;
+    text-align: center;
+}
+.entry-bar:before {
+    left: 50%
+}
+.entry-bar:after {
+    right: 50%
+}
+input:focus ~ .entry-bar:before,
+input:focus ~ .entry-bar:after {
+    width: 50%
+}
+@media (min-width: 620px) {
+    body {
+        background: rgb(172, 172, 172);
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center
+    }
+    .entry-form {
+        max-width: 400px;
+        height: 470px;
+        margin-left: auto;
+        margin-right: auto
+    }
+    .entry-title {
+        position: relative
+    }
+    .entry-footer {
+        text-align: center;
+        margin-bottom: 10%;
+
+    }
+    .entry-footer .entry-button {
+        bottom: initial;
+        position: initial;
+        width: 320px
+    }
+}

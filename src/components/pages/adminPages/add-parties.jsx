@@ -3,8 +3,10 @@ import { Link } from 'react-router';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { getAllParties } from '../../../actions/getActions';
 import { CreateOffice } from '../../../actions/postActions';
 import store from '../../../store';
+import AdminNavBar from '../../reuseable component/admin-navbar.component';
 import validatePartySubmission  from '../../../validation/addParty-validation';
 import '../../../styles/addParties-style.css';
 
@@ -24,14 +26,10 @@ class AddParty extends Component {
     this.onChange = this.onChange.bind(this);
     // this.onSubmit = this.onSubmit.bind(this);
   }
-  // componentDidMount() {
-
-  // }
-
-  // componentWillReceiveProps() {
-    
-  // }
-  
+  componentDidMount(){
+    const { getAllParties } = this.props;
+   getAllParties();
+}
   // in here before the component loads
   // show spinner
 
@@ -72,6 +70,35 @@ class AddParty extends Component {
   }
 
   render() {
+    const getParties = this.props.get && this.props.get.map(party => (
+<div className="row" id="partyResult" key={party.id}>
+                            
+<div className="col-1-of-3">                 
+    <div className="card">
+        <div className="card__side card__side--front">
+            <div className="card__picture card__picture--3">&nbsp;</div>
+            <div className="card__details">
+                <ul>
+                    <li style={style5}>{party.name}</li>
+                </ul>
+            </div>
+        </div>
+        <div className="card__side card__side--back card__side--back-3">
+            <div className="card__cta">
+                <div className="card__price-box">
+                        <p className="card__price-only">Headquater Address</p>
+                        <p className="card__price-only">23 Abuja Road</p>
+        
+                </div>
+                <a href="#" className="btn" id="edit">Edit</a>
+                <a href="#" className="btn" id="delete">Delete</a>                                                                                    
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+    ));
       const style1 = {
         width: '80px',
         paddingLeft: '30px',
@@ -137,27 +164,7 @@ class AddParty extends Component {
     return (
       <Provider store={store}>
         <React.Fragment>       
-            <div id="mySidenav" className="sidenav">
-                <a href="#" className="closebtn" onClick={this.closeNav}><i className="fa fa-chevron-circle-right"></i></a>
-                <img style={style1} src="../images/userimg.png" />
-                <h1 style={style2} id="nameside"> </h1>
-                <a href={'/'}><span>Home</span></a>
-                <a className="active" href={'/add-party'}><i className="far fa-handshake"></i><span>Parties</span></a>
-                <a href={'/add-office'}><i className="fas fa-building"></i><span>Office</span></a>
-                <a href={'/register-user'}><i className="fas fa-user-plus"></i><span>Register</span></a>
-                <a href="#"><i className="fas fa-sign-out-alt"></i><span>Sign out</span></a>
-            </div>
-            <div className="nav">
-            <span style={style3} className="openbutton" onClick={this.openNav}><i className="fas fa-align-justify"></i></span>
-
-                    <ul id="username"> 
-                        
-                    </ul>
-            </div> 
-
-       
-
-
+          <AdminNavBar />
             <main style={style4}>
                 <section className="section-cards">
                     <div className="text-cards">
@@ -165,38 +172,12 @@ class AddParty extends Component {
                             Parties
                         </h1>
                     </div>
-                    <div className="row" id="partyResult">
-                            
-                        <div className="col-1-of-3">                 
-                            <div className="card">
-                                <div className="card__side card__side--front">
-                                    <div className="card__picture card__picture--3">&nbsp;</div>
-                                    <div className="card__details">
-                                        <ul>
-                                            <li style={style5}>ACCORD</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="card__side card__side--back card__side--back-3">
-                                    <div className="card__cta">
-                                        <div className="card__price-box">
-                                                <p className="card__price-only">Headquater Address</p>
-                                                <p className="card__price-only">23 Abuja Road</p>
-                                
-                                        </div>
-                                        <a href="#" className="btn" id="edit">Edit</a>
-                                        <a href="#" className="btn" id="delete">Delete</a>                                                                                    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-        
+                  {getParties}   
                 </section>
         
             </main>
 
-
+{/* modal */}
             <div className="modal" id="openmodal">
                         <form className="partylog" id="addParty">
                                 <h1>Add Party</h1>
@@ -238,8 +219,13 @@ class AddParty extends Component {
   }
 }
 
-// AddParty.propTypes = {
-//   CreateParty:  PropTypes.func.isRequired
-// } 
+AddParty.propTypes = {
+  getAllParties: PropTypes.func.isRequired,
+} 
 
-export default AddParty;
+const mapStateToProps = state => ({
+  posts: state.payload,
+  get: state.get.items.data,
+});
+
+export default connect(mapStateToProps, { getAllParties })(AddParty);
