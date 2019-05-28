@@ -144,16 +144,48 @@ body{
       .add:hover{
         background-color: rgb(116, 18, 5); 
       }
-
-    .partyForm{
-        /* display:; */
-        padding-bottom: 30px;
+    
+    .register{
+        position: relative;
+        display: flex;
+        align-content: center;
+        text-align: center;
+        justify-content: center;
     }
+    .register select{
+        width: 50%;
+        margin:40px;
+        height: 60px;
+        font-size: 25px;
+        border: 2px solid rgb(10, 65, 86);
+    }
+    .register select option{
+        width: 50%;
+        font-size: 10px;
+        /* font-size: 25px; */
+    }
+
+    .register #regBtn{
+        width: 30%;
+        height: 50px;
+        font-size: 25px;
+        background-color: rgb(10, 65, 86);
+        color: #ffffff;
+
+    }
+
+    .register #regBtn:hover{
+        color:#ffffff;
+        background-color: rgb(4, 28, 37);
+
+    }
+
+
     
     h1{
         font-family: 'Montserrat', sans-serif;
-        padding-top: 44px;
-        padding-bottom: 40px;
+        /* padding-top: 44px;
+        padding-bottom: 40px; */
     }
     
     p{
@@ -497,7 +529,7 @@ html {
     font-size: 10px;
 }
 
-/* body {
+body {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     line-height: 1.7;
@@ -506,7 +538,7 @@ html {
     box-sizing: border-box; 
     background-color: rgba(255, 255, 255, 0.897);
 
-} */
+}
 
 .section-cards {
     /* position: relative; */
@@ -557,13 +589,15 @@ html {
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
 }
 
-/* .card__picture--1 {
+.card__picture--1 {
     background-image:
                      url(./images/APC.png);
                      position: relative;
-} */
+                     /* right:60px;
+                     bottom:60px; */
+}
 
-/* .card__picture--2 {
+.card__picture--2 {
     background-image:
                      url(./images/PDP.png);
 }
@@ -571,7 +605,7 @@ html {
 .card__picture--3 {
     background-image:
                      url(./images/Accord.jpg);
-} */
+}
 
 .card__picture {
     background-size: cover;
@@ -594,7 +628,7 @@ html {
 
 .card__heading-span--1  {
     background-image: linear-gradient(to right bottom, rgb(156, 154, 154), 
-    rgb(29, 117, 151)); 
+    rgb(29, 117, 151));
 }
 
 .card__heading-span--2  {

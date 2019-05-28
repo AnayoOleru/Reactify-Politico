@@ -1,7 +1,9 @@
-import { FETCH_POSTS, NEW_POST, NEW_PARTY, NEW_OFFICE, NEW_VOTE, NEW_CANDIDATE } from './types';
+import { NEW_POST, NEW_PARTY, NEW_OFFICE, NEW_VOTE, NEW_CANDIDATE, NEW_OFFICE_FAILURE, NEW_PARTY_FAILURE } from './types';
 import jwt_decode from 'jwt-decode';
 import swal from 'sweetalert';
-// signup action
+
+
+let token = window.localStorage.getItem('token');
 
 
 export const SignupAction = (signupData) => dispatch =>  {
@@ -101,7 +103,8 @@ export const CreateParty = (partyData) => dispatch =>  {
   fetch('https://trustpolitico.herokuapp.com/api/v1/parties',{
     headers: {
         'Accept': 'application/json, text/plain, */*',
-        'Content-type': 'application/json'
+        'Content-type': 'application/json',
+        'x-access-token': token
       },
       method: 'POST',
       body: JSON.stringify(partyData)
@@ -111,7 +114,12 @@ export const CreateParty = (partyData) => dispatch =>  {
     dispatch({
     type: NEW_PARTY,
     payload: posts
-  }));
+  })).catch((err)=>{
+    dispatch({
+      type: NEW_PARTY_FAILURE,
+      payload: err
+    });
+  });
 };
 
 // admin can create a  political office
@@ -119,7 +127,8 @@ export const CreateOffice = (officeData) => dispatch =>  {
   fetch('https://trustpolitico.herokuapp.com/api/v1/offices',{
     headers: {
         'Accept': 'application/json, text/plain, */*',
-        'Content-type': 'application/json'
+        'Content-type': 'application/json',
+        'x-access-token': token
       },
       method: 'POST',
       body: JSON.stringify(officeData)
@@ -129,7 +138,12 @@ export const CreateOffice = (officeData) => dispatch =>  {
     dispatch({
     type: NEW_OFFICE,
     payload: posts
-  }));
+  })).catch((err)=>{
+    dispatch({
+      type: NEW_OFFICE_FAILURE,
+      payload: err
+    });
+  });
 };
 
 // user can vote a candidate

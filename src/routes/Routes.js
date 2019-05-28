@@ -18,6 +18,7 @@ import Result from '../components/pages/election-results.jsx';
 import addParties from '../components/pages/adminPages/add-parties.jsx';
 import addOffice from '../components/pages/adminPages/add-office.jsx';
 import register from '../components/pages/adminPages/register-candidate.jsx';
+import signout from '../components/pages/signout-page.jsx';
 import { Provider } from 'react-redux';
 import store  from '../store';
 class App extends Component{
@@ -29,6 +30,7 @@ class App extends Component{
     <React.Fragment>
   <Route exact path="/sign-up/" component={Signup} />
   <Route exact path="/sign-in" component={Signin} />
+  <Route exact path="/sign-out" component={signout} />
   <Route exact path="/parties" component={Parties} />
   <Route exact path="/add-party" component={addParties} />
   <Route exact path="/vote" component={userVote} />
@@ -36,7 +38,7 @@ class App extends Component{
   <Route exact path="/users" component={allUsers} />
   <Route exact path="/candidates" component={candidates} />
   <Route exact path="/offices" component={office} />
-  <Route exact path="/add-office" component={addOffice } />
+  <Route exact path="/add-office" component={addOffice} />
   <Route exact path="/result" component={Result} />
   <Route exact path="/register" component={register} />
   {/* <Route exact path="/party/delete" component={electionResult} /> */}
