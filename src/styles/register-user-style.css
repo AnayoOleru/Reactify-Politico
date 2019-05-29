@@ -1,0 +1,227 @@
+/* *{
+    box-sizing: border-box;
+}
+body{
+    margin:0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+} */
+
+/* .nav{
+    width: 100%;
+    position: fixed;
+    top:0px;
+    left :0px;
+    height: 60px;
+    padding: 0 100px;
+    background-color: rgb(10, 65, 86);
+    box-sizing:border-box;
+    transition: .3s;
+} */
+.section-card-register-form-select-result{
+    font-size: 20px;
+    color: red;
+    
+}
+/* .nav ul{
+    list-style: none;
+    float: right;
+    margin: 0;
+    padding: 0;
+    display:flex;
+}
+
+.nav ul li{
+    list-style: none;
+}
+.nav ul li a {
+    width: 100%;
+    line-height: 80px;
+    color:rgb(245, 242, 240);
+    padding: 5px 10px;
+    text-decoration:none;
+    text-transform: uppercase;
+    transition:.3s;
+}
+.logo{
+    padding: 22px 0px;
+    height: 80px;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    transition: .3s;
+    color:rgb(255, 255, 255);
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(10, 65, 86);
+    overflow-x: hidden;
+    padding-top: 60px;
+}
+
+.sidenav .active{
+    background-color: rgb(255, 255, 255);
+    color: rgb(10, 65, 86);
+}
+
+.sidenav a {
+    border-bottom: 1px solid rgb(99, 175, 211);
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    border: solid 4px rgb(10, 65, 86);
+    color: rgb(10, 65, 86);
+    background-color: #ffffff;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.openbutton i{
+    position: absolute;
+    padding-left: 30px;
+    padding-top: 20px;
+    width: 50px;
+}
+.openbutton:hover{
+    color: cadetblue;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .box {
+    background-color: #f1f1f1;
+    width: 200px;
+    height: 150px;
+    margin: 18px;
+    text-align: center;
+    font-size: 30px;
+  }
+      .logos{
+          height:150px;
+          width: 100%;
+          box-shadow: 0 4px 8px 0 rgb(0, 0, 0, 0.2);
+          transition: 0.3s;
+      }
+
+      .add{
+            position: fixed;
+            font-size: 50px;
+            margin: 50px 65px;
+            color: #ffffff;
+            bottom:0%;
+            right: 0%;
+            background-color: rgb(226, 31, 5);
+            border: none;
+            padding: 20px 40px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50%;
+      }
+
+      .add:hover{
+        background-color: rgb(116, 18, 5); 
+      } */
+    
+    .section-card-register-form{
+        position: relative;
+        display: flex;
+        align-content: center;
+        text-align: center;
+        justify-content: center;
+    }
+    .section-card-register-form-select{
+        width: 50%;
+        margin:40px;
+        height: 60px;
+        font-size: 25px;
+        border: 2px solid rgb(10, 65, 86);
+    }
+    .section-card-register-form-select-option{
+        width: 50%;
+        font-size: 10px;
+        /* font-size: 25px; */
+    }
+
+    .section-card-register-form-button{
+        width: 30%;
+        height: 50px;
+        font-size: 25px;
+        background-color: rgb(10, 65, 86);
+        color: #ffffff;
+
+    }
+
+    .section-card-register-form-button:hover{
+        color:#ffffff;
+        background-color: rgb(4, 28, 37);
+
+    }
+
+/* * {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #ffffff;
+    padding: 3rem;
+    box-sizing: border-box; 
+    background-color: rgba(255, 255, 255, 0.897);
+
+} */
+
+.section-card-register {
+    /* position: relative; */
+    padding: 10rem  0;
+    background-color: rgba(255, 255, 255, 0.11);
+}
+
+.section-card-register-title {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    letter-spacing: .5rem;
+    background-image: linear-gradient(to right, 
+    rgba(68, 68, 68, 0.712), 
+    rgba(20, 20, 56, 0.781) );
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: .4rem;
+    transition: all .2s;
+}
+
+.section-card-register-title-box {
+    text-align: center;
+    margin-bottom: 4rem;
+}

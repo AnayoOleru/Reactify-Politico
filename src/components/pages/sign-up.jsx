@@ -11,7 +11,7 @@ import store from '../../store';
 import validateB4Submission from '../../validation/validateB4Submission';
 import '../../styles/sign-up-form.style.css';
 
-class SignUp extends Component {
+export class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,13 +37,13 @@ class SignUp extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     const userInput = this.state;
-    const result = validateB4Submission(userInput);
-    if (!result) {
-      return swal({
-        icon: 'warning',
-        title: 'Inputs Must be Valid Before Submission',
-      });
-    }
+    // const result = validateB4Submission(userInput);
+    // if (!result) {
+    //   return swal({
+    //     icon: 'warning',
+    //     title: 'Inputs Must be Valid Before Submission',
+    //   });
+    // }
 
     // do this, clear state
     // clear the state
@@ -70,20 +70,25 @@ class SignUp extends Component {
       password: userInput.password,
       };
        
-      console.log(data, 'data');
+      // console.log(data, 'data');
 
       // Call Action
       this.props.SignupAction(data);
   }
   render() {
-    const {token, success} = this.props;
+    const { success, error, history } = this.props;
     if (success) {
-      console.log(success);
       swal({
         icon: 'success',
         title: 'Signup successful',
       });
-      this.props.history.push('/parties');
+      history.push('/parties');
+    }
+    if (error) {
+      swal({
+        icon: 'warning',
+        title: error,
+      });
     }
 
     const {
@@ -100,7 +105,6 @@ class SignUp extends Component {
     } = this.state;
 
     return (
-      <Provider store={store}>
         <React.Fragment>
         <EntryNavBar />
         <form className="entry-form" onSubmit={this.handleSubmit}>
@@ -152,15 +156,15 @@ class SignUp extends Component {
    </footer>
 </form>
         </React.Fragment>
-      </Provider>
-
     );
   }
 }
 
 const mapStateToProps = ({posts}) =>({
   success: posts.success,
-  token: posts.token
+  // token: posts.token,
+  signup: posts.data,
+  error: posts.error,
 });
 
 SignUp.propTypes = {
@@ -168,4 +172,4 @@ SignUp.propTypes = {
   success:  PropTypes.bool.isRequired
 } 
 
-export default connect(mapStateToProps,  { SignupAction })(withRouter( SignUp));
+export default connect(mapStateToProps,  { SignupAction })(withRouter(SignUp));

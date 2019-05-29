@@ -497,16 +497,6 @@ html {
     font-size: 10px;
 }
 
-body {
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    line-height: 1.7;
-    color: #ffffff;
-    padding: 3rem;
-    box-sizing: border-box; 
-    background-color: rgba(255, 255, 255, 0.897);
-
-}
 
 .section-cards {
     /* position: relative; */
@@ -557,15 +547,13 @@ body {
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
 }
 
-.card__picture--1 {
+/* .card__picture--1 {
     background-image:
                      url(./images/APC.png);
                      position: relative;
-                     /* right:60px;
-                     bottom:60px; */
-}
+} */
 
-.card__picture--2 {
+/* .card__picture--2 {
     background-image:
                      url(./images/PDP.png);
 }
@@ -573,7 +561,7 @@ body {
 .card__picture--3 {
     background-image:
                      url(./images/Accord.jpg);
-}
+} */
 
 .card__picture {
     background-size: cover;

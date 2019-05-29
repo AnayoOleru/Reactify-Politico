@@ -44,7 +44,7 @@
     width: calc(3 * (100% - 3 * 6rem) / 4 + 2 * 6rem);
 }
 
-* {
+/* * {
     margin: 0;
     padding: 0;
 }
@@ -62,7 +62,7 @@ body {
     box-sizing: border-box; 
     background-color: rgba(255, 255, 255, 0.897);
 
-}
+} */
 
 .section-cards {
     /* position: relative; */

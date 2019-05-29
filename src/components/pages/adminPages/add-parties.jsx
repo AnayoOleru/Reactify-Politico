@@ -3,229 +3,249 @@ import { Link } from 'react-router';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getAllParties } from '../../../actions/getActions';
-import { CreateOffice } from '../../../actions/postActions';
+import { Button, Header, Icon, Modal } from 'semantic-ui-react';
+// import MyVerticallyCenteredModal from '../../reuseable component/office-modal-component';
+// import DeleteModal from '../../reuseable component/delete-modal-component';
+// import swal from '@sweetalert/with-react';
+import { getAllParties, } from '../../../actions/getActions';
+import uploadToCloudnary from '../../../../Utils/uploadToCloudinary';
+import { CreateParty } from '../../../actions/postActions';
+import { deleteAParty } from '../../../actions/deleteAction.js';
 import store from '../../../store';
 import AdminNavBar from '../../reuseable component/admin-navbar.component';
-import validatePartySubmission  from '../../../validation/addParty-validation';
+import validatePartySubmission from '../../../validation/addParty-validation';
 import '../../../styles/addParties-style.css';
+import '../../../styles/admin-modal.style.css';
 
 
 class AddParty extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      headquarters: '',
-      logo: '',
+      partyname: '',
+      partyaddress: '',
+      partyimage: '',
       isNameError: false,
       isHeadquaterError: false,
       isLogoError: false,
       loading: false,
+      modalShow: false,
+      deleteModalOpen: false, 
     };
     this.onChange = this.onChange.bind(this);
-    // this.onSubmit = this.onSubmit.bind(this);
   }
-  componentDidMount(){
-    const { getAllParties } = this.props;
-   getAllParties();
-}
+  // componentDidMount() {
+  //   const { getAllParties } = this.props;
+  //   getAllParties();
+  // }
   // in here before the component loads
   // show spinner
 
+ 
   onChange(e) {
     this.setState({[e.target.name]: e.target.value});
   }
 
-  handleSubmit = async (e) => {
+  // this saves data to cloudinary
+  saveToCloudinary = async e => {
+    const form = new FormData();
+    const imageData = e.target.files[0];
+    console.log(imageData);
+    // const validFormat = validateImage(imageData);
+    // if (validFormat.valid) {
+    //   toast.info(validFormat.message, {
+    //     type: toast.TYPE.INFO,
+    //     closeButton: false,
+    //     position: toast.POSITION.TOP_CENTER,
+    //   });
+    form.append('file', imageData);
+    const res = await uploadToCloudnary(form);
+    console.log('URL>>>>', res);
+    this.setState({ partyimage: res.url });
+    console.log(this.state, '.....state');
+
+  };
+
+  AddNewParty = async (e) => {
     e.preventDefault();
 
-    const userInput = this.state;
-    const result = validatePartySubmission(userInput);
-    if(!result) {
-      // eslint-disable-next-line no-console
-      console.log('Inputs must be valid before submission');
-    }
+    const adminInput = this.state;
     // clear the state
-    this.setState({
-        name: '',
-        headquarters: '',
-        logo: '',
-        isNameError: false,
-        isHeadquaterError: false,
-        isLogoError: false,
-        loading: false,
-    });
 
-      const data = {
-      name: userInput.name,
-      headquarters: userInput.headquarters,
-      logo: userInput.logo
-      };
-       
-      // console.log(data, 'data');
+    const data = {
+      name: adminInput.partyname,
+      hqaddress: adminInput.partyaddress,
+      logourl: adminInput.partyimage
+    };
 
-    //  call action 
-     this.props.CreateOffice(data);  
+    console.log(data, 'data');
+    this.props.CreateParty(data);
   }
 
   render() {
-    const getParties = this.props.get && this.props.get.map(party => (
-<div className="row" id="partyResult" key={party.id}>
-                            
-<div className="col-1-of-3">                 
-    <div className="card">
-        <div className="card__side card__side--front">
-            <div className="card__picture card__picture--3">&nbsp;</div>
-            <div className="card__details">
-                <ul>
-                    <li style={style5}>{party.name}</li>
-                </ul>
-            </div>
-        </div>
-        <div className="card__side card__side--back card__side--back-3">
-            <div className="card__cta">
-                <div className="card__price-box">
-                        <p className="card__price-only">Headquater Address</p>
-                        <p className="card__price-only">23 Abuja Road</p>
-        
-                </div>
-                <a href="#" className="btn" id="edit">Edit</a>
-                <a href="#" className="btn" id="delete">Delete</a>                                                                                    
-            </div>
-        </div>
-    </div>
-</div>
-</div>
+    // this.modal = () => {
+    //   // swal(
+    //     <div id="id01">
+    //       <h2 className="party-add-party">Add Political Party</h2>
+    //       <input placeholder="Party name" className="entry-input" type="text" name="name" value={this.state.name} onChange={(e) => {
+    //         e.preventDefault();
+    //         console.log(e.target.name);
+    //         // this.setState({ [e.target.name]: e.target.value });
+    //         this.setState({ [e.target.name]: e.target.value, });
+    //         console.log(this.state);
+    //       }}
+    //         required />
+    //       <br />
+    //       <br />
+    //       <input placeholder="Party HQ Address" className="entry-input" type="text" name="headquarters" value={this.state.headquarters} onChange={this.onChange}
+    //         required />
+    //       <br />
+    //       <br />
+    //       <p>Upload Party Image</p>
+    //       <input className="entry-input-file" type="file" name="name" onChange={this.saveToCloudinary}
+    //         accept=".png, .jpg, .jpeg"
+    //         required />
+    //       <br />
+    //       <p className="party-error-message">ERROR</p>
+    //       <br />
+    //       <input className="entry-input-btn" type="submit" name="name" value="Add" onClick={this.handleSubmit}
+    //         required />
+    //     </div>
+    //   // );
+    // };
 
-    ));
-      const style1 = {
-        width: '80px',
-        paddingLeft: '30px',
-      };
-      const style2 = {
-        paddingLeft: '30px', 
-        color: '#ffffff',
-        fontSize: '20px',
-      };
-      const style3 = {
-        fontSize:'30px',
-        cursor:'pointer',
-        height: '30px',
-      };
-      const style4 = {
-        backgroundColor:'#ffffff',
-      };
-      const style5 = {
-        fontSize: '30px'
-      };
+    // this.editModal = () => {
+    //   swal(
+    //     <div>
+    //       <h2 className="party-add-party">Edit Political Party name</h2>
+    //       <input placeholder="Party name" className="entry-input" type="text" name="name" onChange={this.onChange}
+    //         required />
+    //       <br />
+    //       <p className="party-error-message">ERROR</p>
+    //       <br />
+    //       <input className="entry-input-btn" type="submit" name="name" value="Edit"
+    //         required />
+    //     </div>
+    //     // display if admin successfully delete the party
+    //   )
+    // };
 
-      this.openNav = () => {
-        document.getElementById('mySidenav').style.width = '250px';
-      };
-      this.closeNav = () => {
-        document.getElementById('mySidenav').style.width = '0';
-      };
+    // this.deleteModal = (Id) => {
+    //     <div>
+    //       <h2 className="party-add-party">Delete Political Party</h2>
+    //       <h2 className="party-add-party-delete">Are you sure you want to delete this party?</h2>
+    //       <br />
+    //       <br />
+    //       <input className="entry-input-btn" type="submit" name="name" value="Yes" onClick={this.deleteParty(Id)} />
+    //       <br />
+    //       <br />
+    //       <input className="entry-input-btn" type="submit" name="name" value="Cancel"
+    //         required />
+    //     </div>
+    // };
 
-      this.openLog = () => {
-        openModal.style.display = 'block';
-        editBtn.disabled = true;
-        deleteBtn.disabled = true;
-      }
-      
-      this.closeLog = () => {
-        openModal.style.display = 'none';
-        editBtn.disabled = false;
-        deleteBtn.disabled = false;
-      }
-      
-      // delete party
-      // deleteBtn.addEventListener("click", openDelete)
-      this.openDelete = () => {
-        deleteParty.style.display = 'block';
-        addbtn.disabled = true;
-        editBtn.disabled = true;
-      }
-      
-      this.closeDelete = () => {
-        deleteParty.style.display = 'none';
-        addbtn.disabled = false;
-        editBtn.disabled = false;
-      }
+    this.deleteParty = (partyId) => {
+      // //  const { deleteAParty } = this.props;
+      //  this.props.get && this.props.get.map(party => (
+      //    console.log(party.id)
+      //   // deleteAParty(party.id)
+      //  ));
+      console.log(partyId);
+
+    }
+    // const getParties = this.props.get && this.props.get.map(party => (
+    //   <div className="row" id="partyResult" key={party.id}>
+
+    //     <div className="col-1-of-3">
+    //       <div className="card">
+    //         <div className="card__side card__side--front">
+    //           <div className="card__picture card__picture--3"><img src={party.logourl} /></div>
+    //           <div className="card__details">
+    //             <ul>
+    //               <li style={style5}>{party.name}</li>
+    //             </ul>
+    //           </div>
+    //         </div>
+    //         <div className="card__side card__side--back card__side--back-3">
+    //           <div className="card__cta">
+    //             <div className="card__price-box">
+    //               <p className="card__price-only">Headquater Address</p>
+    //               <p className="card__price-only">23 Abuja Road</p>
+
+    //             </div>
+    //             <a href="#" className="btn" id="edit" onClick={this.editModal}>Edit</a>
+    //             <a href="#" className="btn" id="delete" onClick={this.handleDeleteShow}>Delete</a>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+
+    // ));
+
+    const style4 = {
+      backgroundColor: '#ffffff',
+    };
 
     const {
-      name,
-      headquarters,
-      logo,
+      partyname,
+      partyaddress,
+      partyimage,
       isNameError,
       isHeadquaterError,
     } = this.state;
 
     return (
       <Provider store={store}>
-        <React.Fragment>       
+        <React.Fragment>
           <AdminNavBar />
-            <main style={style4}>
-                <section className="section-cards">
-                    <div className="text-cards">
-                        <h1 className="heading-primary">
-                            Parties
+          <main style={style4}>
+            <section className="section-cards">
+              <div className="text-cards">
+                <h1 className="heading-primary">
+                  Add Party
                         </h1>
-                    </div>
-                  {getParties}   
-                </section>
-        
-            </main>
+              </div>
 
-{/* modal */}
-            <div className="modal" id="openmodal">
-                        <form className="partylog" id="addParty">
-                                <h1>Add Party</h1>
-                                <input type="text" placeholder="party name" id="name" required />
-                                <input type="text" placeholder="HQ address" id="hqaddress" />
-                            <input type="text" id="logoURL" placeholder="logoUrl" required />
-                            <br />
-                            <div id="result"></div>
-                            <input type="submit" value="cancel" onClick={this.closeLog} />
-                            <input type="submit" />
-                        </form>
-                    </div>
-
- 
-                    <div className="modal1" id="openparty">
-                                <form>
-                                        <h1>Edit Party</h1>
-                                        <input type="text" placeholder="party name" id="editvalue" />
-                                    <br />
-                                    <div id="result">error&success</div>
-                                    <br />
-                                         <input type="submit" value="cancel" onClick={this.closeEdit} />
-                                         <input type="submit" onClick={this.editSubmit} />
-                                </form>
-                            </div>
-                            <div className="modal2" id="deleteparty">
-                                                <h1>This party will be deleted</h1>
-                                                <div id="delResult">Error&success</div>
-                                            <button onClick={this.closeDelete}>Cancel</button>
-                                            <button onClick={this.deleteGo}>Go on</button>
-                                            
-                                    </div>
-
-        <button className="add" id="addbtn" onClick={this.openLog}>+</button>
-             {/* render components here, pass onsubmit, onchange, name, and value{pass the state} to the inputs */}
+              <form className="entry-form" onSubmit={this.AddNewParty}>
+   <main className="entry-main">
+      <div className="entry-group">
+         <input className="entry-input" type="text" name="partyname"  onChange={this.onChange}
+            value={ partyname } required />
+         <label className="entry-label">Party Name </label>
+         <div className="entry-bar" />
+      </div>
+      <div className="entry-group">
+         <input className="entry-input" type="text" name="partyaddress" onChange={this.onChange}
+            value={partyaddress} required />
+         <label className="entry-label">Party address </label>
+         <div className="entry-bar"></div>
+      </div>
+      <div className="entry-group">
+         <input className="entry-input" type="file" name="partyimage" onChange={this.saveToCloudinary}
+             required />
+         <div className="entry-bar"></div>
+      </div>
+      <h4 className="entry-error">Error</h4>
+   </main>
+   <footer className="entry-footer">
+     <input className="entry-button" type="submit" name="btn_signin" value="Add Party" />
+   </footer>
+</form>
+            </section>
+          </main>
         </React.Fragment>
-        </Provider>
+      </Provider>
     );
   }
 }
 
 AddParty.propTypes = {
-  getAllParties: PropTypes.func.isRequired,
-} 
+  CreateParty: PropTypes.func.isRequired,
+}
 
 const mapStateToProps = state => ({
-  posts: state.payload,
-  get: state.get.items.data,
+  newParty: state.get.items.data,
 });
 
-export default connect(mapStateToProps, { getAllParties })(AddParty);
+export default connect(mapStateToProps, { CreateParty })(AddParty);

@@ -1,0 +1,44 @@
+.swal-modal {
+    color: black;
+}
+
+.swal-footer {
+    text-align: center;
+}
+
+.entry-input {
+    border: 1px solid rgb(29, 117, 151);
+    width: 90%;
+    height: 50px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.swal-button {
+   display: none;
+}
+
+.entry-input-btn {
+    border: 1px solid rgb(190, 190, 235);
+    background: rgb(29, 117, 151);
+    color: rgb(255, 255, 255);
+    width: 90%;
+    height: 50px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+.entry-input-btn:hover {
+    background: rgb(255, 255, 255);
+    color: rgb(29, 117, 151);
+    border: 1px solid rgb(29, 117, 151);
+}
+
+.party-error-message{
+    color: rgb(211, 0, 0);
+}
+
+.party-add-party-delete{
+    color: rgb(211, 0, 0);
+}
