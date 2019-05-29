@@ -120,26 +120,6 @@
     width: calc(3 * (100% - 3 * 6rem) / 4 + 2 * 6rem);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    font-size: 10px;
-}
-
-body {
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    line-height: 1.7;
-    color: #ffffff;
-    padding: 3rem;
-    box-sizing: border-box; 
-    background-color: rgba(255, 255, 255, 0.897);
-
-}
-
 .section-cards {
     /* position: relative; */
     padding: 10rem  0;
@@ -284,24 +264,16 @@ body {
 
 /* queries */
 /*Media Query*/
-@media only screen and (max-width: 75em) {
+/* @media only screen and (max-width: 75em) {
     
     html {
         font-size: 56.25%;
     }
-}
+} */
 
 
 @media only screen and (max-width: 56.25em),
    only screen and (hover: none) {
-
-html {
-    font-size: 50%;
-}
-
-body {
-    padding: 0;
-}
 
 .row {
     max-width: 50rem;

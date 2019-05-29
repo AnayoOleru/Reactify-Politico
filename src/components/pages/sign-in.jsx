@@ -26,10 +26,6 @@ class SignIn extends Component {
   }
   componentDidMount() {
     localStorage.clear();
-    swal({
-      icon: 'success',
-      title: 'Welcome back, please sign in',
-    });
   }
   
   ShowSpinner = () => {
@@ -50,13 +46,6 @@ class SignIn extends Component {
     e.preventDefault();
 
     const userInput = this.state;
-    const result = validateB4Submission(userInput);
-    if(!result) {
-      swal({
-        icon: 'error',
-        title: 'Inputs must be valid before submission',
-      });
-    }
 
     // clear the state
     this.setState({
@@ -78,16 +67,22 @@ class SignIn extends Component {
 
   render() {
 
-    const {token, success, history } = this.props;
+    const {error, success, history } = this.props;
    console.log(this.props)
     if (success) {
       swal({
         icon: 'success',
         title: 'Signin successful',
       });
-      console.log('redirect');
-      history.push('/parties');
     }
+
+    if (error) {
+      swal({
+        icon: 'warning',
+        title: error,
+      });
+    }
+
     const {
       email,
       password,
@@ -130,7 +125,9 @@ class SignIn extends Component {
 
 const mapStateToProps = ({posts}) =>({
   success: posts.success,
-  token: posts.token
+  // token: posts.token,
+  signin: posts.data,
+  error: posts.error,
 });
 
 SignIn.propTypes = {

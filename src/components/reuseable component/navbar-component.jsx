@@ -4,7 +4,7 @@ import { Link, IndexLink } from 'react-router';
 // import '../../styles/media-queries/queries-style.css';
 
 
-import logo from '../../../public/images/pogo.png';
+import logo from '../../styles/images/pogo.png';
 
 
 // import '../styles/media-queries/queries-style.css';

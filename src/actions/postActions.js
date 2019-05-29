@@ -1,4 +1,4 @@
-import { NEW_POST, NEW_PARTY, NEW_OFFICE, NEW_VOTE, NEW_CANDIDATE, NEW_OFFICE_FAILURE, NEW_PARTY_FAILURE } from './types';
+import { NEW_POST, NEW_PARTY_SUCCESS, NEW_OFFICE_SUCCESS, NEW_VOTE, NEW_CANDIDATE, NEW_OFFICE_FAILURE, NEW_PARTY_FAILURE, NEW_SIGNUP_SUCCESS, NEW_SIGNUP_FAILURE, NEW_SIGNIN_FAILURE, NEW_SIGNIN_SUCCESS } from './types';
 import jwt_decode from 'jwt-decode';
 import swal from 'sweetalert';
 
@@ -19,31 +19,29 @@ export const SignupAction = (signupData) => dispatch =>  {
       })
       .then((response) => response.json()
       .then((posts) => {
+        console.log(posts, 'POSTS HERE >>>>>>>>');
         if(posts.status === 201) {
           localStorage.setItem('token', posts.data[0].token);
-          const decoded = jwt_decode(posts.data[0].token);
-          return dispatch({ type: NEW_POST, payload: decoded });
+          // const decoded = jwt_decode(posts.data[0].token);
+          return dispatch({ type: NEW_SIGNUP_SUCCESS, payload: posts.data });
+        }
+        if(posts.status === 400) {
+          dispatch({
+            type: NEW_SIGNUP_FAILURE,
+            payload: posts.error,
+          });
         }
        }
       )
       .catch((err) => {
-        if(!err.response) {
-          swal({
-            icon: 'success',
-            title: 'successful signup',
-          });
-          dispatch({
-            type: 'GET_ERRORS',
-            payload: err,
-          });
-        } else {
+        dispatch({
+          type: NEW_SIGNUP_FAILURE,
+          payload: err.response.data.message,
+        });
+        if(err.response) {
           swal({
             icon: 'warning',
-            title: err.response.data.message
-          });
-          dispatch({
-            type: 'GET_ERRORS',
-            payload: err.response.data.message,
+            title: err.response.data.message,
           });
         }
       })
@@ -68,31 +66,25 @@ export const createPost = (postData) => dispatch =>  {
         const decoded = jwt_decode(post.data[0].token);
       if(post.status === 201 && decoded.isAdmin === true) {
         window.location = '/add-party';
-        return dispatch({ type: NEW_POST, payload: decoded });
+        return dispatch({ type: NEW_SIGNIN_SUCCESS, payload: decoded });
       }
       if(post.status === 201 && decoded.isAdmin === false) {
         window.location = '/parties';
-        return dispatch({ type: NEW_POST, payload: decoded });
+        return dispatch({ type: NEW_SIGNIN_SUCCESS, payload: decoded });
+      }
+
+      if(post.status === 400) {
+        dispatch({
+          type: NEW_SIGNIN_FAILURE,
+          payload: post.error,
+        });
       }
     }
       ) .catch((err) => {
         if(!err.response) {
-          swal({
-            icon: 'success',
-            title: 'successful signup',
-          });
           dispatch({
-            type: 'GET_ERRORS',
+            type: NEW_SIGNIN_FAILURE,
             payload: err,
-          });
-        } else {
-          swal({
-            icon: 'warning',
-            title: err.response.data.message
-          });
-          dispatch({
-            type: 'GET_ERRORS',
-            payload: err.response.data.message,
           });
         }
       });
@@ -112,7 +104,7 @@ export const CreateParty = (partyData) => dispatch =>  {
   .then((response) => response.json())
   .then(posts =>
     dispatch({
-    type: NEW_PARTY,
+    type: NEW_PARTY_SUCCESS,
     payload: posts
   })).catch((err)=>{
     dispatch({
@@ -136,7 +128,7 @@ export const CreateOffice = (officeData) => dispatch =>  {
   .then((response) => response.json())
   .then(posts =>
     dispatch({
-    type: NEW_OFFICE,
+    type: NEW_OFFICE_SUCCESS,
     payload: posts
   })).catch((err)=>{
     dispatch({

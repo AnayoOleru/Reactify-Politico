@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logo from '../../../public/images/pogo.png';
+import logo from '../../styles/images/pogo.png';
 import '../../styles/entry-nav.style.css';
 import '../../styles/user-admin-navbar.style.css';
 

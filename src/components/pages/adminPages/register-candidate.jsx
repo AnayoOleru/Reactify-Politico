@@ -29,15 +29,15 @@ class Register extends Component {
     const { users, parties, offices } = this.props;
 
     const renderUserOptions = (users) => {
-      return users.map(user => <option>{user.firstname} {user.lastname}</option>);
+      return users.map(user => <option className="section-card-register-form-select-option">{user.firstname} {user.lastname}</option>);
     }
 
     const renderPartyOptions = (parties) => {
-      return parties.map(party => <option>{party.name}</option>);
+      return parties.map(party => <option className="section-card-register-form-select-option">{party.name}</option>);
     }
 
     const renderOfficeOptions = (offices) => {
-      return offices.map(office => <option>{office.name}</option>);
+      return offices.map(office => <option className="section-card-register-form-select-option">{office.name}</option>);
     }
 
     const getUser = this.props.get && console.log(this.props.get)
@@ -49,32 +49,32 @@ class Register extends Component {
       <React.Fragment>
         <AdminNavBar />
         <main style={style5}>
-          <section className="section-cards">
-            <div className="text-cards">
-              <h1 className="heading-primary">
+          <section className="section-card-register">
+            <div className="section-card-register-title-box">
+              <h1 className="section-card-register-title">
                 Register Users
                         </h1>
             </div>
-            <div className="register" id="userRegister">
+            <div className="section-card-register-form" id="section-card-user-register-title-box">
               <form>
 
-                <select id="users">
+                <select className="section-card-register-form-select" id="users">
                   {renderUserOptions(users)}
                 </select>
 
-                <select id="parties">
+                <select className="section-card-register-form-select" id="parties">
                 {renderPartyOptions(parties)}
                 </select>
 
-                <select id="offices">
+                <select className="section-card-register-form-select" id="offices">
                 {renderOfficeOptions(offices)}
                 </select>
                 <br />
-                <div id="result" />
+                <div className="section-card-register-form-select-result" id="result" />
                 <br />
-                <input id="regBtn" type="submit" value="Register" onClick={this.register} />
+                <input className="section-card-register-form-button" id="regBtn" type="submit" value="Register" onClick={this.register} />
               </form>
-              <div id="result" />
+              <div className="section-card-register-form-select-result" id="result" />
             </div>
 
 
