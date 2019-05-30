@@ -1,4 +1,4 @@
-import { FETCH_POSTS, NEW_POST, NEW_PARTY_SUCCESS, NEW_OFFICE_SUCCESS, NEW_VOTE, NEW_CANDIDATE, NEW_OFFICE_FAILURE, NEW_PARTY_FAILURE, NEW_SIGNUP_SUCCESS, NEW_SIGNUP_FAILURE, NEW_SIGNIN_SUCCESS, NEW_SIGNIN_FAILURE  } from '../actions/types';
+import { FETCH_POSTS, NEW_POST, NEW_PARTY_SUCCESS, NEW_OFFICE_SUCCESS, NEW_VOTE, NEW_CANDIDATE_FAILURE, NEW_CANDIDATE_SUCCESS, NEW_OFFICE_FAILURE, NEW_PARTY_FAILURE, NEW_SIGNUP_SUCCESS, NEW_SIGNUP_FAILURE, NEW_SIGNIN_SUCCESS, NEW_SIGNIN_FAILURE  } from '../actions/types';
 
 const initialState = {
     items: [],
@@ -29,6 +29,7 @@ export default function (state = initialState, action) {
         case NEW_PARTY_FAILURE:
             return {
                 ...state,
+                error: action.payload
             };
         case NEW_OFFICE_SUCCESS:
             return {
@@ -44,11 +45,16 @@ export default function (state = initialState, action) {
                 ...state,
                 item: action.payload
             };
-        case NEW_CANDIDATE:
+        case NEW_CANDIDATE_SUCCESS:
             return {
                 ...state,
-                item: action.payload
+                candidate: action.payload
             };
+            case NEW_CANDIDATE_FAILURE:
+                return {
+                    ...state,
+                    error: action.payload,
+                };
         case NEW_SIGNUP_SUCCESS:
             return {
                 ...state,

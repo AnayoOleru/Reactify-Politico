@@ -20,6 +20,8 @@ import addOffice from '../components/pages/adminPages/add-govOffice.jsx';
 import AdminParties from '../components/pages/adminPages/Parties.jsx';
 import AdminOffice from '../components/pages/adminPages/Office.jsx';
 import register from '../components/pages/adminPages/register-candidate.jsx';
+import EditParty from '../components/pages/adminPages/edit-party.jsx';
+import DeleteParty from '../components/pages/adminPages/delete-party.jsx';
 import signout from '../components/pages/signout-page.jsx';
 import { Provider } from 'react-redux';
 import store  from '../store';
@@ -45,6 +47,8 @@ class App extends Component{
   <Route exact path="/register" component={register} />
   <Route exact path="/all-offices" component={AdminOffice} />
   <Route exact path="/all-parties" component={AdminParties} />
+  <Route exact path="/parties/:id/name" component={EditParty} />
+  <Route exact path="/parties/:id/delete" component={DeleteParty} />
   {/* <Route exact path="/party/delete" component={electionResult} /> */}
   {/* <Route exact path="/party/edit/name" component={electionResult} /> */}
   {/* <Route exact path="*" component={fourOFour} /> */}

@@ -1,4 +1,4 @@
-import { NEW_POST, NEW_PARTY_SUCCESS, NEW_OFFICE_SUCCESS, NEW_VOTE, NEW_CANDIDATE, NEW_OFFICE_FAILURE, NEW_PARTY_FAILURE, NEW_SIGNUP_SUCCESS, NEW_SIGNUP_FAILURE, NEW_SIGNIN_FAILURE, NEW_SIGNIN_SUCCESS } from './types';
+import { NEW_POST, NEW_PARTY_SUCCESS, NEW_OFFICE_SUCCESS, NEW_VOTE, NEW_CANDIDATE_SUCCESS, NEW_CANDIDATE_FAILURE, NEW_OFFICE_FAILURE, NEW_PARTY_FAILURE, NEW_SIGNUP_SUCCESS, NEW_SIGNUP_FAILURE, NEW_SIGNIN_FAILURE, NEW_SIGNIN_SUCCESS } from './types';
 import jwt_decode from 'jwt-decode';
 import swal from 'sweetalert';
 
@@ -23,9 +23,18 @@ export const SignupAction = (signupData) => dispatch =>  {
         if(posts.status === 201) {
           localStorage.setItem('token', posts.data[0].token);
           // const decoded = jwt_decode(posts.data[0].token);
+            swal({
+              icon: 'success',
+              title: 'Signup successful',
+            });
+            history.push('/parties');
           return dispatch({ type: NEW_SIGNUP_SUCCESS, payload: posts.data });
         }
         if(posts.status === 400) {
+          swal({
+            icon: 'warning',
+            title: posts.error,
+          });
           dispatch({
             type: NEW_SIGNUP_FAILURE,
             payload: posts.error,
@@ -65,6 +74,10 @@ export const createPost = (postData) => dispatch =>  {
         localStorage.setItem('token', post.data[0].token);
         const decoded = jwt_decode(post.data[0].token);
       if(post.status === 201 && decoded.isAdmin === true) {
+           swal({
+             icon: 'success',
+             title: 'Signin successful',
+           });
         window.location = '/add-party';
         return dispatch({ type: NEW_SIGNIN_SUCCESS, payload: decoded });
       }
@@ -73,7 +86,11 @@ export const createPost = (postData) => dispatch =>  {
         return dispatch({ type: NEW_SIGNIN_SUCCESS, payload: decoded });
       }
 
-      if(post.status === 400) {
+      if(post.status >= 400) {
+          swal({
+            icon: 'warning',
+            title: post.error,
+          });
         dispatch({
           type: NEW_SIGNIN_FAILURE,
           payload: post.error,
@@ -102,11 +119,24 @@ export const CreateParty = (partyData) => dispatch =>  {
       body: JSON.stringify(partyData)
   })
   .then((response) => response.json())
-  .then(posts =>
-    dispatch({
-    type: NEW_PARTY_SUCCESS,
-    payload: posts
-  })).catch((err)=>{
+  .then((posts) => {
+    if(posts.status === 201 ) {
+        swal({
+          icon: 'success',
+          title: 'Party created successfully',
+        });
+      window.location = '/all-parties';
+      return dispatch({ type: NEW_PARTY_SUCCESS, payload: posts });
+    }
+    if(posts.status >= 400 ) {
+        swal({
+          icon: 'warning',
+          title: posts.error,
+        });
+      return dispatch({ type: NEW_PARTY_FAILURE, payload: posts.error });
+    }
+  }
+).catch((err)=>{
     dispatch({
       type: NEW_PARTY_FAILURE,
       payload: err
@@ -126,11 +156,23 @@ export const CreateOffice = (officeData) => dispatch =>  {
       body: JSON.stringify(officeData)
   })
   .then((response) => response.json())
-  .then(posts =>
-    dispatch({
-    type: NEW_OFFICE_SUCCESS,
-    payload: posts
-  })).catch((err)=>{
+  .then((posts) => {
+    if(posts.status === 201 ) {
+      swal({
+        icon: 'success',
+        title: 'Office created successfully',
+      });
+    window.location = '/all-offices';
+    return dispatch({ type: NEW_OFFICE_SUCCESS, payload: posts });
+  }
+  if(posts.status >= 400 ) {
+      swal({
+        icon: 'warning',
+        title: posts.error,
+      });
+    return dispatch({ type: NEW_OFFICE_FAILURE, payload: posts.error });
+  }
+  }).catch((err)=>{
     dispatch({
       type: NEW_OFFICE_FAILURE,
       payload: err
@@ -157,7 +199,7 @@ export const UserVote = (voteeData) => dispatch =>  {
 };
 
 // register user as a candidate
-export const RegisterUserAsCandidate = (candidateData) => dispatch =>  {
+export const RegisterUserAsCandidate = (candidateData, userid) => dispatch =>  {
   // eslint-disable-next-line no-undef
   fetch(`https://trustpolitico.herokuapp.com/api/v1/office/${userid}/register`,{
     headers: {
@@ -168,9 +210,24 @@ export const RegisterUserAsCandidate = (candidateData) => dispatch =>  {
       body: JSON.stringify(candidateData)
   })
   .then((response) => response.json())
-  .then(posts =>
-    dispatch({
-    type: NEW_CANDIDATE,
-    payload: posts
-  }));
+  .then((posts) => {
+    if(posts.status === 201) {
+        swal({
+          icon: 'success',
+          title: 'User successful registered as a candidate',
+        });
+        // history.push('/parties');
+      return dispatch({ type: NEW_CANDIDATE_SUCCESS, payload: posts.data });
+    }
+    if(posts.status === 400) {
+      swal({
+        icon: 'warning',
+        title: posts.error,
+      });
+      dispatch({
+        type: NEW_CANDIDATE_FAILURE,
+        payload: posts.error,
+      });
+    }
+  });
 };

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getAllOffice } from '../../actions/getActions';
 import '../../styles/govOffice.css';
 
-class AllOffice extends Component {
+export class AllOffice extends Component {
 
     componentDidMount(){
        const { getAllOffice } = this.props;

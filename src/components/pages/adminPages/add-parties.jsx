@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import jwt_decode from 'jwt-decode';
 import { Button, Header, Icon, Modal } from 'semantic-ui-react';
 // import MyVerticallyCenteredModal from '../../reuseable component/office-modal-component';
 // import DeleteModal from '../../reuseable component/delete-modal-component';
@@ -13,6 +14,7 @@ import { CreateParty } from '../../../actions/postActions';
 import { deleteAParty } from '../../../actions/deleteAction.js';
 import store from '../../../store';
 import AdminNavBar from '../../reuseable component/admin-navbar.component';
+import swal from 'sweetalert';
 import validatePartySubmission from '../../../validation/addParty-validation';
 import '../../../styles/addParties-style.css';
 import '../../../styles/admin-modal.style.css';
@@ -75,7 +77,7 @@ class AddParty extends Component {
     const data = {
       name: adminInput.partyname,
       hqaddress: adminInput.partyaddress,
-      logourl: adminInput.partyimage
+      logoUrl: adminInput.partyimage
     };
 
     console.log(data, 'data');
@@ -131,17 +133,17 @@ class AddParty extends Component {
     // };
 
     // this.deleteModal = (Id) => {
-    //     <div>
-    //       <h2 className="party-add-party">Delete Political Party</h2>
-    //       <h2 className="party-add-party-delete">Are you sure you want to delete this party?</h2>
-    //       <br />
-    //       <br />
-    //       <input className="entry-input-btn" type="submit" name="name" value="Yes" onClick={this.deleteParty(Id)} />
-    //       <br />
-    //       <br />
-    //       <input className="entry-input-btn" type="submit" name="name" value="Cancel"
-    //         required />
-    //     </div>
+        <div>
+          <h2 className="party-add-party">Delete Political Party</h2>
+          <h2 className="party-add-party-delete">Are you sure you want to delete this party?</h2>
+          <br />
+          <br />
+          <input className="entry-input-btn" type="submit" name="name" value="Yes" />
+          <br />
+          <br />
+          <input className="entry-input-btn" type="submit" name="name" value="Cancel"
+            required />
+        </div>
     // };
 
     this.deleteParty = (partyId) => {
@@ -226,7 +228,6 @@ class AddParty extends Component {
              required />
          <div className="entry-bar"></div>
       </div>
-      <h4 className="entry-error">Error</h4>
    </main>
    <footer className="entry-footer">
      <input className="entry-button" type="submit" name="btn_signin" value="Add Party" />
@@ -244,8 +245,9 @@ AddParty.propTypes = {
   CreateParty: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, posts) => ({
   newParty: state.get.items.data,
+  error: posts.error,
 });
 
 export default connect(mapStateToProps, { CreateParty })(AddParty);

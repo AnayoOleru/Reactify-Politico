@@ -1,10 +1,11 @@
-import { DROP_PARTY } from "./types";
+import { DROP_PARTY_SUCCESS, DROP_PARTY_FAILURE } from "./types";
 let token = window.localStorage.getItem('token');
+import swal from 'sweetalert';
 
 // delete a specific party
-export const deleteAParty  = (dispatch, partyId)  =>  {
+export const deleteParty  = (partyid) =>  dispatch =>  {
     try{
-    fetch(`https://trustpolitico.herokuapp.com/api/v1/parties/${partyId}`,{
+    fetch(`https://trustpolitico.herokuapp.com/api/v1/parties/${partyid}`,{
       headers: {
           'Accept': 'application/json, text/plain, */*',
           'Content-type': 'application/json',
@@ -13,15 +14,31 @@ export const deleteAParty  = (dispatch, partyId)  =>  {
         method: 'DELETE'
     })
     .then((response) => response.json())
-    .then(deletedParty =>
-      console.log(deletedParty)
-    //   dispatch({
-    //   type: DROP_PARTY,
-    //   payload: result
-    // })
-    );
+    .then((party) => {
+      if(name.status === 201) {
+        swal({
+          icon: 'success',
+          title: 'Party successfully deleted',
+        });
+        // history.push('/parties');
+      return dispatch({ type: DROP_PARTY_SUCCESS, payload: party.data });
+    }
+    if(name.status === 400) {
+      swal({
+        icon: 'warning',
+        title: party.error,
+      });
+      dispatch({
+        type: DROP_PARTY_FAILURE,
+        payload: party.error,
+      });
+    }
+
+    });
   } catch(err){
-      // eslint-disable-next-line no-console
-      console.log(err);
+    dispatch({
+      type: DROP_PARTY_FAILURE,
+      payload: name.error,
+    });
     }
   };

@@ -41,7 +41,7 @@ export default function(state = initialState, action ) {
         return {
             ...state,
             items: action.payload,
-            offices: action.payload
+            offices: action.payload.data
         };
         case FETCH_OFFICES_FAILURE:
         return {
