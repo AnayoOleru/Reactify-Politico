@@ -7,7 +7,7 @@
 }
 
 .entry-nav{
-    position: fixed;
+    position: absolute;
     top:0px;
     left :0px;
     width: 100%;
@@ -41,6 +41,26 @@
     text-decoration:none;
     text-transform: uppercase;
     transition:.3s;
+}
+.entry-nav-list-username{
+    font-size: 15px;
+}
+.user-admin-container .entry-nav-list-username:hover{
+    background-color: rgb(10, 65, 86);
+    color: #ffffff; 
+    border: none;
+}
+.navbar-mobile .entry-nav-username {
+    font-size: 19px;
+    background-color: rgb(10, 65, 86);
+    border: none; 
+    line-height: 5.5px;
+}
+.navbar-mobile .entry-nav-username:hover{
+    font-size: 19px;
+    background-color: rgb(10, 65, 86); 
+    border: none; 
+    color: #ffffff;
 }
 .entry-nav-list-child:hover {
     

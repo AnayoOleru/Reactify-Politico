@@ -94,7 +94,7 @@ export class SignIn extends Component {
          <label className="entry-label">Password</label>
          <div className="entry-bar"></div>
       </div>
-      <h4 className="entry-error terms">Error</h4>
+      <p className="entry-terms">Don't have an account? <a href={'/sign-up'}>Register</a></p>
    </main>
    <footer className="entry-footer">
      <input className="entry-button" type="submit" name="btn_signin" value="Sign in" />
