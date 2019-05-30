@@ -5,7 +5,7 @@ import { getAllParties } from '../../actions/getActions';
 import UserNavBar from '../reuseable component/user-navbar.component.jsx';
 import '../../styles/parties.style.css';
 
-class Parties extends Component {
+export class Parties extends Component {
     componentDidMount(){
         const { getAllParties } = this.props;
        getAllParties();

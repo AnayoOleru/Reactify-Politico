@@ -5,65 +5,73 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import jwt_decode from 'jwt-decode';
 import { Button, Header, Icon, Modal } from 'semantic-ui-react';
+// import MyVerticallyCenteredModal from '../../reuseable component/office-modal-component';
+// import DeleteModal from '../../reuseable component/delete-modal-component';
+// import swal from '@sweetalert/with-react';
 import { getAllParties, } from '../../../actions/getActions';
-import { CreateOffice } from '../../../actions/postActions';
-import { deleteAParty } from '../../../actions/deleteAction.js';
+import { editParty } from '../../../actions/editAction';
 import store from '../../../store';
 import AdminNavBar from '../../reuseable component/admin-navbar.component';
+import swal from 'sweetalert';
 import validatePartySubmission from '../../../validation/addParty-validation';
 import '../../../styles/addParties-style.css';
 import '../../../styles/admin-modal.style.css';
 
 
-class AddOffice extends Component {
+class EditParty extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      type: '',
-      officename: '',
-      isTypeError: false,
-      isNameError: false,
-      loading: false,
+      partyname: '',
     };
     this.onChange = this.onChange.bind(this);
   }
-  
   componentDidMount() {
-    const token = localStorage.getItem('token');
-    const decoded = jwt_decode(token);
-    // console.log(decoded.isAdmin);
-    if(!token || decoded.isAdmin === false) {
-      window.location = '/';
-    }
-  }
+    // const { match } = this.props;
+    // const { partyId } = match.params;
+    const id = this.props.match.params.id;
+    console.log(id);
+    
+  };
+  // componentDidMount() {
+  //   const { getAllParties } = this.props;
+  //   getAllParties();
+  // }
+  // in here before the component loads
+  // show spinner
+
  
   onChange(e) {
     this.setState({[e.target.name]: e.target.value});
   }
 
-  AddNewOffice = async (e) => {
+  AddNewParty = async (e) => {
     e.preventDefault();
 
+    // const { match } = this.props;
+    // const { partyId } = match.params;
+    const partyId = this.props.match.params.id;
+    
+
     const adminInput = this.state;
+    // clear the state
+
     const data = {
-      type: adminInput.officetype,
-      name: adminInput.officename,
+      name: adminInput.partyname,
     };
-    this.props.CreateOffice(data);
+
+    // console.log(data, 'data');
+    this.props.editParty(data, partyId);
   }
 
   render() {
-   
+
     const style4 = {
       backgroundColor: '#ffffff',
     };
 
     const {
-      officetype,
-      officename,
-      isTypeError,
-      isNameError,
-      loading,
+      partyname,
     } = this.state;
 
     return (
@@ -74,27 +82,21 @@ class AddOffice extends Component {
             <section className="section-cards">
               <div className="text-cards">
                 <h1 className="heading-primary">
-                  Add Office
+                  Edit Party
                         </h1>
               </div>
 
-              <form className="entry-form" onSubmit={this.AddNewOffice}>
+              <form className="entry-form" onSubmit={this.AddNewParty}>
    <main className="entry-main">
       <div className="entry-group">
-         <input className="entry-input" type="text" name="officetype"  onChange={this.onChange}
-            value={ officetype } required />
-         <label className="entry-label">Office Type </label>
+         <input className="entry-input" type="text" name="partyname"  onChange={this.onChange}
+            value={ partyname } required />
+         <label className="entry-label">Party Name </label>
          <div className="entry-bar" />
-      </div>
-      <div className="entry-group">
-         <input className="entry-input" type="text" name="officename" onChange={this.onChange}
-            value={ officename } required />
-         <label className="entry-label">Office name </label>
-         <div className="entry-bar"></div>
       </div>
    </main>
    <footer className="entry-footer">
-     <input className="entry-button" type="submit" name="btn_signin" value="Add Office" />
+     <input className="entry-button" type="submit" name="btn_signin" value="Edit Party Name" />
    </footer>
 </form>
             </section>
@@ -105,13 +107,13 @@ class AddOffice extends Component {
   }
 }
 
-AddOffice.propTypes = {
-  CreateOffice: PropTypes.func.isRequired,
+EditParty.propTypes = {
+  CreateParty: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state, posts) => ({
-  newOffice: state.get.items.data,
+  newParty: state.get.items.data,
   error: posts.error,
 });
 
-export default connect(mapStateToProps, { CreateOffice })(AddOffice);
+export default connect(mapStateToProps, { editParty })(EditParty);

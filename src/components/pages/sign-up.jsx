@@ -76,21 +76,6 @@ export class SignUp extends Component {
       this.props.SignupAction(data);
   }
   render() {
-    const { success, error, history } = this.props;
-    if (success) {
-      swal({
-        icon: 'success',
-        title: 'Signup successful',
-      });
-      history.push('/parties');
-    }
-    if (error) {
-      swal({
-        icon: 'warning',
-        title: error,
-      });
-    }
-
     const {
       passportUrl,
       firstname,

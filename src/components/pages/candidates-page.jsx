@@ -10,6 +10,11 @@ class Candidates extends Component {
         const { getAllCandidates } = this.props;
       getAllCandidates();
     }
+
+    handleUSerVote (candidateId, candidatename, office, officeid, user, userid){
+      console.log(candidateId);
+
+    }
   render() {
       const style1 = {
         width: '80px',
@@ -63,7 +68,7 @@ class Candidates extends Component {
         <p className="card__price-only">{candidate.partyname}</p>
         <p className="card__price-value">{candidate.candidatename}</p>
           </div>
-        <a href="#" className="btn">Vote</a>
+        <a href="#" className="btn" onClick={e => handleUserVote(candidate.id)}>Vote</a>
             </div>
                 </div>
                     </div>

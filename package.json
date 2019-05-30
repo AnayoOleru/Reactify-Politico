@@ -4,10 +4,11 @@
   "description": "A Nigerian E-voting system",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "coverage": "nyc report — -reporter=text-lcov | coveralls"
+    "coverage": "nyc report — -reporter=text-lcov | coveralls",
+    "build": "webpack --mode production",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -62,6 +63,7 @@
     "bootstrap": "^4.3.1",
     "browser-history": "^1.0.1",
     "coveralls": "^3.0.3",
+    "express": "^4.17.1",
     "jest-css-modules-transform": "^2.2.0",
     "jwt-decode": "^2.2.0",
     "nyc": "^14.1.1",

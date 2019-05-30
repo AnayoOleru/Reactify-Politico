@@ -1,17 +1,21 @@
-import { DROP_PARTY } from '../actions/types';
+import { DROP_PARTY_FAILURE, DROP_PARTY_SUCCESS} from '../actions/types';
 
 const initialState = {
-    items: [],
-    item: {}
+    party: {}
 };
 
 export default function(state = initialState, action ) {
     switch(action.type) {
-        case DROP_PARTY:
+        case DROP_PARTY_SUCCESS:
         return {
             ...state,
-            items: action.payload
+            party: action.payload
         };
+        case DROP_PARTY_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+            };
         default:
         return state;
 

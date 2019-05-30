@@ -104,32 +104,32 @@ export const getAllCandidates = (candidateData) => dispatch => {
   }
 };
 
-// export const getAllElectionResults = (electionResults) => dispatch =>  {
-//   try{
-//   fetch(`https://trustpolitico.herokuapp.com/api/v1/office/${officeId}/result`,{
-//     headers: {
-//         'Accept': 'application/json, text/plain, */*',
-//         'Content-type': 'application/json',
-//         'x-access-token': token,
-//         mode: 'cors',
-//       },
-//       method: 'GET',
-//       body: JSON.stringify(electionResults)
-//   })
-//   .then((response) => response.json())
-//   .then(results =>
-//     // console.log(results);
-//     // dispatch({
-//     //   type: FETCH_CANDIDATES,
-//     //   payload: candidate
-//     // })
-//     console.log(results)
-//     );
-// } catch(err){
-//   dispatch({
-//     type: FETCH_CANDIDATES_FAILURE,
-//     payload: err
-//   });
-//   }
-// };
+export const getAllElectionResults = (officeId) => dispatch =>  {
+  try{
+  fetch(`https://trustpolitico.herokuapp.com/api/v1/office/${officeId}/result`,{
+    headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-type': 'application/json',
+        'x-access-token': token,
+        mode: 'cors',
+      },
+      method: 'GET',
+      body: JSON.stringify()
+  })
+  .then((response) => response.json())
+  .then(results =>
+    // console.log(results);
+    dispatch({
+      type: FETCH_CANDIDATES,
+      payload: results
+    })
+    // console.log(results)
+    );
+} catch(err){
+  dispatch({
+    type: FETCH_CANDIDATES_FAILURE,
+    payload: err
+  });
+  }
+};
 

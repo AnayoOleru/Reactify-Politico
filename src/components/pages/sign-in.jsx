@@ -12,7 +12,7 @@ import { validateInputs } from '../../validation/validateInputs';
 import '../../styles/sign-up-form.style.css';
 
 
-class SignIn extends Component {
+export class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -66,23 +66,6 @@ class SignIn extends Component {
   }
 
   render() {
-
-    const {error, success, history } = this.props;
-   console.log(this.props)
-    if (success) {
-      swal({
-        icon: 'success',
-        title: 'Signin successful',
-      });
-    }
-
-    if (error) {
-      swal({
-        icon: 'warning',
-        title: error,
-      });
-    }
-
     const {
       email,
       password,
