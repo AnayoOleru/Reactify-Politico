@@ -27,9 +27,9 @@ export const getAllParties = (partyData) => dispatch => {
 };
 
 // get all political offices
-export const getAllOffice = (officeData) => dispatch => {
+export const getAllOffice = (officeData) => async (dispatch) => {
   try {
-    fetch('https://trustpolitico.herokuapp.com/api/v1/offices', {
+    let response = await fetch('https://trustpolitico.herokuapp.com/api/v1/offices', {
       headers: {
         'Accept': 'application/json, text/plain, */*',
         'Content-type': 'application/json',
@@ -37,14 +37,20 @@ export const getAllOffice = (officeData) => dispatch => {
       },
       method: 'GET',
       body: JSON.stringify(officeData)
-    })
-      .then((response) => response.json())
-      .then(offices =>
-        dispatch({
-          type: FETCH_OFFICES,
-          payload: offices
-        }));
+    });
+    let offices = await response.json();
+    dispatch({
+      type: FETCH_OFFICES,
+      payload: offices
+    });
+      // .then((response) => console.log(response.json(), "******************") || response.json())
+      // .then(offices =>
+      //   dispatch({
+      //     type: FETCH_OFFICES,
+      //     payload: offices
+      //   }));
   } catch (err) {
+    console.log(err, ">>>>>>>>>>>>>>>>>>>>>>")
     dispatch({
       type: FETCH_OFFICES_FAILURE,
       payload: err
@@ -118,11 +124,11 @@ export const getAllElectionResults = (officeId) => dispatch =>  {
   })
   .then((response) => response.json())
   .then(results =>
-    // console.log(results);
-    dispatch({
-      type: FETCH_CANDIDATES,
-      payload: results
-    })
+    console.log(results)
+    // dispatch({
+    //   type: FETCH_CANDIDATES,
+    //   payload: results
+    // })
     // console.log(results)
     );
 } catch(err){

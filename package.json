@@ -4,15 +4,16 @@
   "description": "A Nigerian E-voting system",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
+    "dev-start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "coverage": "nyc report — -reporter=text-lcov | coveralls",
-    "build": "webpack --mode production",
-    "start": "node server.js"
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AnayoOleru/Reactify-Politico.git"
+    "url": "git+https://github.com/An ayoOleru/Reactify-Politico.git"
   },
   "keywords": [
     "evote"

@@ -133,7 +133,6 @@ export class SignUp extends Component {
          <label className="entry-label">Password</label>
          <div className="entry-bar"></div>
       </div>
-      <h4 className="entry-error">Error</h4>
       <p className="entry-terms">By clicking sign up, I confirm that I have read and agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></p>
    </main>
    <footer className="entry-footer">

@@ -1,10 +1,13 @@
 import React from 'react';
+import jwt_decode from 'jwt-decode';
 
 import logo from '../../styles/images/pogo.png';
+import userDefault from '../../styles/images/userimg.png';
 import '../../styles/entry-nav.style.css';
 import '../../styles/user-admin-navbar.style.css';
+import { decode } from 'punycode';
 
-const EntryNavBar = () => {
+const EntryNavBar = (userImage) => {
     const style5 = {
         fontSize: '30px'
     };
@@ -29,6 +32,9 @@ const EntryNavBar = () => {
       function closeNav(){
         document.getElementById('mySidenav').style.width = '0';
       }
+
+      let token = window.localStorage.getItem('token');
+      const decoded = jwt_decode(token);
     return (
         <React.Fragment>
         <div className="user-admin-container">
@@ -40,13 +46,17 @@ const EntryNavBar = () => {
                     <li className="entry-nav-list" ><a className="entry-nav-list-child" href={'/candidates'}>Candidates</a></li>
                     <li className="entry-nav-list" ><a className="entry-nav-list-child" href={'/result'}>Results</a></li>
                     <li className="entry-nav-list" ><a className="entry-nav-list-child" href={'/sign-out'}>Sign-out</a></li>
+                    <li className="entry-nav-list-username" ><a className="entry-nav-list-child">{decoded.userName}</a></li>
                 </ul>
             </nav>
         </div>
         <div className="navbar-mobile">
             <div id="mySidenav" className="sidenav" >
                 <a href="#" className="closebtn" onClick={closeNav} ><i className="fa fa-chevron-circle-right" /></a>
-                <img style={style1} src="../../images/userimg.png" />
+                <input type="file" className="custom-file-input" />
+                <img style={style1} src={userDefault} />
+                <a className="entry-nav-username"><span>{decoded.userName}</span></a>
+                <a className="entry-nav-username"><span>{decoded.lastName}</span></a>
                 <h1 id="nameside" style={style2}  />
                 <a href={'/'}><span>Home</span></a>
                 <a href={'/parties'}><i className="far fa-handshake" /><span>Parties</span></a>

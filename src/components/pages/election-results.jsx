@@ -12,13 +12,14 @@ export class Results extends Component {
   }
 
   showResult(officeId, officename) {
-    console.log(officeId);
+    const { get } = this.props;
+    console.log(get, "******************************");
 
     const { getAllElectionResults } = this.props;
     getAllElectionResults(officeId);
 
-    this.getResults = this.props.get && this.props.get.map(result => (
-      <tr key={result.id}><td data-th="Office:">{result.officename}</td><td data-th="Candidate:">'{result.candidate}</td> <td data-th="Candidate:">{result.result}</td><td data-th="Result:">'{}</td></tr>
+    this.getResults = get.length && this.props.get.map(result => (
+      <tr key={result.id}><td data-th="Office:">{result.office}</td><td data-th="Candidate:">'{result.candidate}</td> <td data-th="Candidate:">{result.result}</td><td data-th="Result:">'{}</td></tr>
     ));
   }
   render() {
@@ -47,9 +48,9 @@ export class Results extends Component {
       document.getElementById('mySidenav').style.width = '0';
     };
 
-    const getOffice = this.props.offices && this.props.offices.map(office => (
+    const getOffice = this.props.get && this.props.get.map(office => (
     
-      <a href="#" key={office.id} onClick={this.showResult(office.id, office.name)}><span>{office.name}</span></a>
+      <a href="#" key={office.id} onClick={() => this.showResult(office.id, office.name)}><span>{office.name}</span></a>
     ));
     //   const getElection = this.props.get && this.props.get.forEach(candidate => (
 
@@ -98,8 +99,8 @@ Results.propTypes = {
 
 
 const mapStateToProps = state => ({
-  // posts: state.data,
-  offices: state.data,
+  posts: state.payload,
+  get: state.get.items.data,
 });
 
 
