@@ -5,7 +5,6 @@ import logo from '../../styles/images/pogo.png';
 import userDefault from '../../styles/images/userimg.png';
 import '../../styles/entry-nav.style.css';
 import '../../styles/user-admin-navbar.style.css';
-import { decode } from 'punycode';
 
 const EntryNavBar = (userImage) => {
     const style5 = {

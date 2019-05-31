@@ -4,10 +4,6 @@ import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import jwt_decode from 'jwt-decode';
-import { Button, Header, Icon, Modal } from 'semantic-ui-react';
-// import MyVerticallyCenteredModal from '../../reuseable component/office-modal-component';
-// import DeleteModal from '../../reuseable component/delete-modal-component';
-// import swal from '@sweetalert/with-react';
 import { getAllParties, } from '../../../actions/getActions';
 import { editParty } from '../../../actions/editAction';
 import store from '../../../store';
@@ -45,7 +41,7 @@ class EditParty extends Component {
     this.setState({[e.target.name]: e.target.value});
   }
 
-  AddNewParty = async (e) => {
+  EditOldParty = async (e) => {
     e.preventDefault();
 
     // const { match } = this.props;
@@ -59,8 +55,6 @@ class EditParty extends Component {
     const data = {
       name: adminInput.partyname,
     };
-
-    // console.log(data, 'data');
     this.props.editParty(data, partyId);
   }
 
@@ -86,7 +80,7 @@ class EditParty extends Component {
                         </h1>
               </div>
 
-              <form className="entry-form" onSubmit={this.AddNewParty}>
+              <form className="entry-form" onSubmit={this.EditOldParty}>
    <main className="entry-main">
       <div className="entry-group">
          <input className="entry-input" type="text" name="partyname"  onChange={this.onChange}
@@ -95,8 +89,11 @@ class EditParty extends Component {
          <div className="entry-bar" />
       </div>
    </main>
+   <br />
    <footer className="entry-footer">
      <input className="entry-button" type="submit" name="btn_signin" value="Edit Party Name" />
+     <br />
+     <br />
    </footer>
 </form>
             </section>

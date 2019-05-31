@@ -113,8 +113,7 @@ body {
 }
 
 .card__picture--1 {
-    background-image: linear-gradient(to right bottom, #0a4156, #245a70),
-                     url(./images/buhariImg.jpg);
+    background-image: linear-gradient(to right bottom, #0a4156, #245a70);
                      position: relative;
                      /* right:60px;
                      bottom:60px; */

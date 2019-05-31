@@ -87,23 +87,6 @@ class UserVoteUser extends Component {
       isNameError,
       isHeadquaterError,
     } = this.state;
-    // setup the loader
-//     const override = css`
-//     display: block;
-//     margin: 0 auto;
-//     margin-right:10px;
-//     border-color: red;
-// `;
-
-// const spinner = (<span className='sweet-loading'>
-// <ClipLoader
-//   css={override}
-//   sizeUnit={'px'}
-//   size={10}
-//   color={'white'}
-//   loading={loading}
-// />
-// </span>);
 
     return (
       <Provider store={store}>

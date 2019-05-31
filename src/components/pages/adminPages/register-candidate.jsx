@@ -8,9 +8,8 @@ import '../../../styles/register-user-style.css';
 import { CreateParty } from '../../../actions/postActions';
 
 class Register extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+ 
+  state = {
       userid: '',
       username: '',
       officeid: '',
@@ -23,10 +22,8 @@ class Register extends Component {
         officeid:'',
         partyid: ''
       }
-    };
-    this.saveOptions = this.saveOptions.bind(this);
-    // this.renderOfficeOptions = this.renderOfficeOptions.bind(this);
   }
+   
   componentDidMount() {
     const { getAllUsers, getAllParties, getAllOffice } = this.props;
     getAllUsers();
@@ -38,9 +35,9 @@ class Register extends Component {
     e.preventDefault();
     const userRegistryData = this.state;
     const saveUserAsCandidate = {
-      userid: userRegistryData.data.userid,
-      officeid: userRegistryData.data.officeid,
-      partyid: userRegistryData.data.partyid
+      candidate: userRegistryData.data.userid,
+      office: userRegistryData.data.officeid,
+      party: userRegistryData.data.partyid
     }   
     console.log(saveUserAsCandidate);
     
@@ -48,13 +45,20 @@ class Register extends Component {
     
   };
 
-  saveOptions({ target }) {
+  saveOptions = ({ target }) => {
     const { data } = this.state;
     const userRegistryData = { ...data };
     userRegistryData[target.id] = target.value;
     this.setState({ data: userRegistryData })
+  }
 
-    
+  saveOptionsUsers = ({ target }) => {
+    const { data } = this.state;
+    const { getAllUsers } = this.props;
+    const userRegistryData = { ...data };
+    userRegistryData[target.id] = target.value;
+    getAllUsers(target.value);
+    this.setState({ data: userRegistryData })
   }
   render() {
     const style5 = {
@@ -96,7 +100,7 @@ class Register extends Component {
             <div className="section-card-register-form" id="section-card-user-register-title-box">
               <form>
 
-                <select onChange={this.saveOptions} className="section-card-register-form-select" id="userid">
+                <select onChange={this.saveOptionsUsers} className="section-card-register-form-select" id="userid">
                   {renderUserOptions(users)}
                 </select>
 

@@ -19,7 +19,7 @@ export class Results extends Component {
     getAllElectionResults(officeId);
 
     this.getResults = get.length && this.props.get.map(result => (
-      <tr key={result.id}><td data-th="Office:">{result.office}</td><td data-th="Candidate:">'{result.candidate}</td> <td data-th="Candidate:">{result.result}</td><td data-th="Result:">'{}</td></tr>
+      <tr key={result.id}><td data-th="Office:">{result.office}</td><td data-th="Candidate:">'{result.candidate}</td> <td data-th="Candidate:">{result.result}</td></tr>
     ));
   }
   render() {

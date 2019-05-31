@@ -7,6 +7,7 @@ import { CreateOffice } from '../../../actions/postActions';
 import '../../../styles/govOffice.css';
 import '../../../styles/admin-modal.style.css';
 import AdminNavBar from '../../reuseable component/admin-navbar.component';
+import { Link } from 'react-router-dom';
 // import store from '../../store';
 // import validateOfficeSubmission  from '../../validation/addOffice-validation';
 
@@ -139,7 +140,7 @@ render() {
          <h1 className="title">Add Office</h1>
          {/* <div className="container" id="officeResult">{getOffice}</div> */}
          <div className="card-container">{getOffice}</div>
-         <button href={'/add-office'} className="add" >+</button>
+         <Link to={'/add-office'}><button className="add" >+</button></Link>
      </React.Fragment>
  );
 }

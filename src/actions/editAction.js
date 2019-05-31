@@ -18,12 +18,14 @@ export const editParty  = (nameData, partyid) =>  dispatch =>  {
     })
     .then((response) => response.json())
     .then((name) => {
+      console.log(name);
+      
       if(name.status === 201) {
         swal({
           icon: 'success',
           title: 'Party updated successfully',
         });
-        // history.push('/parties');
+        history.push('/all-parties');
       return dispatch({ type: EDIT_PARTY_SUCCESS, payload: name.data });
     }
     if(name.status === 400) {

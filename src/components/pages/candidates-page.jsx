@@ -1,19 +1,37 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import jwt_decode from 'jwt-decode';
 import { connect } from 'react-redux';
 import { getAllCandidates } from '../../actions/getActions';
+import { UserVote } from '../../actions/postActions';
 import UserNavBar from '../reuseable component/user-navbar.component.jsx';
 import '../../styles/candidates-style.css';
-
+// import userVote from './user-vote';
 class Candidates extends Component {
     componentDidMount(){
         const { getAllCandidates } = this.props;
       getAllCandidates();
     }
 
-    handleUSerVote (candidateId, candidatename, office, officeid, user, userid){
-      console.log(candidateId);
+    handleUSerVote (officeId, officeName, candidateName, candidateId){
+      const { UserVote } = this.props;
+      // console.log(candidateId);
+      // console.log(officeId);
+      // console.log(officeName);
+      // console.log(candidateName);
+      let token = window.localStorage.getItem('token');
+      const decoded = jwt_decode(token);
+      
+      const data = {
+        created_by: decoded.id,
+        username: decoded.lastName,
+        office: officeId,
+        officename: officeName,
+        candidate: candidateId,
+        candidatename: candidateName,
+        };
 
+      UserVote(data);     
     }
   render() {
       const style1 = {
@@ -68,7 +86,7 @@ class Candidates extends Component {
         <p className="card__price-only">{candidate.partyname}</p>
         <p className="card__price-value">{candidate.candidatename}</p>
           </div>
-        <a href="#" className="btn" onClick={e => handleUserVote(candidate.id)}>Vote</a>
+        <a href="#" className="btn" onClick={() => this.handleUSerVote(candidate.office, candidate.officename, candidate.party, candidate.partyname, candidate.candidatename, candidate.candidate)}>Vote</a>
             </div>
                 </div>
                     </div>
@@ -96,6 +114,7 @@ class Candidates extends Component {
 }
 Candidates.propTypes = {
     getAllCandidates: PropTypes.func.isRequired,
+    UserVote: PropTypes.func.isRequired,
   };
 
 
@@ -105,4 +124,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, { getAllCandidates } )(Candidates);
+export default connect(mapStateToProps, { getAllCandidates, UserVote } )(Candidates);
