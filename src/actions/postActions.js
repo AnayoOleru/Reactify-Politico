@@ -1,4 +1,4 @@
-import { NEW_POST, NEW_PARTY_SUCCESS, NEW_OFFICE_SUCCESS, NEW_VOTE, NEW_CANDIDATE_SUCCESS, NEW_CANDIDATE_FAILURE, NEW_OFFICE_FAILURE, NEW_PARTY_FAILURE, NEW_SIGNUP_SUCCESS, NEW_SIGNUP_FAILURE, NEW_SIGNIN_FAILURE, NEW_SIGNIN_SUCCESS } from './types';
+import { NEW_POST, NEW_PARTY_SUCCESS, NEW_OFFICE_SUCCESS, NEW_VOTE_SUCCESS, NEW_VOTE_FAILURE, NEW_CANDIDATE_SUCCESS, NEW_CANDIDATE_FAILURE, NEW_OFFICE_FAILURE, NEW_PARTY_FAILURE, NEW_SIGNUP_SUCCESS, NEW_SIGNUP_FAILURE, NEW_SIGNIN_FAILURE, NEW_SIGNIN_SUCCESS } from './types';
 import jwt_decode from 'jwt-decode';
 import swal from 'sweetalert';
 
@@ -7,8 +7,6 @@ let token = window.localStorage.getItem('token');
 
 
 export const SignupAction = (signupData) => dispatch =>  {
-  // eslint-disable-next-line no-console
-  console.log('1');
       fetch('https://trustpolitico.herokuapp.com/api/v1/auth/signup',{
         headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -19,18 +17,16 @@ export const SignupAction = (signupData) => dispatch =>  {
       })
       .then((response) => response.json()
       .then((posts) => {
-        console.log(posts, 'POSTS HERE >>>>>>>>');
         if(posts.status === 201) {
           localStorage.setItem('token', posts.data[0].token);
-          // const decoded = jwt_decode(posts.data[0].token);
             swal({
               icon: 'success',
               title: 'Signup successful',
             });
-            history.push('/parties');
+            window.location = '/parties';
           return dispatch({ type: NEW_SIGNUP_SUCCESS, payload: posts.data });
         }
-        if(posts.status === 400) {
+        if(posts.status >= 400) {
           swal({
             icon: 'warning',
             title: posts.error,
@@ -45,12 +41,12 @@ export const SignupAction = (signupData) => dispatch =>  {
       .catch((err) => {
         dispatch({
           type: NEW_SIGNUP_FAILURE,
-          payload: err.response.data.message,
+          payload: err,
         });
         if(err.response) {
           swal({
             icon: 'warning',
-            title: err.response.data.message,
+            title: err,
           });
         }
       })
@@ -59,9 +55,7 @@ export const SignupAction = (signupData) => dispatch =>  {
 
 
 
-export const createPost = (postData) => dispatch =>  {
-    // eslint-disable-next-line no-console
-    console.log('Action called');
+export const SigninAction = (postData) => dispatch =>  {
     fetch('https://trustpolitico.herokuapp.com/api/v1/auth/login', {
         headers: {
           'Accept': 'application/json, text/plain, */*',
@@ -71,8 +65,8 @@ export const createPost = (postData) => dispatch =>  {
         body: JSON.stringify(postData)
       }).then((response) => response.json())
       .then((post) => {
-        localStorage.setItem('token', post.data[0].token);
         const decoded = jwt_decode(post.data[0].token);
+        localStorage.setItem('token', post.data[0].token);
       if(post.status === 201 && decoded.isAdmin === true) {
            swal({
              icon: 'success',
@@ -185,17 +179,28 @@ export const UserVote = (voteeData) => dispatch =>  {
   fetch('https://trustpolitico.herokuapp.com/api/v1/votes',{
     headers: {
         'Accept': 'application/json, text/plain, */*',
-        'Content-type': 'application/json'
+        'Content-type': 'application/json',
+        'x-access-token': token
       },
       method: 'POST',
       body: JSON.stringify(voteeData)
   })
   .then((response) => response.json())
-  .then(posts =>
-    dispatch({
-    type: NEW_VOTE,
-    payload: posts
-  }));
+  .then((posts) => { 
+    if(posts.status === 201 ) {
+      swal({
+        icon: 'success',
+        title: 'You have successfully voted for this user',
+      });
+    return dispatch({ type: NEW_VOTE_SUCCESS, payload: posts });
+  }
+  if(posts.status >= 400 ) {
+      swal({
+        icon: 'warning',
+        title: posts.error,
+      });
+    return dispatch({ type: NEW_VOTE_FAILURE, payload: posts.error });
+  }});
 };
 
 // register user as a candidate
@@ -204,7 +209,8 @@ export const RegisterUserAsCandidate = (candidateData, userid) => dispatch =>  {
   fetch(`https://trustpolitico.herokuapp.com/api/v1/office/${userid}/register`,{
     headers: {
         'Accept': 'application/json, text/plain, */*',
-        'Content-type': 'application/json'
+        'Content-type': 'application/json',
+        'x-access-token': token
       },
       method: 'POST',
       body: JSON.stringify(candidateData)
@@ -219,7 +225,7 @@ export const RegisterUserAsCandidate = (candidateData, userid) => dispatch =>  {
         // history.push('/parties');
       return dispatch({ type: NEW_CANDIDATE_SUCCESS, payload: posts.data });
     }
-    if(posts.status === 400) {
+    if(posts.status >= 400) {
       swal({
         icon: 'warning',
         title: posts.error,

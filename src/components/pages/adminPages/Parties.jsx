@@ -99,7 +99,7 @@ class Parties extends Component {
                 <div className="row" id="partyResult">{getParties}</div>
             </div>
             <div className="row" id="partyResult" />
-            <button href={'/add-party'} className="add" >+</button>
+            <Link to={'/add-party'}><button href={'/add-party'} className="add" >+</button></Link>
 
         </section>
     </main>

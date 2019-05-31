@@ -81,6 +81,27 @@ export const getAllUsers = (userData) => dispatch => {
     );
 };
 
+export const getAUser = (userid) => dispatch => {
+  fetch(`https://trustpolitico.herokuapp.com/api/v1/${userid}/users`, {
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-type': 'application/json',
+      'x-access-token': token
+    },
+    method: 'GET',
+    body: JSON.stringify()
+  })
+    .then((response) => response.json())
+    .then((users) => {
+      console.log(users, 'USERS HERE>>>>');
+      dispatch({
+        type: FETCH_USER,
+        payload: users.data
+      });
+    }
+    );
+};
+
 // get all candidates
 export const getAllCandidates = (candidateData) => dispatch => {
   try {

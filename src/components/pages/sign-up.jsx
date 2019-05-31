@@ -47,18 +47,6 @@ export class SignUp extends Component {
 
     // do this, clear state
     // clear the state
-    this.setState({
-      passportUrl: '',
-      firstname: '',
-      lastname: '',
-      othername: '',
-      email: '',
-      phonenumber: '',
-      password: '',
-      isEmailError: false,
-      isPasswordError: false,
-      isPhoneError: false,
-    });
 
       const data = {
       passportUrl: userInput.passportUrl,

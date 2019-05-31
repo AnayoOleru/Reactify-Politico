@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
-import { createPost } from '../../actions/postActions';
+import { SigninAction } from '../../actions/postActions';
 import store from '../../store';
 import EntryNavBar from '../reuseable component/entry-navbar-component.jsx';
 import validateB4Submission from '../../validation/validateB4Submission';
@@ -31,11 +31,11 @@ export class SignIn extends Component {
   ShowSpinner = () => {
     return this.setState({ loading: true });
   }
-  validate = (e) => {
-    const result = validateInputs(e.target.name, e.target.value);
-    if (!result[1]) this.setState({ [result[0]]: true });
-    if (result[1]) this.setState({ [result[0]]: false });
-  }
+  // validate = (e) => {
+  //   const result = validateInputs(e.target.name, e.target.value);
+  //   if (!result[1]) this.setState({ [result[0]]: true });
+  //   if (result[1]) this.setState({ [result[0]]: false });
+  // }
   // in here before the component loads
 
   onChange(e) {
@@ -62,7 +62,7 @@ export class SignIn extends Component {
        
 
     //  call action 
-     this.props.createPost(data);  
+     this.props.SigninAction(data);  
   }
 
   render() {
@@ -108,14 +108,13 @@ export class SignIn extends Component {
 
 const mapStateToProps = ({posts}) =>({
   success: posts.success,
-  // token: posts.token,
   signin: posts.data,
   error: posts.error,
 });
 
 SignIn.propTypes = {
-  createPost:  PropTypes.func.isRequired,
+  SigninAction:  PropTypes.func.isRequired,
   success:  PropTypes.bool
 } 
 
-export default connect(mapStateToProps,  { createPost  })(withRouter( SignIn));
+export default connect(mapStateToProps,  { SigninAction  })(withRouter( SignIn));

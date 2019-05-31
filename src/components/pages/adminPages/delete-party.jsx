@@ -33,27 +33,25 @@ class DeleteParty extends Component {
     this.props.deleteParty(partyId);
 
   }
-  // componentDidMount() {
-  //   const { getAllParties } = this.props;
-  //   getAllParties();
-  // }
-  // in here before the component loads
-  // show spinner
+
 
  
   onChange(e) {
     this.setState({[e.target.name]: e.target.value});
   }
 
-  AddNewParty = async (e) => {
+  deletePartyHandler = async (e) => {
     e.preventDefault();
 
-    // const { match } = this.props;
-    // const { partyId } = match.params;
     const partyId = this.props.match.params.id;
 
     // console.log(data, 'data');
-    this.props.editParty(partyId);
+    await this.props.deleteParty(partyId);
+    swal({
+      icon: 'success',
+      title: `Party deleted successfully`,
+    });
+    window.location = '/all-parties';
   }
 
   render() {
@@ -78,7 +76,7 @@ class DeleteParty extends Component {
                         </h1>
               </div>
 
-              <form className="entry-form" onSubmit={this.AddNewParty}>
+              <form className="entry-form">
    <footer className="entry-footer">
      <input className="entry-button" type="submit" name="btn_signin" value="Yes" onClick={this.deletePartyHandler} />
      <br />
