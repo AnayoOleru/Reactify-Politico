@@ -19,3 +19,30 @@
 * Admin can delete a political party
 * Admin can view and create a government office.  
 * Admin can register a user from as a politician.  
+
+#  API Documentation
+https://app.swaggerhub.com/apis-docs/Anayo-Oleru/politico/1.0
+
+
+## Backend App on Heroku
+https://trustpolitico.herokuapp.com/api/v1/
+
+## React App on heroku
+https://politicosecure.herokuapp.com/
+
+## Technologies Used
+
+* [NodeJS](https://nodejs.org/en/) - A Javascript runtime built on chrome V8 engine that uses an event-driven non-blocking I/O model that makes it lightweight and efficient.
+* [ExpressJs](https://expressjs.com/) - A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+* [EsLint](https://eslint.org/) - An open source project to provide a pluggable linting utility for javascript
+* [Jest](https://mochajs.org/) - A feature-rich javascript test framework running Node.js and in the browser, making asynchronous testing simple and fun, flexible and accurate reporting. 
+
+
+// login as admin
+{
+  email: "anayokyle@gmail.com",
+  password: "anayokyleoleru"
+}
+```
+
+
