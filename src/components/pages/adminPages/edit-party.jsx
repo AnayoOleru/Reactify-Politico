@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import jwt_decode from 'jwt-decode';
-import { getAllParties, } from '../../../actions/getActions';
 import { editParty } from '../../../actions/editAction';
 import store from '../../../store';
 import AdminNavBar from '../../reuseable component/admin-navbar.component';
-import swal from 'sweetalert';
-import validatePartySubmission from '../../../validation/addParty-validation';
 import '../../../styles/addParties-style.css';
 import '../../../styles/admin-modal.style.css';
 
@@ -23,34 +18,19 @@ class EditParty extends Component {
     this.onChange = this.onChange.bind(this);
   }
   componentDidMount() {
-    // const { match } = this.props;
-    // const { partyId } = match.params;
     const id = this.props.match.params.id;
     console.log(id);
-    
-  };
-  // componentDidMount() {
-  //   const { getAllParties } = this.props;
-  //   getAllParties();
-  // }
-  // in here before the component loads
-  // show spinner
 
- 
+  };
+
   onChange(e) {
-    this.setState({[e.target.name]: e.target.value});
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   EditOldParty = async (e) => {
     e.preventDefault();
-
-    // const { match } = this.props;
-    // const { partyId } = match.params;
     const partyId = this.props.match.params.id;
-    
-
     const adminInput = this.state;
-    // clear the state
 
     const data = {
       name: adminInput.partyname,
@@ -81,21 +61,21 @@ class EditParty extends Component {
               </div>
 
               <form className="entry-form" onSubmit={this.EditOldParty}>
-   <main className="entry-main">
-      <div className="entry-group">
-         <input className="entry-input" type="text" name="partyname"  onChange={this.onChange}
-            value={ partyname } required />
-         <label className="entry-label">Party Name </label>
-         <div className="entry-bar" />
-      </div>
-   </main>
-   <br />
-   <footer className="entry-footer">
-     <input className="entry-button" type="submit" name="btn_signin" value="Edit Party Name" />
-     <br />
-     <br />
-   </footer>
-</form>
+                <main className="entry-main">
+                  <div className="entry-group">
+                    <input className="entry-input" type="text" name="partyname" onChange={this.onChange}
+                      value={partyname} required />
+                    <label className="entry-label">Party Name </label>
+                    <div className="entry-bar" />
+                  </div>
+                </main>
+                <br />
+                <footer className="entry-footer">
+                  <input className="entry-button" type="submit" name="btn_signin" value="Edit Party Name" />
+                  <br />
+                  <br />
+                </footer>
+              </form>
             </section>
           </main>
         </React.Fragment>

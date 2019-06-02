@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getAllOffice, getAllElectionResults } from '../../actions/getActions';
+import { getAllElectionResults } from '../../actions/getActions';
 import '../../styles/result-style.css';
 import UserNavBar from '../reuseable component/user-navbar.component.jsx';
 
@@ -10,7 +10,6 @@ export class Results extends Component {
     const officeId = this.props.match.params.officeid;
     const { getAllElectionResults } = this.props;
     getAllElectionResults(officeId);
-    // console.log(election);
 
   }
 
@@ -26,17 +25,9 @@ export class Results extends Component {
     };
 
     const { candidates } = this.props;
-    console.log(candidates, '>>>>>>>>>>>>>>> CANDIDAT~ES FROM PROPS');
 
-    this.openNav = () => {
-      document.getElementById('mySidenav').style.width = '250px';
-    };
-    this.closeNav = () => {
-      document.getElementById('mySidenav').style.width = '0';
-    };
     const renderResults = (candidates) => {
       return candidates.map((candidate) => {
-        console.log('got here ..........');
         return (
           <tr key={candidate.candidate}>
             <td data-th="Candidate:">{candidate.candidate}</td>

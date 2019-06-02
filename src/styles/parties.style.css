@@ -1,6 +1,5 @@
 .row {
     max-width:114rem;
-   /* background-color: #eee;*/
     margin: 0 auto;
     background-color: #ffffff;
 }
@@ -15,7 +14,6 @@
 }
 
 [class^="col-"] {
-    /*background-color: orangered;*/
     float: left;
     color: #777;
 }
@@ -64,7 +62,6 @@ body {
 }
 
 .section-cards {
-    /* position: relative; */
     padding: 10rem  0;
     background-color: rgba(255, 255, 255, 0.11);
 }
@@ -102,7 +99,6 @@ body {
 .card__side {
     height: 420px;
     position: absolute;
-    /* transition: all .8s ease; */
     top: 0;
     left: 0;
     width: 100%;
@@ -115,8 +111,6 @@ body {
 .card__picture--1 {
     background-image: linear-gradient(to right bottom, #0a4156, #245a70);
                      position: relative;
-                     /* right:60px;
-                     bottom:60px; */
 }
 
 .card__picture--2 {

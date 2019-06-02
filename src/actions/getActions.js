@@ -1,9 +1,11 @@
-import { FETCH_USER, FETCH_PARTIES, FETCH_PARTIES_FAILURE, FETCH_CANDIDATES, FETCH_CANDIDATES_FAILURE, FETCH_OFFICES, FETCH_OFFICES_FAILURE, FETCH_PARTY, FETCH_RESULT } from './types';
+import { FETCH_USER, FETCH_PARTIES, FETCH_PARTIES_FAILURE, FETCH_CANDIDATES, FETCH_CANDIDATES_FAILURE, FETCH_OFFICES, FETCH_OFFICES_FAILURE, FETCH_PARTY, FETCH_RESULT, FETCH_PARTIES_LOADING } from './types';
 let token = window.localStorage.getItem('token');
 
 // get all political
 export const getAllParties = (partyData) => dispatch => {
-  
+  dispatch({
+    type: FETCH_PARTIES_LOADING,
+  });
   fetch('https://trustpolitico.herokuapp.com/api/v1/parties', {
     headers: {
       'Accept': 'application/json, text/plain, */*',
@@ -43,14 +45,7 @@ export const getAllOffice = (officeData) => async (dispatch) => {
       type: FETCH_OFFICES,
       payload: offices
     });
-      // .then((response) => console.log(response.json(), "******************") || response.json())
-      // .then(offices =>
-      //   dispatch({
-      //     type: FETCH_OFFICES,
-      //     payload: offices
-      //   }));
   } catch (err) {
-    console.log(err, ">>>>>>>>>>>>>>>>>>>>>>")
     dispatch({
       type: FETCH_OFFICES_FAILURE,
       payload: err
@@ -72,7 +67,6 @@ export const getAllUsers = (userData) => dispatch => {
   })
     .then((response) => response.json())
     .then((users) => {
-      console.log(users, 'USERS HERE>>>>');
       dispatch({
         type: FETCH_USER,
         payload: users.data
@@ -93,7 +87,6 @@ export const getAUser = (userid) => dispatch => {
   })
     .then((response) => response.json())
     .then((users) => {
-      console.log(users, 'USERS HERE>>>>');
       dispatch({
         type: FETCH_USER,
         payload: users.data
@@ -121,7 +114,6 @@ export const getAllCandidates = (candidateData) => dispatch => {
           type: FETCH_CANDIDATES,
           payload: candidate
         })
-        // console.log(candidate)
       );
   } catch (err) {
     dispatch({
@@ -149,7 +141,6 @@ export const getAllElectionResults = (officeId) => dispatch =>  {
       type: FETCH_CANDIDATES,
       payload: results
     });
-    console.log(results, 'RESULTS >>>>>>>>>>>>>>>>>>>>>>>');
   }
     );
 } catch(err){

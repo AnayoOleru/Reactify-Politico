@@ -2,7 +2,6 @@ import { EDIT_PARTY_FAILURE, EDIT_PARTY_SUCCESS } from "./types";
 import swal from 'sweetalert';
 
 let token = window.localStorage.getItem('token');
-// edit a specific party name
 export const editParty  = (nameData, partyid) =>  dispatch =>  {
     try{
     fetch(`https://trustpolitico.herokuapp.com/api/v1/parties/${partyid}/name`,{
@@ -18,8 +17,6 @@ export const editParty  = (nameData, partyid) =>  dispatch =>  {
     })
     .then((response) => response.json())
     .then((name) => {
-      console.log(name);
-      
       if(name.status === 201) {
         swal({
           icon: 'success',

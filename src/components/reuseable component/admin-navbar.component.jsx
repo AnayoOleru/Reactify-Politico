@@ -70,8 +70,6 @@ const EntryNavBar = (userImage) => {
                 <span className="openbutton" style={style3} onClick={openNav} ><i className="fas fa-align-justify" /></span>
                 <a className="entry-nav-logo-link" href={'/'}><img className="entry-nav-logo" src={logo} /></a>
                 <ul id="username" />
-
-                {/* <a className="entry-nav-logo-link" href={'/'}><img className="entry-nav-logo" src={logo} /></a> */}
                 <ul className="entry-nav-list-head">
                     <li className="entry-nav-list" ><a className="entry-nav-list-child" href={'/'}>Home</a></li>
                     <li className="entry-nav-list" ><a className="entry-nav-list-child" href={'/sign-in'}>Sign-out</a></li>

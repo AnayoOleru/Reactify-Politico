@@ -28,15 +28,6 @@ export class SignIn extends Component {
     localStorage.clear();
   }
   
-  ShowSpinner = () => {
-    return this.setState({ loading: true });
-  }
-  // validate = (e) => {
-  //   const result = validateInputs(e.target.name, e.target.value);
-  //   if (!result[1]) this.setState({ [result[0]]: true });
-  //   if (result[1]) this.setState({ [result[0]]: false });
-  // }
-  // in here before the component loads
 
   onChange(e) {
     this.setState({[e.target.name]: e.target.value});

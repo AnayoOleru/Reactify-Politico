@@ -1,13 +1,5 @@
 import React from 'react';
-import { Link, IndexLink } from 'react-router';
-// import '../../styles/home-style.css';
-// import '../../styles/media-queries/queries-style.css';
-
-
 import logo from '../../styles/images/pogo.png';
-
-
-// import '../styles/media-queries/queries-style.css';
 
 const NavBar = () => {
   return (
