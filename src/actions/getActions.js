@@ -144,13 +144,13 @@ export const getAllElectionResults = (officeId) => dispatch =>  {
       body: JSON.stringify()
   })
   .then((response) => response.json())
-  .then(results =>
-    console.log(results)
-    // dispatch({
-    //   type: FETCH_CANDIDATES,
-    //   payload: results
-    // })
-    // console.log(results)
+  .then((results) =>{
+      dispatch({
+      type: FETCH_CANDIDATES,
+      payload: results
+    });
+    console.log(results, 'RESULTS >>>>>>>>>>>>>>>>>>>>>>>');
+  }
     );
 } catch(err){
   dispatch({

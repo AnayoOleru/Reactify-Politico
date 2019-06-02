@@ -3,6 +3,7 @@ import { FETCH_USER, FETCH_PARTIES, FETCH_CANDIDATES, FETCH_CANDIDATES_FAILURE, 
 const initialState = {
     parties: [],
     users: [],
+    candidates: [],
     offices: [],
     reducers: [],
     items: [],
@@ -30,7 +31,7 @@ export default function(state = initialState, action ) {
         case FETCH_CANDIDATES:
         return {
             ...state,
-            items: action.payload
+            candidates: action.payload.data
         };
         case FETCH_CANDIDATES_FAILURE:
             return {

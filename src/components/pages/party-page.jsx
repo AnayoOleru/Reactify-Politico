@@ -6,60 +6,71 @@ import UserNavBar from '../reuseable component/user-navbar.component.jsx';
 import '../../styles/parties.style.css';
 
 export class Parties extends Component {
-    componentDidMount(){
-        const { getAllParties } = this.props;
-       getAllParties();
-    }
+  componentDidMount() {
+    const { getAllParties } = this.props;
+    getAllParties();
+  }
   render() {
-      const style5 = {
-        fontSize: '30px'
-      };
+    const style5 = {
+      fontSize: '30px'
+    };
 
-      const style4 = {
-        backgroundColor:'#ffffff',
-      };
-      const getItems = this.props.get && this.props.get.map(party => (
+    const style4 = {
+      backgroundColor: '#ffffff',
+    };
+    const getItems = this.props.get && this.props.get.map(party => (
+      // <div className="row" id="partyResult" key={party.id}>
         <div key={party.id} className="col-1-of-3">
-                <div className="card">
-                    <div className="card__side card__side--front">
-                        <div className="card__picture card__picture--1" id="partyImage">&nbsp;</div>
-                        <div className="card__details">
-                            <ul>
-                                <li style={style5} id="partyName">{party.name}</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+          <div className="card">
+            <div className="card__side card__side--front">
+              <img className="card__picture card__picture--1" id="partyImage" src={party.logourl} />
+              <div className="card__details">
+                <ul>
+                  <li style={style5} id="partyName">{party.name}</li>
+                </ul>
+              </div>
             </div>
+            <div className="card__side card__side--back card__side--back-3">
+              <div className="card__cta">
+                <div className="card__price-box">
+                  <p className="card__price-only">Headquater Address</p>
+                  <p className="card__price-only">{party.hqaddress}</p>
 
-      ));
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       // </div>
+
+    ));
     return (
-        <React.Fragment>
-          <UserNavBar />
-            <main style={style4}>
-        <section className="section-cards">
+      <React.Fragment>
+        <UserNavBar />
+        <main style={style4}>
+          <section className="section-cards">
             <div className="text-cards">
-                <h1 className="heading-primary">
-                    Parties
+              <h1 className="heading-primary">
+                Parties
                 </h1>
-                <div className="row" id="partyResult">{getItems}</div>
+              <div className="row" id="partyResult">{getItems}</div>
             </div>
             <div className="row" id="partyResult" />
 
-        </section>
-    </main>
-        </React.Fragment>
+          </section>
+        </main>
+      </React.Fragment>
     );
   }
 }
 Parties.propTypes = {
-    getAllParties: PropTypes.func.isRequired,
-  };
+  getAllParties: PropTypes.func.isRequired,
+};
 
 
 const mapStateToProps = state => ({
-    posts: state.payload,
-    get: state.get.items.data,
+  posts: state.payload,
+  get: state.get.items.data,
 });
 
 export default connect(mapStateToProps, { getAllParties })(Parties);

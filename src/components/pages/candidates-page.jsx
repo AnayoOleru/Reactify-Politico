@@ -13,7 +13,7 @@ class Candidates extends Component {
       getAllCandidates();
     }
 
-    handleUSerVote (officeId, officeName, candidateName, candidateId){
+    handleUSerVote (office, officeName, candidateId, candidateName){
       const { UserVote } = this.props;
       // console.log(candidateId);
       // console.log(officeId);
@@ -24,14 +24,17 @@ class Candidates extends Component {
       
       const data = {
         created_by: decoded.id,
-        username: decoded.lastName,
-        office: officeId,
-        officename: officeName,
+        userName: decoded.lastName,
+        office: office,
+        officeName: officeName,
         candidate: candidateId,
-        candidatename: candidateName,
+        candidateName: candidateName,
         };
 
-      UserVote(data);     
+        console.log(data, 'the data');
+        
+
+      UserVote(data);
     }
   render() {
       const style1 = {
@@ -65,6 +68,7 @@ class Candidates extends Component {
 
       // eslint-disable-next-line react/prop-types
       const getCandidates = () => { return this.props.get && this.props.get.length !== 0 && this.props.get.map(candidate => (
+        // console.log(candidate)    
         <div className="row" key={candidate.candidateid}>
         <div className="col-1-of-3">
                     <div className="card">
@@ -86,7 +90,7 @@ class Candidates extends Component {
         <p className="card__price-only">{candidate.partyname}</p>
         <p className="card__price-value">{candidate.candidatename}</p>
           </div>
-        <a href="#" className="btn" onClick={() => this.handleUSerVote(candidate.office, candidate.officename, candidate.party, candidate.partyname, candidate.candidatename, candidate.candidate)}>Vote</a>
+        <a href="#" className="btn" onClick={() => this.handleUSerVote(candidate.office, candidate.officename, candidate.candidateid, candidate.candidatename)}>Vote</a>
             </div>
                 </div>
                     </div>

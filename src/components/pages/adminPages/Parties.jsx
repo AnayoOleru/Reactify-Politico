@@ -55,12 +55,12 @@ class Parties extends Component {
       // ));
 
           const getParties = this.props.get && this.props.get.map(party => (
-      <div className="row" id="partyResult" key={party.id}>
+      // <div className="row" id="partyResult" key={party.id}>
 
-        <div className="col-1-of-3">
+        <div className="col-1-of-3" key={party.id}>
           <div className="card">
             <div className="card__side card__side--front">
-              <div className="card__picture card__picture--3"><img src={party.logourl} /></div>
+              <img className="card__picture card__picture--3" src={party.logourl} />
               <div className="card__details">
                 <ul>
                   <li style={style5}>{party.name}</li>
@@ -84,7 +84,7 @@ class Parties extends Component {
             </div>
           </div>
         </div>
-      </div>
+      // </div>
 
     ));
     return (
