@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from '../reuseable component/navbar-component.jsx';
 import Footer from '../reuseable component/footer-component.jsx';
-
-// import '../styles/media-queries/candidates-style.css';
-// import '../styles/media-queries/queries-style.css';
 import '../../styles/home-style.css';
 import '../../styles/media-queries/queries-style.css';
 
@@ -39,7 +36,6 @@ export default class Home extends Component {
           </div>
         </section>
         <Footer />
-
       </React.Fragment>
     );
   }

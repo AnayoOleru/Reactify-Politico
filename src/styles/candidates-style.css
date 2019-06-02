@@ -1,7 +1,6 @@
 
 .row {
     max-width:114rem;
-   /* background-color: #eee;*/
     margin: 0 auto;
     background-color: #ffffff;
 }
@@ -16,7 +15,6 @@
 }
 
 [class^="col-"] {
-    /*background-color: orangered;*/
     float: left;
     color: #777;
 }
@@ -103,7 +101,6 @@ body {
 .card__side {
     height: 420px;
     position: absolute;
-    /* transition: all .8s ease; */
     top: 0;
     left: 0;
     width: 100%;
@@ -117,8 +114,6 @@ body {
     background-image: linear-gradient(to right bottom, #0a4156, #245a70),
                      url(./images/buhariImg.jpg);
                      position: relative;
-                     /* right:60px;
-                     bottom:60px; */
 }
 
 .card__picture--2 {

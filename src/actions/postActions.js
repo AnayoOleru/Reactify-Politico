@@ -1,4 +1,4 @@
-import { NEW_POST, NEW_PARTY_SUCCESS, NEW_OFFICE_SUCCESS, NEW_VOTE_SUCCESS, NEW_VOTE_FAILURE, NEW_CANDIDATE_SUCCESS, NEW_CANDIDATE_FAILURE, NEW_OFFICE_FAILURE, NEW_PARTY_FAILURE, NEW_SIGNUP_SUCCESS, NEW_SIGNUP_FAILURE, NEW_SIGNIN_FAILURE, NEW_SIGNIN_SUCCESS } from './types';
+import { NEW_POST, NEW_PARTY_SUCCESS, NEW_OFFICE_SUCCESS, NEW_VOTE_SUCCESS, NEW_VOTE_FAILURE, NEW_CANDIDATE_SUCCESS, NEW_CANDIDATE_FAILURE, NEW_OFFICE_FAILURE, NEW_PARTY_FAILURE, NEW_SIGNUP_SUCCESS, NEW_SIGNUP_FAILURE, NEW_SIGNIN_FAILURE, NEW_SIGNIN_SUCCESS, NEW_SIGNUP_LOADING } from './types';
 import jwt_decode from 'jwt-decode';
 import swal from 'sweetalert';
 
@@ -7,6 +7,7 @@ let token = window.localStorage.getItem('token');
 
 
 export const SignupAction = (signupData) => dispatch =>  {
+        dispatch({ type: NEW_SIGNUP_LOADING });
       fetch('https://trustpolitico.herokuapp.com/api/v1/auth/signup',{
         headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -195,7 +196,6 @@ export const UserVote = (voteeData) => dispatch =>  {
     return dispatch({ type: NEW_VOTE_SUCCESS, payload: posts });
   }
   if(posts.status >= 400 ) {
-    console.log(posts); 
       swal({
         icon: 'warning',
         title: posts.error[0].message,
@@ -206,7 +206,6 @@ export const UserVote = (voteeData) => dispatch =>  {
 
 // register user as a candidate
 export const RegisterUserAsCandidate = (candidateData, userid) => dispatch =>  {
-  // eslint-disable-next-line no-undef
   fetch(`https://trustpolitico.herokuapp.com/api/v1/office/${userid}/register`,{
     headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -223,7 +222,6 @@ export const RegisterUserAsCandidate = (candidateData, userid) => dispatch =>  {
           icon: 'success',
           title: 'User successful registered as a candidate',
         });
-        // history.push('/parties');
       return dispatch({ type: NEW_CANDIDATE_SUCCESS, payload: posts.data });
     }
     if(posts.status >= 400) {

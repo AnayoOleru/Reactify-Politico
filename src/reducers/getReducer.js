@@ -1,4 +1,4 @@
-import { FETCH_USER, FETCH_PARTIES, FETCH_CANDIDATES, FETCH_CANDIDATES_FAILURE, FETCH_OFFICES, FETCH_PARTY, FETCH_RESULT, FETCH_PARTIES_FAILURE, FETCH_OFFICES_FAILURE } from '../actions/types';
+import { FETCH_USER, FETCH_PARTIES, FETCH_CANDIDATES, FETCH_CANDIDATES_FAILURE, FETCH_OFFICES, FETCH_PARTY, FETCH_RESULT, FETCH_PARTIES_FAILURE, FETCH_OFFICES_FAILURE, FETCH_PARTIES_LOADING } from '../actions/types';
 
 const initialState = {
     parties: [],
@@ -7,7 +7,8 @@ const initialState = {
     offices: [],
     reducers: [],
     items: [],
-    item: {}
+    item: {},
+    loading: false,
 };
 
 export default function(state = initialState, action ) {
@@ -18,15 +19,22 @@ export default function(state = initialState, action ) {
             items: action.payload,
             users: action.payload
         };
+        case FETCH_PARTIES_LOADING:
+            return {
+                ...state,
+                loading: true,
+            };
         case FETCH_PARTIES:
         return {
             ...state,
             items: action.payload,
-            parties: action.payload.data
+            parties: action.payload.data,
+            loading: false,
         };
         case FETCH_PARTIES_FAILURE:
         return {
             ...state,
+            loading: false,
         };
         case FETCH_CANDIDATES:
         return {

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link, IndexLink } from 'react-router';
 
 import userImage from '../../styles/images/userimg.png';
 import '../../styles/second-navbar.css';

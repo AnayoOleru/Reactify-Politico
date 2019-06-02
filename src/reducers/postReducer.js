@@ -1,14 +1,13 @@
-import { FETCH_POSTS, NEW_POST, NEW_PARTY_SUCCESS, NEW_OFFICE_SUCCESS, NEW_VOTE_SUCCESS, NEW_VOTE_FAILURE, NEW_CANDIDATE_FAILURE, NEW_CANDIDATE_SUCCESS, NEW_OFFICE_FAILURE, NEW_PARTY_FAILURE, NEW_SIGNUP_SUCCESS, NEW_SIGNUP_FAILURE, NEW_SIGNIN_SUCCESS, NEW_SIGNIN_FAILURE } from '../actions/types';
+import { FETCH_POSTS, NEW_POST, NEW_PARTY_SUCCESS, NEW_OFFICE_SUCCESS, NEW_VOTE_SUCCESS, NEW_VOTE_FAILURE, NEW_CANDIDATE_FAILURE, NEW_CANDIDATE_SUCCESS, NEW_OFFICE_FAILURE, NEW_PARTY_FAILURE, NEW_SIGNUP_SUCCESS, NEW_SIGNUP_FAILURE, NEW_SIGNIN_SUCCESS, NEW_SIGNIN_FAILURE, NEW_SIGNIN_LOADING } from '../actions/types';
 
 const initialState = {
     items: [],
     item: {},
-    success: false
+    success: false,
+    loading: false,
 };
 
 export default function (state = initialState, action) {
-    // eslint-disable-next-line no-console
-    console.log('4');
     switch (action.type) {
         case FETCH_POSTS:
             return {
@@ -72,16 +71,23 @@ export default function (state = initialState, action) {
                 ...state,
                 error: action.payload
             };
+            case NEW_SIGNIN_LOADING:
+                return {
+                    ...state,
+                    loading: true,
+                };
             case NEW_SIGNIN_SUCCESS:
                 return {
                     ...state,
                     signin: action.payload,
-                    success: true
+                    success: true,
+                    loading: false,
                 };
             case NEW_SIGNIN_FAILURE:
                 return {
                     ...state,
-                    error: action.payload
+                    error: action.payload,
+                    loading: false,
                 };
         default:
             return state;

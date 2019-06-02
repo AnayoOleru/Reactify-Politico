@@ -146,15 +146,9 @@ body{
       }
 
     .partyForm{
-        /* display:; */
         padding-bottom: 30px;
     }
     
-    /* h1{
-        font-family: 'Montserrat', sans-serif;
-        padding-top: 44px;
-        padding-bottom: 40px;
-    } */
     
     p{
         font-family: 'Montserrat', sans-serif;
@@ -545,22 +539,6 @@ html {
     overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
 }
-
-/* .card__picture--1 {
-    background-image:
-                     url(./images/APC.png);
-                     position: relative;
-} */
-
-/* .card__picture--2 {
-    background-image:
-                     url(./images/PDP.png);
-}
-
-.card__picture--3 {
-    background-image:
-                     url(./images/Accord.jpg);
-} */
 
 .card__picture {
     background-size: cover;

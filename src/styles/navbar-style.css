@@ -2,11 +2,6 @@ body{
     background-color: black;
 }
 
-/* .nav-row{
-    background-color: red;
-    display: none;
-} */
-
 .main-nav {
     float: right;
     list-style: none;
