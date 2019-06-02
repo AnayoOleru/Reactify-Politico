@@ -195,9 +195,10 @@ export const UserVote = (voteeData) => dispatch =>  {
     return dispatch({ type: NEW_VOTE_SUCCESS, payload: posts });
   }
   if(posts.status >= 400 ) {
+    console.log(posts); 
       swal({
         icon: 'warning',
-        title: posts.error,
+        title: posts.error[0].message,
       });
     return dispatch({ type: NEW_VOTE_FAILURE, payload: posts.error });
   }});

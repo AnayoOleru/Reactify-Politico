@@ -206,7 +206,7 @@ body{
         
         table {
             position: absolute;
-            left:30px;
+            left:100px;
         width: 75%;
         margin: 130px auto;
         }
@@ -225,6 +225,7 @@ body{
         }
         td{
             font-size: 20px;
+            color: black;
         }
         td:hover{
             background-color: rgb(38, 112, 141);

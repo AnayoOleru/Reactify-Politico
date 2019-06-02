@@ -1,5 +1,5 @@
 import React from 'react';
-import { SignUp } from '../src/components/pages/sign-up';
+import { SignUp } from '../src/components/pages/sign-up.jsx';
 import {shallow, mount} from 'enzyme';
 
 describe('Signup component', () => {

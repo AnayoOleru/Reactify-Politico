@@ -1,40 +1,47 @@
-/* .card-container{
-    text-align:center;
-  }
-  .card{
-    background-color:rgb(10, 65, 86);
-    width:100%;
-    height:400px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0,   0, 0.2), 0 6px 20px 0 rgba(0, 0,     0, 0.19);
-    display:inline-block;
-    margin: 5px;
-    text-align:justify;
-    padding-top:10px;
-  }
-  #card1{
-    background-repeat:no-repeat;
-    background-size:cover;
-  }
-  .link span{
-  visibility:hidden;
-  }
-  .link:hover span{
-    visibility:visible;
-  }
-  .card-content{
-    text-align: center;
-    margin: 0 auto;
-    color: rgb(255, 255, 255);;
-    border-bottom: 1px solid rgb(255, 255, 255);
-  }
-  
-  .card-content-order{
-    text-align: center;
-    margin-top: 5%;
-    color:rgb(255, 255, 255);;
-  }
 
-  .entry-input-file{
-      border: 1px solid rgb(10, 65, 86);
+
+.section-cards {
+  /* position: relative; */
+  padding: 10rem  0;
+  background-color: rgba(255, 255, 255, 0.11);
+}
+
+.heading-primary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  letter-spacing: .5rem;
+  background-image: linear-gradient(to right, 
+  rgba(68, 68, 68, 0.712), 
+  rgba(20, 20, 56, 0.781) );
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: .4rem;
+  transition: all .2s;
+}
+
+.text-cards {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.gov-office-box{
+border: 1px solid rgb(190, 190, 190);
+width: 50%;
+height: 90px;
+margin: 0 auto;
+margin-bottom: 30px;
+}
+.gov-office-box:hover{
+  border: 1px solid rgb(5, 5, 5);
+  background-color: #abe2f8;
+  
   }
-   */
+.gov-office-box-name{
+  text-align: center;
+  color: black;
+}
+.gov-office-details{
+  color: black;
+  font-size: bold;
+}

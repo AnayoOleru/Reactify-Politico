@@ -27,12 +27,12 @@ class DeleteParty extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
-  deletePartyHandler(){
-    const partyId = this.props.match.params.id;
+  // deletePartyHandler(){
+  //   const partyId = this.props.match.params.id;
 
-    this.props.deleteParty(partyId);
+  //   this.props.deleteParty(partyId);
 
-  }
+  // }
 
 
  
@@ -51,7 +51,7 @@ class DeleteParty extends Component {
       icon: 'success',
       title: `Party deleted successfully`,
     });
-    window.location = '/all-parties';
+    // window.location = '/all-parties';
   }
 
   render() {

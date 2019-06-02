@@ -6,7 +6,7 @@ import '../../styles/entry-nav.style.css';
 import '../../styles/user-admin-navbar.style.css';
 import jwt_decode from 'jwt-decode';
 
-const EntryNavBar = () => {
+const EntryNavBar = (userImage) => {
     const style5 = {
         fontSize: '30px'
     };
@@ -45,6 +45,7 @@ const EntryNavBar = () => {
                     <li className="entry-nav-list" ><a className="entry-nav-list-child" href={'/register'}>Register</a></li>
                     <li className="entry-nav-list" ><a className="entry-nav-list-child" href={'/sign-out'}>Sign-out</a></li>
                     <li className="entry-nav-list-username" ><a className="entry-nav-list-child">{decoded.userName}</a></li>
+                    <li className="entry-nav-list-username" ><img className="entry-nav-list-child" src={userImage} /></li>
                 </ul>
             </nav>
         </div>

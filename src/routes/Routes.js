@@ -9,7 +9,7 @@ import userVote from '../components/pages/user-vote.jsx';
 // import registerUser from '../components/pages/register-user-page.jsx';
 import allUsers from '../components/pages/users-page.jsx';
 import candidates from '../components/pages/candidates-page.jsx';
-import office from '../components/pages/office-page.jsx';
+import officesForResult from '../components/pages/govOffice-page.jsx';
 import NotFound from '../components/pages/404-page.jsx';
 // import NotFoundPage from '../components/pages/404-page.jsx';
 // import specificParty from '../components/pages/specific-party-page.jsx';
@@ -36,14 +36,15 @@ class App extends Component{
   <Route exact path="/sign-in" component={Signin} />
   <Route exact path="/sign-out" component={signout} />
   <Route exact path="/parties" component={Parties} />
+  <Route exact path="/office/:officeid/result" component={Result} />
   <Route exact path="/add-party" component={addParties} />
   <Route exact path="/vote" component={userVote} />
   {/* <Route exact path="/register/user" component={registerUser} /> */}
   <Route exact path="/users" component={allUsers} />
   <Route exact path="/candidates" component={candidates} />
-  <Route exact path="/offices" component={office} />
+  {/* <Route exact path="/offices" component={office} /> */}
   <Route exact path="/add-office" component={addOffice} />
-  <Route exact path="/result" component={Result} />
+  <Route exact path="/result" component={officesForResult} />
   <Route exact path="/register" component={register} />
   <Route exact path="/all-offices" component={AdminOffice} />
   <Route exact path="/all-parties" component={AdminParties} />

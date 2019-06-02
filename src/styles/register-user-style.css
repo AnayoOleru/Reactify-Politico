@@ -225,3 +225,7 @@ body {
     text-align: center;
     margin-bottom: 4rem;
 }
+
+#section-card-register-title-small{
+    font-size: 2rem;
+}
