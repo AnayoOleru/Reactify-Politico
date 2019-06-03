@@ -10,7 +10,7 @@ import NotFound from '../components/pages/404-page.jsx';
 import Result from '../components/pages/election-results.jsx';
 import addParties from '../components/pages/adminPages/add-parties.jsx';
 import addOffice from '../components/pages/adminPages/add-govOffice.jsx';
-import AdminParties from '../components/pages/adminPages/parties.jsx';
+import AdminParties from '../components/pages/adminPages/Parties.jsx';
 import AdminOffice from '../components/pages/adminPages/office.jsx';
 import register from '../components/pages/adminPages/register-candidate.jsx';
 import EditParty from '../components/pages/adminPages/edit-party.jsx';
