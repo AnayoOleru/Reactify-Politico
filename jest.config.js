@@ -59,7 +59,5 @@ module.exports = {
     coveragePathIgnorePatterns: [
       '<rootDir>/src/index.js',
       '<rootDir>/src/services',
-      '<rootDir>/src/actions',
-      '<rootDir>/src/routes'
     ],
   };
