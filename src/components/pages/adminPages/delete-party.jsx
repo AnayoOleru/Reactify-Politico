@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import jwt_decode from 'jwt-decode';
 import store from '../../../store';
 import AdminNavBar from '../../reuseable component/admin-navbar.component';
 import swal from 'sweetalert';
@@ -17,6 +18,14 @@ class DeleteParty extends Component {
       partyname: '',
     };
     this.onChange = this.onChange.bind(this);
+  }
+
+  componentDidMount() {
+    const token = localStorage.getItem('token');
+    const decoded = jwt_decode(token);
+    if (!token || decoded.isAdmin === false) {
+      window.location = '/';
+    }
   }
 
   onChange(e) {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
+import jwt_decode from 'jwt-decode';
 import { connect } from 'react-redux';
 import { editParty } from '../../../actions/editAction';
 import store from '../../../store';
@@ -18,9 +19,11 @@ class EditParty extends Component {
     this.onChange = this.onChange.bind(this);
   }
   componentDidMount() {
-    const id = this.props.match.params.id;
-    console.log(id);
-
+    const token = localStorage.getItem('token');
+    const decoded = jwt_decode(token);
+    if (!token || decoded.isAdmin === false) {
+      window.location = '/';
+    }
   };
 
   onChange(e) {

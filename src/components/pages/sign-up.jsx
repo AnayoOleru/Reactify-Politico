@@ -25,6 +25,12 @@ export class SignUp extends Component {
       this.onChange = this.onChange.bind(this);
    }
 
+   static getDerivedStateFromProps(nextProps, prevState) {
+      if (nextProps !== prevState) {
+        return ({ loading: nextProps.loading }) // <- this is setState equivalent
+      }
+   }   
+
    onChange(e) {
       this.setState({ [e.target.name]: e.target.value });
    }
@@ -47,7 +53,10 @@ export class SignUp extends Component {
       this.props.SignupAction(data);
    }
    render() {
-      const { loading } = this.props;
+      const { loading } = this.state;
+
+      console.log(this.props);
+      
       const {
          passportUrl,
          firstname,
@@ -119,10 +128,11 @@ export class SignUp extends Component {
    }
 }
 
-const mapStateToProps = ({ posts }) => ({
+const mapStateToProps = ({ posts, loading }) => ({
    success: posts.success,
    signup: posts.data,
    error: posts.error,
+   loading: loading
 });
 
 SignUp.propTypes = {

@@ -7,8 +7,6 @@ import { Redirect, withRouter } from 'react-router-dom';
 import { SigninAction } from '../../actions/postActions';
 import store from '../../store';
 import EntryNavBar from '../reuseable component/entry-navbar-component.jsx';
-import validateB4Submission from '../../validation/validateB4Submission';
-import { validateInputs } from '../../validation/validateInputs';
 import '../../styles/sign-up-form.style.css';
 
 

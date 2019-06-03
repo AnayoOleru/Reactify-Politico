@@ -19,8 +19,9 @@ const HomePageComponent = (
 
 describe('HomePage component', () => {
   it('should match snapshot', () => {
-    const wrap = HomePageComponent;
-    expect(wrap).toMatchSnapshot();
+    // const wrap = HomePageComponent;
+    const wrapper = shallow(<HomePage />);
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should render without crashing', () => {

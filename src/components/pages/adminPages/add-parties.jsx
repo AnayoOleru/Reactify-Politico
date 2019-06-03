@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
+import jwt_decode from 'jwt-decode';
 import uploadToCloudnary from '../../../../Utils/uploadToCloudinary';
 import { CreateParty } from '../../../actions/postActions';
 import store from '../../../store';
@@ -22,6 +22,14 @@ class AddParty extends Component {
       loading: false,
     };
     this.onChange = this.onChange.bind(this);
+  }
+
+  componentDidMount() {
+    const token = localStorage.getItem('token');
+    const decoded = jwt_decode(token);
+    if (!token || decoded.isAdmin === false) {
+      window.location = '/';
+    }
   }
 
   onChange(e) {

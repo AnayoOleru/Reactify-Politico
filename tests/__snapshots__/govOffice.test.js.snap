@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Alloffice component render component 1`] = `ShallowWrapper {}`;
+
 exports[`Office component should match snapshot 1`] = `
 <Provider
   store={
@@ -13,6 +15,9 @@ exports[`Office component should match snapshot 1`] = `
     }
   }
 >
-  <Alloffice />
+  <Alloffice
+    getAllOffice={[MockFunction]}
+    items={Object {}}
+  />
 </Provider>
 `;

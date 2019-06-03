@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import jwt_decode from 'jwt-decode';
 import PropTypes from 'prop-types';
 import { getAllUsers, getAllParties, getAllOffice, getAUser } from '../../../actions/getActions';
 import { RegisterUserAsCandidate } from '../../../actions/postActions';
@@ -24,12 +25,17 @@ export class Register extends Component {
 
   componentDidMount() {
     const { getAllUsers, getAllParties, getAllOffice } = this.props;
+    const token = localStorage.getItem('token');
+    const decoded = jwt_decode(token);
+    if (!token || decoded.isAdmin === false) {
+      window.location = '/';
+    }
     getAllUsers();
     getAllParties();
     getAllOffice();
   }
 
-  register = async (e) => {
+  async register(e) {
     e.preventDefault();
     const userRegistryData = this.state;
     console.log(userRegistryData.officeid);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import jwt_decode from 'jwt-decode';
 import { getAllOffice } from '../../../actions/getActions';
 import { CreateOffice } from '../../../actions/postActions';
 import '../../../styles/govOffice.css';
@@ -23,6 +24,11 @@ class AddOffice extends Component {
   }
   componentDidMount(){
     const { getAllOffice } = this.props;
+    const token = localStorage.getItem('token');
+    const decoded = jwt_decode(token);
+    if (!token || decoded.isAdmin === false) {
+      window.location = '/';
+    }
      getAllOffice();
  }
 
