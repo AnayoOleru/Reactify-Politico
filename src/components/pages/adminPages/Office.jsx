@@ -9,7 +9,7 @@ import AdminNavBar from '../../reuseable component/admin-navbar.component';
 import { Link } from 'react-router-dom';
 
 
-class Office extends Component {
+export class Office extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -104,9 +104,5 @@ const mapStateToProps = state => ({
  get: state.get.items.data,
 });
 
-const OfficeComponent = connect(mapStateToProps, { getAllOffice, CreateOffice })(Office);
-export {
-  OfficeComponent,
-  Office
-}
+export default connect(mapStateToProps, { getAllOffice, CreateOffice })(Office);
 
