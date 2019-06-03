@@ -1,6 +1,6 @@
 import expect from 'expect';
-import reducer from '../../src/reducers/editReducer';
-import * as types from '../../src/actions/types';
+import reducer from '../../reducers/editReducer';
+import * as types from '../../actions/types';
 
 describe('Edit reducer', () => {
     it('should return the initial state', () => {

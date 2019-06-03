@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import Notfound from '../src/components/pages/404-page.jsx';
+import Notfound from '../components/pages/404-page.jsx';
 
 describe('Footer component should', () => {
   it('renders without crashing', () => {

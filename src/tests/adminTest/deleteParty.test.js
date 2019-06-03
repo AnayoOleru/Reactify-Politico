@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import { DeleteParty } from '../../src/components/pages/adminPages/delete-party.jsx';
+import { DeleteParty } from '../../components/pages/adminPages/delete-party.jsx';
 
 describe('DeleteParty component should', () => {
     const props = {

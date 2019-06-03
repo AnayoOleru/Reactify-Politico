@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import { Office } from '../../src/components/pages/adminPages/office.jsx'
+import { Office } from '../../components/pages/adminPages/office.jsx'
 
 describe('Office component should', () => {
     const props = {

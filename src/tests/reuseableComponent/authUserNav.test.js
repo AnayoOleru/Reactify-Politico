@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import AuthUserNavbar from '../../src/components/reuseable component/auth-user-navbar.component.jsx';
+import AuthUserNavbar from '../../components/reuseable component/auth-user-navbar.component.jsx';
 
 describe('AuthUserNavbar component should', () => {
   it('renders without crashing', () => {

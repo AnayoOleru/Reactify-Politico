@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Route from '../src/routes/Routes';
+import Route from '../routes/Routes';
 
 
 

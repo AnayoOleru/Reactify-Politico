@@ -1,6 +1,6 @@
 import expect from 'expect';
-import reducer from '../../src/reducers/getReducer';
-import * as types from '../../src/actions/types';
+import reducer from '../../reducers/getReducer';
+import * as types from '../../actions/types';
 
 describe('Get post reducer', () => {
     it('should return the initial state', () => {

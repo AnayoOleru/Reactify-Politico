@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import { EditParty } from '../../src/components/pages/adminPages/edit-party.jsx';
+import { EditParty } from '../../components/pages/adminPages/edit-party.jsx';
 
 describe('EditParty component should', () => {
     const props = {

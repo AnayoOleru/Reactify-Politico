@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import { Candidates } from '../src/components/pages/candidates-page.jsx';
+import { Candidates } from '../components/pages/candidates-page.jsx';
 
 describe('CandidatesPage component should', () => {
     const props = {

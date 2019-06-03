@@ -1,7 +1,7 @@
 import React from 'react';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import SignUpStore, { SignUp } from '../src/components/pages/sign-up.jsx';
+import SignUpStore, { SignUp } from '../components/pages/sign-up.jsx';
 import {shallow, mount} from 'enzyme';
 
 const props = {

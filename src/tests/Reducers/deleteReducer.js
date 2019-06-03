@@ -1,6 +1,6 @@
 import expect from 'expect';
-import reducer from '../../src/reducers/deleteReducer';
-import * as types from '../../src/actions/types';
+import reducer from '../../reducers/deleteReducer';
+import * as types from '../../actions/types';
 
 describe('Delete reducer', () => {
     it('should return the initial state', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import Footer from '../../src/components/reuseable component/footer-component.jsx';
+import Footer from '../../components/reuseable component/footer-component.jsx';
 
 describe('Footer component should', () => {
   it('renders without crashing', () => {

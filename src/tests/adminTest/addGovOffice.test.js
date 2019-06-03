@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import { AddOffice } from '../../src/components/pages/adminPages/add-govOffice.jsx';
+import { AddOffice } from '../../components/pages/adminPages/add-govOffice.jsx';
 
 describe('CandidatesPage component should', () => {
     const props = {

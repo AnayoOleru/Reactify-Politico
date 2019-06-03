@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import Navbar from '../../src/components/reuseable component/navbar-component.jsx';
+import Navbar from '../../components/reuseable component/navbar-component.jsx';
 
 describe('Navbar component should', () => {
   it('renders without crashing', () => {
