@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alloffice component render component 1`] = `ShallowWrapper {}`;
+
+exports[`Office component should match snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Results
+    candidates={
+      Array [
+        Object {
+          "candidate": "",
+          "result": "",
+        },
+      ]
+    }
+    getAllElectionResults={[MockFunction]}
+    match={
+      Object {
+        "params": Object {
+          "officeId": 1,
+        },
+      }
+    }
+    posts={Object {}}
+  />
+</Provider>
+`;

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import jwt_decode from 'jwt-decode';
 import { CreateOffice } from '../../../actions/postActions';
 import store from '../../../store';
 import AdminNavBar from '../../reuseable component/admin-navbar.component';
@@ -10,7 +9,7 @@ import '../../../styles/addParties-style.css';
 import '../../../styles/admin-modal.style.css';
 
 
-class AddOffice extends Component {
+export class AddOffice extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,14 +20,6 @@ class AddOffice extends Component {
       loading: false,
     };
     this.onChange = this.onChange.bind(this);
-  }
-
-  componentDidMount() {
-    const token = localStorage.getItem('token');
-    const decoded = jwt_decode(token);
-    if (!token || decoded.isAdmin === false) {
-      window.location = '/';
-    }
   }
 
   onChange(e) {

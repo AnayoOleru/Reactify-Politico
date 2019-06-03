@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import jwt_decode from 'jwt-decode';
 import { getAllOffice } from '../../../actions/getActions';
 import { CreateOffice } from '../../../actions/postActions';
 import '../../../styles/govOffice.css';
@@ -10,7 +9,7 @@ import AdminNavBar from '../../reuseable component/admin-navbar.component';
 import { Link } from 'react-router-dom';
 
 
-class AddOffice extends Component {
+export class Office extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,11 +23,6 @@ class AddOffice extends Component {
   }
   componentDidMount(){
     const { getAllOffice } = this.props;
-    const token = localStorage.getItem('token');
-    const decoded = jwt_decode(token);
-    if (!token || decoded.isAdmin === false) {
-      window.location = '/';
-    }
      getAllOffice();
  }
 
@@ -100,7 +94,7 @@ render() {
  );
 }
 }
-AddOffice.propTypes = {
+Office.propTypes = {
 getAllOffice: PropTypes.func.isRequired,
 CreateOffice: PropTypes.func.isRequired
 };
@@ -110,5 +104,5 @@ const mapStateToProps = state => ({
  get: state.get.items.data,
 });
 
-export default connect(mapStateToProps, { getAllOffice, CreateOffice })(AddOffice);
+export default connect(mapStateToProps, { getAllOffice, CreateOffice })(Office);
 

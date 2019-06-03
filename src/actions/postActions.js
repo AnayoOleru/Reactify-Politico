@@ -187,7 +187,7 @@ export const UserVote = (voteeData) => dispatch =>  {
       body: JSON.stringify(voteeData)
   })
   .then((response) => response.json())
-  .then((posts) => { 
+  .then((posts) => {
     if(posts.status === 201 ) {
       swal({
         icon: 'success',

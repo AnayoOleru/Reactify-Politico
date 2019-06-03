@@ -10,7 +10,11 @@ const props = {
         lastname: '',
         othername: '',
         email: '',
-        phoneNumber: ''
+        phoneNumber: '',
+        loading: false
+    },
+    posts: {
+        loading: false,
     },
     SignupAction: jest.fn(() => Promise.resolve())
 };
@@ -38,12 +42,19 @@ const instance = () => mount(<SignUp {...props} />);
 
 describe('Signup component', () => {
      it('render component', () => {
-         const wrapper = shallow(<SignUp />);
+         const wrapper = shallow(<SignUp {...props}/>);
          const  signupState  = wrapper.instance().state.count;
      });
      it('change state when input is entered', () => {
         const wrapper = instance();
         const onChangeSpy = jest.spyOn(wrapper.instance(), 'onChange');
+        wrapper.setState({    user: {
+            firstname: 'hdh',
+            lastname: 'd',
+            othername: 'dd',
+            email: 'ddd',
+            phoneNumber: 'ddd'
+        },});
         wrapper.instance().onChange({
           target: user
         });
