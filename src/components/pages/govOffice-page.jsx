@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getAllOffice } from '../../actions/getActions';
 import { Link } from 'react-router-dom';
 import UserNavBar from '../reuseable component/user-navbar.component.jsx';
-import '../../styles/candidates-style.css';
+import '../../styles/candidates.style.css';
 // import userVote from './user-vote';
 export class Alloffice extends Component {
   componentDidMount() {

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { getAllUsers, getAllParties, getAllOffice, getAUser } from '../../../actions/getActions';
 import { RegisterUserAsCandidate } from '../../../actions/postActions';
 import AdminNavBar from '../../reuseable component/admin-navbar.component.jsx';
-import '../../../styles/register-user-style.css';
+import '../../../styles/registerUser.style.css';
 
 export class Register extends Component {
   constructor(props) {

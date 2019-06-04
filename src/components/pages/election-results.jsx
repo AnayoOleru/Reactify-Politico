@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getAllElectionResults } from '../../actions/getActions';
-import '../../styles/result-style.css';
+import '../../styles/result.style.css';
 import UserNavBar from '../reuseable component/user-navbar.component.jsx';
 
 export class Results extends Component {

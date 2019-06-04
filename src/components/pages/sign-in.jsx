@@ -7,7 +7,7 @@ import { Redirect, withRouter } from 'react-router-dom';
 import { SigninAction } from '../../actions/postActions';
 import store from '../../store';
 import EntryNavBar from '../reuseable component/entry-navbar-component.jsx';
-import '../../styles/sign-up-form.style.css';
+import '../../styles/signupForm.style.css';
 
 
 export class SignIn extends Component {
