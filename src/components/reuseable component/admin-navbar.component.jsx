@@ -2,8 +2,8 @@ import React from 'react';
 
 import logo from '../../styles/images/pogo.png';
 import userDefault from '../../styles/images/userimg.png';
-import '../../styles/entry-nav.style.css';
-import '../../styles/user-admin-navbar.style.css';
+import '../../styles/entryNav.style.css';
+import '../../styles/userAdminNavbar.style.css';
 import jwt_decode from 'jwt-decode';
 
 const EntryNavBar = (userImage) => {

@@ -13,6 +13,4 @@ const  store = createStore(
  composeWithDevTools(applyMiddleware(...middleware))
 );
 
-// eslint-disable-next-line no-console
-console.log('2');
 export default store;

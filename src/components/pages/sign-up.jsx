@@ -4,7 +4,7 @@ import EntryNavBar from '../reuseable component/entry-navbar-component.jsx';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { SignupAction } from '../../actions/postActions';
-import '../../styles/sign-up-form.style.css';
+import '../../styles/signupForm.style.css';
 
 export class SignUp extends Component {
    constructor(props) {

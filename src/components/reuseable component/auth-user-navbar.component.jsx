@@ -1,7 +1,7 @@
 import React from 'react';
 
 import userImage from '../../styles/images/userimg.png';
-import '../../styles/second-navbar.css';
+import '../../styles/secondNavbar.style.css';
 
 const registeredUserNavbar = () => {
   return (

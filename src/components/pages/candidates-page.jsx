@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { getAllCandidates } from '../../actions/getActions';
 import { UserVote } from '../../actions/postActions';
 import UserNavBar from '../reuseable component/user-navbar.component.jsx';
-import '../../styles/candidates-style.css';
+import '../../styles/candidates.style.css';
 // import userVote from './user-vote';
 export class Candidates extends Component {
   componentDidMount() {

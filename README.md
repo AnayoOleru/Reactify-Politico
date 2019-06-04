@@ -1,5 +1,5 @@
 # Reactify-Politico
-[![Maintainability](https://api.codeclimate.com/v1/badges/d5c56c173b7afde4ea43/maintainability)](https://codeclimate.com/github/AnayoOleru/Reactify-Politico/maintainability) [![Build Status](https://travis-ci.org/AnayoOleru/Reactify-Politico.svg?branch=develop)](https://travis-ci.org/AnayoOleru/Reactify-Politico) [![CircleCI](https://circleci.com/gh/AnayoOleru/Reactify-Politico/tree/develop.svg?style=svg)](https://circleci.com/gh/AnayoOleru/Reactify-Politico/tree/develop)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d5c56c173b7afde4ea43/maintainability)](https://codeclimate.com/github/AnayoOleru/Reactify-Politico/maintainability) [![Build Status](https://travis-ci.org/AnayoOleru/Reactify-Politico.svg?branch=develop)](https://travis-ci.org/AnayoOleru/Reactify-Politico) 
 
 # POLITICO
  > :ng: A Nigerian E-voting platform

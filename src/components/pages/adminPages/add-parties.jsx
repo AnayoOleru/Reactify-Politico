@@ -7,8 +7,8 @@ import { CreateParty } from '../../../actions/postActions';
 import store from '../../../store';
 import AdminNavBar from '../../reuseable component/admin-navbar.component';
 import swal from 'sweetalert';
-import '../../../styles/addParties-style.css';
-import '../../../styles/admin-modal.style.css';
+import '../../../styles/addParties.style.css';
+import '../../../styles/adminModal.style.css';
 
 
 export class AddParty extends Component {

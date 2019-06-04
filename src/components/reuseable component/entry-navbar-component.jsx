@@ -1,7 +1,7 @@
 import React from 'react';
 
 import logo from '../../styles/images/pogo.png';
-import '../../styles/entry-nav.style.css';
+import '../../styles/entryNav.style.css';
 
 const EntryNavBar = () => {
   return (

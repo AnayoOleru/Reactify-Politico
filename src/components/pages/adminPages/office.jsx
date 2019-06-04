@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getAllOffice } from '../../../actions/getActions';
 import { CreateOffice } from '../../../actions/postActions';
-import '../../../styles/govOffice.css';
-import '../../../styles/admin-modal.style.css';
+import '../../../styles/govOffice.style.css';
+import '../../../styles/adminModal.style.css';
 import AdminNavBar from '../../reuseable component/admin-navbar.component';
 import { Link } from 'react-router-dom';
 

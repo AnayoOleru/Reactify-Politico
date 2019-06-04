@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import NavBar from '../reuseable component/navbar-component.jsx';
 import Footer from '../reuseable component/footer-component.jsx';
-import '../../styles/home-style.css';
-import '../../styles/media-queries/queries-style.css';
+import '../../styles/home.style.css';
+import '../../styles/media-queries/queries.style.css';
 
 import homeImageOne from '../../styles/images/politician1.jpg';
 import homeImageTwo from '../../styles/images/locals.jpg';

@@ -3,8 +3,8 @@ import jwt_decode from 'jwt-decode';
 
 import logo from '../../styles/images/pogo.png';
 import userDefault from '../../styles/images/userimg.png';
-import '../../styles/entry-nav.style.css';
-import '../../styles/user-admin-navbar.style.css';
+import '../../styles/entryNav.style.css';
+import '../../styles/userAdminNavbar.style.css';
 
 const EntryNavBar = (userImage) => {
     const style5 = {
