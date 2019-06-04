@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import jwt_decode from 'jwt-decode';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import { getAllParties } from '../../../actions/getActions';
 import AdminNavBar from '../../reuseable component/admin-navbar.component.jsx';
 import '../../../styles/parties.style.css';
 
-class Parties extends Component {
+export class Parties extends Component {
   componentDidMount() {
     const { getAllParties } = this.props;
-    const token = localStorage.getItem('token');
-    const decoded = jwt_decode(token);
-    if (!token || decoded.isAdmin === false) {
-      window.location = '/';
-    }
     getAllParties();
   }
 

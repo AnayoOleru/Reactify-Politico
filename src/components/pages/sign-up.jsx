@@ -53,9 +53,10 @@ export class SignUp extends Component {
       this.props.SignupAction(data);
    }
    render() {
-      const { loading } = this.state;
+      const { posts } = this.props;
+      const { loading } = posts;
 
-      console.log(this.props);
+      console.log(this.props, loading, '<<<<>>>>>');
       
       const {
          passportUrl,
@@ -72,9 +73,6 @@ export class SignUp extends Component {
 
       return (
          <React.Fragment>
-            <div>
-               {loading ? <h2>Loading...</h2> : <h2>Empty.</h2>}
-            </div>
             <EntryNavBar />
             <form className="entry-form" onSubmit={this.handleSubmit}>
                <header className="entry-header">
@@ -119,6 +117,9 @@ export class SignUp extends Component {
                   </div>
                   <p className="entry-terms">By clicking sign up, I confirm that I have read and agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></p>
                </main>
+               <div>
+               {loading ? <h2 style={{textAlign: "center"}} className="entry-terms">Loading...</h2> : null}
+            </div>
                <footer className="entry-footer">
                   <input className="entry-button" type="submit" name="btn_signin" value="Sign up" />
                </footer>
@@ -128,12 +129,7 @@ export class SignUp extends Component {
    }
 }
 
-const mapStateToProps = ({ posts, loading }) => ({
-   success: posts.success,
-   signup: posts.data,
-   error: posts.error,
-   loading: loading
-});
+const mapStateToProps = ({ posts }) => ({ posts});
 
 SignUp.propTypes = {
    SignupAction: PropTypes.func.isRequired,

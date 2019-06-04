@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
-import jwt_decode from 'jwt-decode';
 import { connect } from 'react-redux';
 import { editParty } from '../../../actions/editAction';
 import store from '../../../store';
@@ -10,7 +9,7 @@ import '../../../styles/addParties-style.css';
 import '../../../styles/admin-modal.style.css';
 
 
-class EditParty extends Component {
+export class EditParty extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,13 +17,6 @@ class EditParty extends Component {
     };
     this.onChange = this.onChange.bind(this);
   }
-  componentDidMount() {
-    const token = localStorage.getItem('token');
-    const decoded = jwt_decode(token);
-    if (!token || decoded.isAdmin === false) {
-      window.location = '/';
-    }
-  };
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });

@@ -1,8 +1,7 @@
 import React from 'react';
-// import { SignIn } from '../src/components/pages/sign-in.jsx';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import PartiesStore, { Parties } from '../src/components/pages/party-page.jsx';
+import PartiesStore, { Parties } from '../components/pages/party-page.jsx';
 import {shallow, mount} from 'enzyme';
 
 

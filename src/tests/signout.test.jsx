@@ -1,5 +1,5 @@
 import React from 'react';
-import { Signout } from '../src/components/pages/signout-page.jsx';
+import { Signout } from '../components/pages/signout-page.jsx';
 import {shallow, mount} from 'enzyme';
 
 describe('Signout component', () => {

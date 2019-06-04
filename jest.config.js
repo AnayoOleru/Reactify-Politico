@@ -18,10 +18,10 @@ module.exports = {
     coverageDirectory: 'coverage',
   
     // An array of file extensions your modules use
-    moduleFileExtensions: ['js', 'json', 'jsx'],
+    moduleFileExtensions: ['js', 'jsx', 'json'],
   
     // The paths to modules that run some code to configure or set up the testing environment before each test
-    setupFiles: ['<rootDir>/tests/setup.js'],
+    setupFiles: ['<rootDir>/src/tests/setup.jsx'],
   
     // The test environment that will be used for testing
     testEnvironment: 'jsdom',
@@ -47,6 +47,9 @@ module.exports = {
       '^.+\\.js?$': 'babel-jest',
       '^.+\\.jsx?$': 'babel-jest',
     },
+
+    modulePathIgnorePatterns: [ 'store/', 'src/routes', 'src/reducers/index.js'],
+
     moduleNameMapper: {
       '\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
         '<rootDir>/mocks/fileMock.js',
@@ -56,5 +59,7 @@ module.exports = {
     coveragePathIgnorePatterns: [
       '<rootDir>/src/index.js',
       '<rootDir>/src/services',
+      '<rootDir>/src/actions',
+      '<rootDir>/src/routes'
     ],
   };

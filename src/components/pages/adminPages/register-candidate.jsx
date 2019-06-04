@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import jwt_decode from 'jwt-decode';
 import PropTypes from 'prop-types';
 import { getAllUsers, getAllParties, getAllOffice, getAUser } from '../../../actions/getActions';
 import { RegisterUserAsCandidate } from '../../../actions/postActions';
@@ -25,11 +24,6 @@ export class Register extends Component {
 
   componentDidMount() {
     const { getAllUsers, getAllParties, getAllOffice } = this.props;
-    const token = localStorage.getItem('token');
-    const decoded = jwt_decode(token);
-    if (!token || decoded.isAdmin === false) {
-      window.location = '/';
-    }
     getAllUsers();
     getAllParties();
     getAllOffice();
@@ -38,7 +32,6 @@ export class Register extends Component {
   async register(e) {
     e.preventDefault();
     const userRegistryData = this.state;
-    console.log(userRegistryData.officeid);
     const saveUserAsCandidate = {
       candidate: userRegistryData.data.userid,
       candidateName: userRegistryData.userid,
@@ -84,7 +77,7 @@ export class Register extends Component {
 
     const renderPartyOptions = (parties) => {
       return parties.map(party => <option
-        key={party.id} name="partyid"
+        key={party.id} name={party.name}
         value={party.id}
         className="section-card-register-form-select-option">{party.name}</option>);
     }

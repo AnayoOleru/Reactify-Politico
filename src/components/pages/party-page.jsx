@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import AwesomeLoader from '../../../Utils/Loader';
 import { getAllParties } from '../../actions/getActions';
 import UserNavBar from '../reuseable component/user-navbar.component.jsx';
 import '../../styles/parties.style.css';
@@ -12,7 +11,6 @@ export class Parties extends Component {
     getAllParties();
   }
   render() {
-    const { loading } = this.props;
     const style5 = {
       fontSize: '30px'
     };
@@ -46,9 +44,6 @@ export class Parties extends Component {
     ));
     return (
       <React.Fragment>
-        <div>
-          {loading ? <AwesomeLoader /> : <AwesomeLoader />}
-        </div>
         <UserNavBar />
         <main style={style4}>
           <section className="section-cards">

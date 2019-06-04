@@ -7,7 +7,7 @@ import { UserVote } from '../../actions/postActions';
 import UserNavBar from '../reuseable component/user-navbar.component.jsx';
 import '../../styles/candidates-style.css';
 // import userVote from './user-vote';
-class Candidates extends Component {
+export class Candidates extends Component {
   componentDidMount() {
     const { getAllCandidates } = this.props;
     getAllCandidates();
@@ -30,19 +30,6 @@ class Candidates extends Component {
     UserVote(data);
   }
   render() {
-    const style1 = {
-      width: '80px',
-      paddingLeft: '30px',
-    };
-    const style2 = {
-      paddingLeft: '30px',
-      color: '#ffffff'
-    };
-    const style3 = {
-      fontSize: '30px',
-      cursor: 'pointer',
-      height: '30px',
-    };
     const style4 = {
       backgroundColor: '#ffffff',
     };
@@ -52,12 +39,7 @@ class Candidates extends Component {
     const style6 = {
       fontSize: '20px',
     };
-    this.openNav = () => {
-      document.getElementById('mySidenav').style.width = '250px';
-    };
-    this.closeNav = () => {
-      document.getElementById('mySidenav').style.width = '0';
-    };
+
     const GetCandidates = () => {
       return (
         this.props.getCandidates && this.props.getCandidates.map(candidate => (

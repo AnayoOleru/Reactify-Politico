@@ -4,20 +4,12 @@ import thunk from 'redux-thunk';
 import { createLogger} from 'redux-logger';
 import rootReducer from './reducers';
 
-const initialState = {
-    posts:{
-        items: [],
-        item: {},
-        success:false
-    }
-};
 const loggerMiddleware = createLogger();
 const middleware = [thunk];
 
 middleware.push(loggerMiddleware);
 const  store = createStore(
  rootReducer,
- initialState,
  composeWithDevTools(applyMiddleware(...middleware))
 );
 
