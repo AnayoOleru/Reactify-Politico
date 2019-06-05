@@ -1,5 +1,6 @@
 import {
   NEW_POST,
+  NEW_PARTY_LOADING,
   NEW_PARTY_SUCCESS,
   NEW_OFFICE_SUCCESS,
   NEW_VOTE_SUCCESS,
@@ -118,6 +119,7 @@ export const SigninAction = (postData) => dispatch => {
 
 // admin can create a  political party
 export const CreateParty = (partyData) => dispatch => {
+  dispatch({ type: NEW_PARTY_LOADING });
   fetch('https://trustpolitico.herokuapp.com/api/v1/parties', {
     headers: {
       'Accept': 'application/json, text/plain, */*',
@@ -129,6 +131,13 @@ export const CreateParty = (partyData) => dispatch => {
   })
     .then((response) => response.json())
     .then((posts) => {
+      if (posts.status >= 400) {
+        swal({
+          icon: 'warning',
+          title: posts.error,
+        });
+        return dispatch({ type: NEW_PARTY_FAILURE, payload: posts.error });
+      }
       if (posts.status === 201) {
         swal({
           icon: 'success',
@@ -136,13 +145,6 @@ export const CreateParty = (partyData) => dispatch => {
         });
         window.location = '/all-parties';
         return dispatch({ type: NEW_PARTY_SUCCESS, payload: posts });
-      }
-      if (posts.status >= 400) {
-        swal({
-          icon: 'warning',
-          title: posts.error,
-        });
-        return dispatch({ type: NEW_PARTY_FAILURE, payload: posts.error });
       }
     }
     ).catch((err) => {

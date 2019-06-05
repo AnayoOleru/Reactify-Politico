@@ -45,16 +45,15 @@ export class AddParty extends Component {
       hqaddress: adminInput.partyaddress,
       logoUrl: adminInput.partyimage
     };
-
-    console.log(data, 'data');
     this.props.CreateParty(data);
-    swal({
-      icon: 'success',
-      title: `Party successfully created`,
-    });
   }
 
   render() {
+    const { posts } = this.props;
+    const { loading } = posts;
+    console.log(this.props);
+    
+
     <div>
       <h2 className="party-add-party">Delete Political Party</h2>
       <h2 className="party-add-party-delete">Are you sure you want to delete this party?</h2>
@@ -109,6 +108,9 @@ export class AddParty extends Component {
                     <div className="entry-bar"></div>
                   </div>
                 </main>
+                <div>
+               {loading ? <h2 style={{textAlign: "center"}} className="entry-terms">Loading...</h2> : null}
+            </div>
                 <footer className="entry-footer">
                   <input className="entry-button" type="submit" name="btn_signin" value="Add Party" />
                 </footer>
@@ -124,10 +126,6 @@ export class AddParty extends Component {
 AddParty.propTypes = {
   CreateParty: PropTypes.func.isRequired,
 }
-
-const mapStateToProps = (state, posts) => ({
-  newParty: state.get.items.data,
-  error: posts.error,
-});
+const mapStateToProps = (state, posts) => ({ state, posts }) 
 
 export default connect(mapStateToProps, { CreateParty })(AddParty);
