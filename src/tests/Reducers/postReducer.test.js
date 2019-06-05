@@ -37,21 +37,12 @@ describe('New post reducer', () => {
     it('should handle NEW_PARTY_SUCCESS', () => {
         expect(reducer({}, {
             type: types.NEW_PARTY_SUCCESS,
-            loading: true
+            loading: false
         })).toEqual(
             {
-                loading: true,
+                loading: false,
                 newParty: undefined
             }
-        );
-    });
-
-    it('should handle NEW_PARTY_FAILURE', () => {
-        expect(reducer({}, {
-            type: types.NEW_PARTY_FAILURE,
-            error: ''
-        })).toEqual(
-            {}
         );
     });
 

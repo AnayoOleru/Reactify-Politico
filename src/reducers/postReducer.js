@@ -1,6 +1,7 @@
 import {
     FETCH_POSTS,
     NEW_POST,
+    NEW_PARTY_LOADING,
     NEW_PARTY_SUCCESS,
     NEW_OFFICE_SUCCESS,
     NEW_VOTE_SUCCESS,
@@ -37,16 +38,22 @@ export default function (state = initialState, action) {
                 item: action.payload,
                 success: true
             };
+            case NEW_PARTY_LOADING:
+                return {
+                    ...state,
+                    loading: true
+                };
         case NEW_PARTY_SUCCESS:
             return {
                 ...state,
                 newParty: action.payload,
-                loading: true
+                loading: false
             };
         case NEW_PARTY_FAILURE:
             return {
                 ...state,
-                error: action.payload
+                error: action.payload,
+                loading: false
             };
         case NEW_OFFICE_SUCCESS:
             return {

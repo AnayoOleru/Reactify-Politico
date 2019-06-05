@@ -6,6 +6,9 @@ import {  AddParty } from '../../components/pages/adminPages/add-parties.jsx';
 describe('AddParties component should', () => {
     const props = {
         CreateParty: jest.fn(),
+       posts: {
+         loading: false
+       }
     };
     const wrapper = shallow(<AddParty {...props} />);
   it('renders without crashing', () => {

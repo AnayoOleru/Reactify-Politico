@@ -47,9 +47,6 @@ export class SignIn extends Component {
   render() {
     const { posts } = this.props;
     const { loading } = posts;
-    console.log(this.props, '>>>><<<<<<');
-    
-    
 
     const {
       email,
@@ -93,12 +90,6 @@ export class SignIn extends Component {
 }
 
 const mapStateToProps = ({ posts }) => ({ posts });
-// const mapStateToProps = ({ posts }) => ({
-//   success: posts.success,
-//   signin: posts.data,
-//   error: posts.error,
-//   loading: false,
-// });
 
 SignIn.propTypes = {
   SigninAction: PropTypes.func.isRequired,
