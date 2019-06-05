@@ -9,6 +9,10 @@ const props = {
     user: {
         email: '',
         password: '',
+        loading: false
+    },
+    posts: {
+        loading: false,
     },
     SigninAction: jest.fn(() => Promise.resolve())
 };
@@ -36,7 +40,7 @@ const instance = () => mount(<SignIn {...props} />);
 
 describe('Signin component', () => {
      it('render component', () => {
-         const wrapper = shallow(<SignIn />);
+         const wrapper = shallow(<SignIn {...props}/>);
          const  signinState  = wrapper.instance().state.count;
      });
      it('change state when input is entered', () => {

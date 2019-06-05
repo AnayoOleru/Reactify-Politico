@@ -55,8 +55,6 @@ export class SignUp extends Component {
    render() {
       const { posts } = this.props;
       const { loading } = posts;
-
-      console.log(this.props, loading, '<<<<>>>>>');
       
       const {
          passportUrl,
