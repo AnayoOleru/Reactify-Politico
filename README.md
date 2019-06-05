@@ -1,19 +1,20 @@
 # Reactify-Politico
-[![Maintainability](https://api.codeclimate.com/v1/badges/d5c56c173b7afde4ea43/maintainability)](https://codeclimate.com/github/AnayoOleru/Reactify-Politico/maintainability) [![Build Status](https://travis-ci.org/AnayoOleru/Reactify-Politico.svg?branch=develop)](https://travis-ci.org/AnayoOleru/Reactify-Politico) 
+[![Maintainability](https://api.codeclimate.com/v1/badges/d5c56c173b7afde4ea43/maintainability)](https://codeclimate.com/github/AnayoOleru/Reactify-Politico/maintainability) [![Build Status](https://travis-ci.org/AnayoOleru/Reactify-Politico.svg?branch=develop)](https://travis-ci.org/AnayoOleru/Reactify-Politico) [![CircleCI](https://circleci.com/gh/AnayoOleru/Reactify-Politico/tree/develop.svg?style=svg)](https://circleci.com/gh/AnayoOleru/Reactify-Politico/tree/develop) [![Test Coverage](https://api.codeclimate.com/v1/badges/d5c56c173b7afde4ea43/test_coverage)](https://codeclimate.com/github/AnayoOleru/Reactify-Politico/test_coverage)
+
 
 # POLITICO
  > :ng: A Nigerian E-voting platform
 
 
  ## Users
-  `Voters` `Politician`
+  `Voters` `Politicians`
   `Admin` 
 
  ## Features
 * Users can sign up or sign in
 * Registered users can view political parties
 * Registered users can view all politicians running for a specific government
-* Registered voters can vote for politician
+* Registered users can vote for politician
 * Admin can view and create a political party
 * Admin can view and edit a political party
 * Admin can delete a political party
@@ -23,6 +24,15 @@
 #  API Documentation
 https://app.swaggerhub.com/apis-docs/Anayo-Oleru/politico/1.0
 
+# Installation
+Clone this repository into your local machine:
+git clone
+
+Install dependencies
+npm install
+
+Start the application by running
+npm run dev-start
 
 ## Backend App on Heroku
 https://trustpolitico.herokuapp.com/api/v1/
@@ -30,12 +40,13 @@ https://trustpolitico.herokuapp.com/api/v1/
 ## React App on heroku
 https://politicosecure.herokuapp.com/
 
-## Technologies Used
+## Testing
+run test using npm test
 
-* [NodeJS](https://nodejs.org/en/) - A Javascript runtime built on chrome V8 engine that uses an event-driven non-blocking I/O model that makes it lightweight and efficient.
-* [ExpressJs](https://expressjs.com/) - A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
-* [EsLint](https://eslint.org/) - An open source project to provide a pluggable linting utility for javascript
-* [Jest](https://mochajs.org/) - A feature-rich javascript test framework running Node.js and in the browser, making asynchronous testing simple and fun, flexible and accurate reporting. 
+## Major Technologies Used
+
+* [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+* [Redux](https://redux.js.org/) - A predictable state container for JavaScript apps.
 
 
 // login as admin
