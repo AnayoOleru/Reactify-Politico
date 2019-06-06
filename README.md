@@ -5,6 +5,8 @@
 # POLITICO
  > :ng: A Nigerian E-voting platform
 
+## React App on heroku
+https://politicosecure.herokuapp.com/
 
  ## Users
   `Voters` `Politicians`
@@ -37,8 +39,6 @@ npm run dev-start
 ## Backend App on Heroku
 https://trustpolitico.herokuapp.com/api/v1/
 
-## React App on heroku
-https://politicosecure.herokuapp.com/
 
 ## Testing
 run test using npm test
