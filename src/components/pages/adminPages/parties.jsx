@@ -81,6 +81,7 @@ export class Parties extends Component {
             </div>
             <div className="row" id="partyResult" />
             <Link to={'/add-party'}><button href={'/add-party'} className="add" >+</button></Link>
+
           </section>
         </main>
       </React.Fragment>
