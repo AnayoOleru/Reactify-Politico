@@ -7,6 +7,14 @@ import '../../styles/userAdminNavbar.style.css';
 import jwt_decode from 'jwt-decode';
 
 const EntryNavBar = (userImage) => {
+    let token = window.localStorage.getItem('token');
+    const decoded = jwt_decode(token);
+    if(!token){
+      window.location = '/sign-in';
+    }
+    if(decoded.isAdmin === false){
+        window.location = '/sign-in';
+    }
     const style5 = {
         fontSize: '30px'
     };
@@ -31,8 +39,7 @@ const EntryNavBar = (userImage) => {
       function closeNav(){
         document.getElementById('mySidenav').style.width = '0';
       }
-      let token = window.localStorage.getItem('token');
-      const decoded = jwt_decode(token);
+
     return (
         <React.Fragment>
         <div className="user-admin-container">
