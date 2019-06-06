@@ -29,7 +29,19 @@ export class Register extends Component {
     getAllOffice();
   }
 
-  async register(e) {
+  saveOptions = (event) => {
+    event.preventDefault();
+    const { data } = this.state;
+    const userRegistryData = { ...data };
+    userRegistryData[event.target.id] = event.target.value;
+    const index = event.nativeEvent.target.selectedIndex;
+    const whole = event.nativeEvent.target[index].text;
+    this.setState({ data: userRegistryData })
+    this.setState({ [event.target.id]: whole });
+  }
+
+  // register
+  register = async (e) => {
     e.preventDefault();
     const userRegistryData = this.state;
     const saveUserAsCandidate = {
@@ -46,18 +58,6 @@ export class Register extends Component {
 
   };
 
-  saveOptions = (event) => {
-    event.preventDefault();
-    const { data } = this.state;
-    const userRegistryData = { ...data };
-    userRegistryData[event.target.id] = event.target.value;
-    const index = event.nativeEvent.target.selectedIndex;
-    const whole = event.nativeEvent.target[index].text;
-    this.setState({ data: userRegistryData })
-    this.setState({ [event.target.id]: whole });
-    console.log(this.state);
-
-  }
   render() {
     const style5 = {
       backgroundColor: "#ffffff",
@@ -118,7 +118,6 @@ export class Register extends Component {
                 <h1 className="section-card-register-title" id="section-card-register-title-small">Offices</h1>
                 <br />
                 <select onChange={this.saveOptions} className="section-card-register-form-select" id="officeid">
-                  {console.log('OFFICEs', offices)}
                   {renderOfficeOptions(offices)}
                 </select>
                 <br />

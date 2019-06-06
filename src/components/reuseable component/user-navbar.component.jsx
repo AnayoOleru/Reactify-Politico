@@ -52,7 +52,6 @@ const EntryNavBar = (userImage) => {
         <div className="navbar-mobile">
             <div id="mySidenav" className="sidenav" >
                 <a href="#" className="closebtn" onClick={closeNav} ><i className="fa fa-chevron-circle-right" /></a>
-                <input type="file" className="custom-file-input" />
                 <img style={style1} src={userDefault} />
                 <a className="entry-nav-username"><span>{decoded.userName}</span></a>
                 <a className="entry-nav-username"><span>{decoded.lastName}</span></a>
@@ -68,8 +67,6 @@ const EntryNavBar = (userImage) => {
                 <span className="openbutton" style={style3} onClick={openNav} ><i className="fas fa-align-justify" /></span>
                 <a className="entry-nav-logo-link" href={'/'}><img className="entry-nav-logo" src={logo} /></a>
                 <ul id="username" />
-
-                {/* <a className="entry-nav-logo-link" href={'/'}><img className="entry-nav-logo" src={logo} /></a> */}
                 <ul className="entry-nav-list-head">
                     <li className="entry-nav-list" ><a className="entry-nav-list-child" href={'/'}>Home</a></li>
                     <li className="entry-nav-list" ><a className="entry-nav-list-child" href={'/sign-in'}>Sign-out</a></li>

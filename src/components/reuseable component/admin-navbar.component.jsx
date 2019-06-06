@@ -52,7 +52,6 @@ const EntryNavBar = (userImage) => {
         <div className="navbar-mobile">
             <div id="mySidenav" className="sidenav" >
                 <a href="#" className="closebtn" onClick={closeNav} ><i className="fa fa-chevron-circle-right" /></a>
-                <input type="file" className="custom-file-input" />
                 <img style={style1} src={userDefault} />
                 <a className="entry-nav-username"><span>{decoded.userName}</span></a>
                 <a className="entry-nav-username"><span>{decoded.lastName}</span></a>

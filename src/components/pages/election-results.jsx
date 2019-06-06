@@ -28,6 +28,7 @@ export class Results extends Component {
 
     const renderResults = (candidates) => {
       return candidates.map((candidate) => {
+        
         return (
           <tr key={candidate.candidate}>
             <td data-th="Candidate:">{candidate.candidate}</td>

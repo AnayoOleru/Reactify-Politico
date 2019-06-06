@@ -1,5 +1,6 @@
 import { FETCH_USER, FETCH_PARTIES, FETCH_PARTIES_FAILURE, FETCH_CANDIDATES, FETCH_CANDIDATES_FAILURE, FETCH_OFFICES, FETCH_OFFICES_FAILURE, FETCH_PARTY, FETCH_RESULT, FETCH_PARTIES_LOADING } from './types';
 let token = window.localStorage.getItem('token');
+import swal from 'sweetalert';
 
 // get all political
 export const getAllParties = (partyData) => dispatch => {
@@ -109,11 +110,19 @@ export const getAllCandidates = (candidateData) => dispatch => {
       body: JSON.stringify(candidateData)
     })
       .then((response) => response.json())
-      .then(candidate =>
+      .then((candidate) => {
+        if(candidate.data == 0){
+          swal({
+            title: 'No candidates have been registered yet.',
+            timer: 2000
+          });
+          setTimeout(function(){ window.location = '/all-parties'; }, 3000);
+        }
         dispatch({
           type: FETCH_CANDIDATES,
           payload: candidate
         })
+      }
       );
   } catch (err) {
     dispatch({
@@ -137,6 +146,15 @@ export const getAllElectionResults = (officeId) => dispatch =>  {
   })
   .then((response) => response.json())
   .then((results) =>{
+    console.log(results, 'from Actions');
+    
+    if(results.data == 0){
+      swal({
+        title: 'No results for this office yet',
+        timer: 2000
+      });
+      setTimeout(function(){ window.location = '/result'; }, 3000);
+    }
       dispatch({
       type: FETCH_CANDIDATES,
       payload: results
