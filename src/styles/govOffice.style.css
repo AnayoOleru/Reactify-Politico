@@ -27,11 +27,11 @@
 .gov-office-box{
 border: 1px solid rgb(190, 190, 190);
 width: 50%;
-height: 90px;
+height: 115px;
 margin: 0 auto;
 margin-bottom: 30px;
 }
-.gov-office-box:hover{
+.gov-office-box-name-button:hover{
   border: 1px solid rgb(5, 5, 5);
   background-color: #abe2f8;
   
@@ -43,4 +43,11 @@ margin-bottom: 30px;
 .gov-office-details{
   color: black;
   font-size: bold;
+}
+
+.gov-office-box-name-button{
+  margin: 0 auto;
+  padding: 15px;
+  font-size: 15px;
+  font-weight: bold;
 }

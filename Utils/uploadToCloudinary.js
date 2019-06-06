@@ -15,7 +15,7 @@ const uploadToCloudnary = data => {
     .then((res) => {
       swal({
         title: 'Image loading...',
-        timer: 2000
+        timer: 1000
       });
     return res;
   })

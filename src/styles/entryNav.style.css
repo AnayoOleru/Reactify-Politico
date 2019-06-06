@@ -45,7 +45,7 @@
 .entry-nav-list-username{
     font-size: 15px;
 }
-.user-admin-container .entry-nav-list-username:hover{
+.user-admin-container:hover{
     background-color: rgb(10, 65, 86);
     color: #ffffff; 
     border: none;
@@ -55,6 +55,10 @@
     background-color: rgb(10, 65, 86);
     border: none; 
     line-height: 5.5px;
+}
+.entry-nav-list-child-another{
+    padding-top: 20px;
+    padding-left: 15px;
 }
 .navbar-mobile .entry-nav-username:hover{
     font-size: 19px;
@@ -70,13 +74,13 @@
     background-color:rgb(245, 242, 240);
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 650px){
     .entry-nav-list-child{
         display: none;
     }
     .entry-nav-logo{
     padding: 10px 20px;
-    margin-left: 15%;
+    margin-left: 39%;
     height: 60px;
     float: left;
     }

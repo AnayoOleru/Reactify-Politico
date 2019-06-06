@@ -34,6 +34,14 @@ export class Office extends Component {
       backgroundColor: '#ffffff',
     };
 
+    const focus = {
+      backgroundColor: '#ffffff',
+    };
+
+    const focusColor = {
+      color: '#0b4156',
+    };
+
 
     const getOffice = this.props.get && this.props.get.map(office => (
       <div className="gov-office-box" key={office.id} ><h3 className="gov-office-box-name">{office.type}
@@ -51,7 +59,7 @@ export class Office extends Component {
 
     return (
       <React.Fragment>
-        <AdminNavBar />
+        <AdminNavBar props={this.props} focus={focus} focusColor={focusColor}  />
         <main style={style4}>
           <section className="section-cards" id="candidatescard">
             <div className="text-cards">

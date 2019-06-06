@@ -432,16 +432,12 @@ body{
             padding:0px;
 
         }
+        .add{
+            padding: 10px 30px;
+      }
     }
 
 
-/* cards */
-   
-/* .row {
-    max-width:114rem;
-    margin: 0 auto;
-    background-color: #ffffff;
-} */
 
 .row:not(:last-child) {
     margin-bottom: 8rem; 

@@ -40,11 +40,18 @@ export class Candidates extends Component {
       fontSize: '20px',
     };
 
+    const focus = {
+      backgroundColor: '#ffffff',
+    };
+
+    const focusColor = {
+      color: '#0b4156',
+    };
+
     const GetCandidates = () => {
       return (
         this.props.getCandidates && this.props.getCandidates.map(candidate => (
-          <div className="row" key={candidate.candidateid}>
-            <div className="col-1-of-3">
+            <div className="col-1-of-3" key={candidate.candidate}>
               <div className="card">
                 <div className="card__side card__side--front">
                   <div className="card__picture card__picture--1">&nbsp;</div>
@@ -67,12 +74,11 @@ export class Candidates extends Component {
                 </div>
               </div>
             </div>
-          </div>
         )));
     };
     return (
       <React.Fragment>
-        <UserNavBar />
+        <UserNavBar props={this.props} focus={focus} focusColor={focusColor}/>
         <main style={style4}>
           <section className="section-cards" id="candidatescard">
             <div className="text-cards">
@@ -80,7 +86,7 @@ export class Candidates extends Component {
                 Candidates
               </h1>
             </div>
-            <GetCandidates />
+            <div className="row"><GetCandidates /></div>
           </section>
         </main>
       </React.Fragment>

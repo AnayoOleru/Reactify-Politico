@@ -18,6 +18,14 @@ export class Parties extends Component {
     const style4 = {
       backgroundColor: '#ffffff',
     };
+    const focus = {
+      backgroundColor: '#ffffff',
+    };
+
+    const focusColor = {
+      color: '#0b4156',
+    };
+    
     const getItems = this.props.get && this.props.get.map(party => (
       <div key={party.id} className="col-1-of-3">
         <div className="card">
@@ -44,7 +52,7 @@ export class Parties extends Component {
     ));
     return (
       <React.Fragment>
-        <UserNavBar />
+        <UserNavBar props={this.props} focus={focus} focusColor={focusColor} />
         <main style={style4}>
           <section className="section-cards">
             <div className="text-cards">

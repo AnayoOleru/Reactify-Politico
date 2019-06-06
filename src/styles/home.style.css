@@ -172,3 +172,19 @@ body {
 .homepage-main-nav-list-title:active {
     border-bottom: 2px solid rgb(10, 65, 86);
 }
+
+@media only screen and (max-width: 400px) {
+    .homepage-main-nav {
+        display: none;
+    }
+    /* #homepage-small-screen{
+        display: block;
+        padding: 10px 30px;
+    } */
+    .hero-page{
+        height:110vh;
+    }
+    .wsskyline-text-box{
+        top: 60%;
+    }
+}

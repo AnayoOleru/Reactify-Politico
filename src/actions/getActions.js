@@ -121,7 +121,7 @@ export const getAllCandidates = (candidateData) => dispatch => {
         dispatch({
           type: FETCH_CANDIDATES,
           payload: candidate
-        })
+        });
       }
       );
   } catch (err) {
@@ -146,11 +146,9 @@ export const getAllElectionResults = (officeId) => dispatch =>  {
   })
   .then((response) => response.json())
   .then((results) =>{
-    console.log(results, 'from Actions');
-    
     if(results.data == 0){
       swal({
-        title: 'No results for this office yet',
+        title: 'No votes for this office yet',
         timer: 2000
       });
       setTimeout(function(){ window.location = '/result'; }, 3000);

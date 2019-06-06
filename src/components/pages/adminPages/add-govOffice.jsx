@@ -68,13 +68,13 @@ export class AddOffice extends Component {
                   <div className="entry-group">
                     <input className="entry-input" type="text" name="officetype" onChange={this.onChange}
                       value={officetype} required />
-                    <label className="entry-label">Office Type </label>
+                    <label className="entry-label">Office Type e.g Senate </label>
                     <div className="entry-bar" />
                   </div>
                   <div className="entry-group">
                     <input className="entry-input" type="text" name="officename" onChange={this.onChange}
                       value={officename} required />
-                    <label className="entry-label">Office name </label>
+                    <label className="entry-label">Office name e.g Senate President </label>
                     <div className="entry-bar"></div>
                   </div>
                 </main>

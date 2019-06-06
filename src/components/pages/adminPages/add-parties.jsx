@@ -23,6 +23,10 @@ export class AddParty extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
+  componentDidMount(){
+    
+  }
+
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -51,7 +55,6 @@ export class AddParty extends Component {
   render() {
     const { posts } = this.props;
     const { loading } = posts;
-    console.log(this.props);
     
 
     <div>
@@ -70,6 +73,15 @@ export class AddParty extends Component {
       backgroundColor: '#ffffff',
     };
 
+    const focus = {
+      backgroundColor: '#ffffff',
+    };
+
+    const focusColor = {
+      color: '#0b4156',
+    };
+
+
     const {
       partyname,
       partyaddress,
@@ -79,7 +91,7 @@ export class AddParty extends Component {
     return (
       <Provider store={store}>
         <React.Fragment>
-          <AdminNavBar />
+          <AdminNavBar props={this.props} focus={focus} focusColor={focusColor}/>
           <main style={style4}>
             <section className="section-cards">
               <div className="text-cards">

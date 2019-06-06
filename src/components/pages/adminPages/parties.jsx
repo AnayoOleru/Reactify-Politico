@@ -39,6 +39,14 @@ export class Parties extends Component {
       backgroundColor: '#ffffff',
     };
 
+    const focus = {
+      backgroundColor: '#ffffff',
+    };
+
+    const focusColor = {
+      color: '#0b4156',
+    };
+
     const getParties = this.props.get && this.props.get.map(party => (
       <div className="col-1-of-3" key={party.id}>
         <div className="card">
@@ -70,7 +78,7 @@ export class Parties extends Component {
     ));
     return (
       <React.Fragment>
-        <AdminNavBar />
+        <AdminNavBar props={this.props} focus={focus} focusColor={focusColor}  />
         <main style={style4}>
           <section className="section-cards">
             <div className="text-cards">

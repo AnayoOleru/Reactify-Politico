@@ -24,6 +24,14 @@ export class Results extends Component {
       fontSize: '30px',
     };
 
+    const focus = {
+      backgroundColor: '#ffffff',
+    };
+
+    const focusColor = {
+      color: '#0b4156',
+    };
+
     const { candidates } = this.props;
 
     const renderResults = (candidates) => {
@@ -41,7 +49,7 @@ export class Results extends Component {
 
     return (
       <React.Fragment>
-        <UserNavBar />
+        <UserNavBar props={this.props} focus={focus} focusColor={focusColor} />
         <div className="nav2">
           <span style={style3} className="openbutton2" onClick={this.openNav2}><i className="fas fa-align-justify" /></span>
         </div>
@@ -51,7 +59,7 @@ export class Results extends Component {
           <thead>
             <tr id="header">
               <th style={style4}>Candidate</th>
-              <th style={style4}>Result</th>
+              <th style={style4}>Votes</th>
             </tr>
           </thead>
           <tbody id="tableRow">

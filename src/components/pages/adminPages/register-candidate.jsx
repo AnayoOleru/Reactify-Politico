@@ -63,6 +63,14 @@ export class Register extends Component {
       backgroundColor: "#ffffff",
     };
 
+    const focus = {
+      backgroundColor: '#ffffff',
+    };
+
+    const focusColor = {
+      color: '#0b4156',
+    };
+
     const { users, parties, offices } = this.props;
 
     const renderUserOptions = (users) => {
@@ -92,8 +100,7 @@ export class Register extends Component {
 
     return (
       <React.Fragment>
-        <AdminNavBar
-          userImage={this.imageUrl} />
+        <AdminNavBar props={this.props} focus={focus} focusColor={focusColor} />
         <main style={style5}>
           <section className="section-card-register">
             <div className="section-card-register-title-box">
@@ -105,7 +112,7 @@ export class Register extends Component {
               <form>
                 <h1 className="section-card-register-title" id="section-card-register-title-small">Users</h1>
                 <br />
-                <select onChange={this.saveOptions} className="section-card-register-form-select" id="userid" >
+                <select value="enter username" onChange={this.saveOptions} className="section-card-register-form-select" id="userid" >
                   {renderUserOptions(users)}
                 </select>
                 <br />
