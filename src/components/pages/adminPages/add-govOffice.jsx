@@ -68,16 +68,21 @@ export class AddOffice extends Component {
                   <div className="entry-group">
                     <input className="entry-input" type="text" name="officetype" onChange={this.onChange}
                       value={officetype} required />
-                    <label className="entry-label">Office Type e.g Senate </label>
+                    <label className="entry-label">Office Type</label>
                     <div className="entry-bar" />
                   </div>
                   <div className="entry-group">
                     <input className="entry-input" type="text" name="officename" onChange={this.onChange}
                       value={officename} required />
-                    <label className="entry-label">Office name e.g Senate President </label>
+                    <label className="entry-label">Office name </label>
                     <div className="entry-bar"></div>
                   </div>
                 </main>
+                <br />
+                <p style={{fontSize: '15px', textAlign: "center"}}>Some examples</p>
+                <p style={{fontSize: '12px', textAlign: "center"}}>Office type: State, Local-Government, federal </p>
+                <p style={{fontSize: '12px', textAlign: "center"}}>Office name: Senate-president, Governor, President </p>
+                <br />
                 <footer className="entry-footer">
                   <input className="entry-button" type="submit" name="btn_signin" value="Add Office" />
                 </footer>
