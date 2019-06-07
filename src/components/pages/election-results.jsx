@@ -39,14 +39,13 @@ export class Results extends Component {
         
         return (
           <tr key={candidate.candidate}>
-            <td data-th="Candidate:">{candidate.candidate}</td>
-            <td data-th="Party:">{candidate.office}</td>
+            <td data-th="Office:">{candidate.officename}</td>
+            <td data-th="Candidate:">{candidate.candidatename}</td>
             <td data-th="Result:">{candidate.result}</td>
           </tr>
         );
       });
-    }
-    // console.log(getElection);
+    };
 
     return (
       <React.Fragment>
@@ -59,7 +58,7 @@ export class Results extends Component {
           <caption className="header" id="officename" />
           <thead>
             <tr id="header">
-               <th style={style4}>Party</th>
+               <th style={style4}>Office</th>
               <th style={style4}>Candidate</th>
               <th style={style4}>Votes</th>
             </tr>

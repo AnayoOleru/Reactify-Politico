@@ -129,7 +129,6 @@ export const getAllCandidates = (candidateData) => dispatch => {
             title: 'No candidates have been registered yet.',
             timer: 2000
           });
-          setTimeout(function(){ window.location = '/all-parties'; }, 3000);
         }
         dispatch({
           type: FETCH_CANDIDATES,
@@ -164,7 +163,6 @@ export const getAllElectionResults = (officeId) => dispatch =>  {
         title: 'No votes for this office yet',
         timer: 2000
       });
-      setTimeout(function(){ window.location = '/result'; }, 3000);
     }
       dispatch({
       type: FETCH_CANDIDATES,
@@ -199,7 +197,6 @@ export const getAllInterestedUsers = () => dispatch =>  {
         title: 'No user has indicated interest',
         timer: 2000
       });
-      setTimeout(function(){ window.location = '/result'; }, 3000);
     }
       dispatch({
       type: FETCH_INTERESTED_USERS_SUCCESS,
