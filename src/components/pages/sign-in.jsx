@@ -20,9 +20,9 @@ export class SignIn extends Component {
     };
     this.onChange = this.onChange.bind(this);
   }
-  componentDidMount() {
-    localStorage.clear();
-  }
+  // componentDidMount() {
+  //   localStorage.clear();
+  // }
 
 
   onChange(e) {

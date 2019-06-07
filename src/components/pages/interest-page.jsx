@@ -96,7 +96,7 @@ export class Interest extends Component {
             <div className="section-card-register-title-box">
               <h1 className="section-card-register-title">
                 Indicate Interest
-                        </h1>
+              </h1>
             </div>
             <div className="section-card-register-form" id="section-card-user-register-title-box">
               <form>
@@ -119,7 +119,6 @@ export class Interest extends Component {
               <div className="section-card-register-form-select-result" id="result" />
             </div>
           </section>
-
         </main>
       </React.Fragment>
     );
