@@ -1,4 +1,8 @@
+.row2{
+    align-content: center;
+}
 .global-footer {
+    align-content: center;
     background-color: rgb(10, 65, 86);
     padding: 50px;
     font-size: 80%;
@@ -32,8 +36,7 @@
     color: #ddd;
 }
 
-.global-footer-nav-copyright {
+.global-footer-nav-copyright-2 {
     color: rgb(172, 171, 171);
     text-align: center;
-    margin-top: 20px;
 }

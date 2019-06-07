@@ -19,7 +19,6 @@ const initialState = {
     candidates: [],
     offices: [],
     interest: [],
-    reducers: [],
     items: [],
     item: {},
     loading: false,

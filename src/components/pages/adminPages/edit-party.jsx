@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import swal from 'sweetalert';
 import { editParty } from '../../../actions/editAction';
 import store from '../../../store';
 import AdminNavBar from '../../reuseable component/admin-navbar.component';
@@ -27,10 +28,11 @@ export class EditParty extends Component {
     const partyId = this.props.match.params.id;
     const adminInput = this.state;
 
-    const data = {
-      name: adminInput.partyname,
-    };
-    this.props.editParty(data, partyId);
+    this.props.editParty(adminInput.partyname, partyId);
+    swal({
+      icon: 'success',
+      title: `Party Edited successfully`,
+    });
   }
 
   render() {
