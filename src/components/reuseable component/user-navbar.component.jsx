@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import jwt_decode from 'jwt-decode';
-
 import logo from '../../styles/images/pogo.png';
 import userDefault from '../../styles/images/userimg.png';
 import '../../styles/entryNav.style.css';
@@ -61,6 +60,7 @@ class EntryNavBar extends Component {
                             <li className="entry-nav-list active" style={path == "/parties" ? focus : null }><a className="entry-nav-list-child" href={'/parties'} style={path == "/parties" ? focusColor : null}>Parties</a></li>
                             <li className="entry-nav-list" style={path == "/candidates" ? focus : null }><a className="entry-nav-list-child" href={'/candidates'} style={path == "/candidates" ? focusColor : null}>Candidates</a></li>
                             <li className="entry-nav-list" style={path == "/result" ? focus : null }><a className="entry-nav-list-child" href={'/result'} style={path == "/result" ? focusColor : null}>Results</a></li>
+                            <li className="entry-nav-list" style={path == "/interest" ? focus : null }><a className="entry-nav-list-child" href={'/interest'} style={path == "/interest" ? focusColor : null}>Interest</a></li>
                             <li className="entry-nav-list" style={path == "/sign-out" ? focus : null }><a className="entry-nav-list-child" href={'/sign-out'} style={path == "/sign-out" ? focusColor : null}>Sign-out</a></li>
                             <a className="entry-nav-list-child-another">{decoded.userName}</a>
                         </ul>
@@ -77,6 +77,7 @@ class EntryNavBar extends Component {
                         <a href={'/parties'} style={path == "/parties" ? focus : null }><i className="far fa-handshake" style={path == "/parties" ? focusColor : null}/><span style={path == "/parties" ? focusColor : null}>Parties</span></a>
                         <a href={'/candidates'} style={path == "/candidates" ? focus : null }><i className="fas fa-users" style={path == "/candidates" ? focusColor : null}/><span style={path == "/candidates" ? focusColor : null}>Candidates</span></a>
                         <a href={'/result'} style={path == "/result" ? focus : null }><i className="fas fa-box-open" style={path == "/result" ? focusColor : null}/><span style={path == "/result" ? focusColor : null}>Results</span></a>
+                        <a href={'/interest'} style={path == "/interest" ? focus : null }><i className="fas fa-hand-paper" style={path == "/interest" ? focusColor : null}/><span style={path == "/interest" ? focusColor : null}>Interest</span></a>
                         <a href={'/sign-out'} style={path == "/sign-out" ? focus : null }><i className="fas fa-sign-out-alt" style={path == "/sign-out" ? focusColor : null}/><span style={path == "/sign-out" ? focusColor : null}>Sign out</span></a>
                     </div>
 

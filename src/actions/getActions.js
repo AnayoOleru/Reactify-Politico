@@ -1,4 +1,17 @@
-import { FETCH_USER, FETCH_PARTIES, FETCH_PARTIES_FAILURE, FETCH_CANDIDATES, FETCH_CANDIDATES_FAILURE, FETCH_OFFICES, FETCH_OFFICES_FAILURE, FETCH_PARTY, FETCH_RESULT, FETCH_PARTIES_LOADING } from './types';
+import {
+  FETCH_USER,
+  FETCH_PARTIES,
+  FETCH_PARTIES_FAILURE,
+  FETCH_CANDIDATES,
+  FETCH_CANDIDATES_FAILURE,
+  FETCH_OFFICES,
+  FETCH_OFFICES_FAILURE,
+  FETCH_PARTY,
+  FETCH_RESULT,
+  FETCH_PARTIES_LOADING,
+  FETCH_INTERESTED_USERS_SUCCESS,
+  FETCH_INTERESTED_USERS_FAILURE,
+} from './types';
 let token = window.localStorage.getItem('token');
 import swal from 'sweetalert';
 
@@ -162,6 +175,41 @@ export const getAllElectionResults = (officeId) => dispatch =>  {
 } catch(err){
   dispatch({
     type: FETCH_CANDIDATES_FAILURE,
+    payload: err
+  });
+  }
+};
+
+export const getAllInterestedUsers = () => dispatch =>  {
+  try{
+  fetch(`https://trustpolitico.herokuapp.com/api/v1/office/interest`,{
+    headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-type': 'application/json',
+        'x-access-token': token,
+        mode: 'cors',
+      },
+      method: 'GET',
+      body: JSON.stringify()
+  })
+  .then((response) => response.json())
+  .then((results) =>{
+    if(results.data == 0){
+      swal({
+        title: 'No user has indicated interest',
+        timer: 2000
+      });
+      setTimeout(function(){ window.location = '/result'; }, 3000);
+    }
+      dispatch({
+      type: FETCH_INTERESTED_USERS_SUCCESS,
+      payload: results
+    });
+  }
+    );
+} catch(err){
+  dispatch({
+    type: FETCH_INTERESTED_USERS_FAILURE,
     payload: err
   });
   }

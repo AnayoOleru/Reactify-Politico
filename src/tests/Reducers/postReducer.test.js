@@ -8,6 +8,7 @@ describe('New post reducer', () => {
             {
                 items: [],
                 item: {},
+                interest: {},
                 success: false,
                 loading: false,
             }

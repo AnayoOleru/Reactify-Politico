@@ -15,6 +15,8 @@ import {
   NEW_SIGNIN_FAILURE,
   NEW_SIGNIN_SUCCESS,
   NEW_SIGNIN_LOADING,
+  INTEREST_SUCCESS,
+  INTEREST_FAILURE
 } from './types';
 
 import jwt_decode from 'jwt-decode';
@@ -248,6 +250,38 @@ export const RegisterUserAsCandidate = (candidateData, userid) => dispatch => {
         });
         dispatch({
           type: NEW_CANDIDATE_FAILURE,
+          payload: posts.error,
+        });
+      }
+    });
+};
+
+export const UserIndicateInterest = (userData) => dispatch => {
+  fetch(`https://trustpolitico.herokuapp.com/api/v1/office/interest`, {
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-type': 'application/json',
+      'x-access-token': token
+    },
+    method: 'POST',
+    body: JSON.stringify(userData)
+  })
+    .then((response) => response.json())
+    .then((posts) => {
+      if (posts.status === 201) {
+        swal({
+          icon: 'success',
+          title: 'You have successfully indicated interest',
+        });
+        return dispatch({ type: INTEREST_SUCCESS, payload: posts.data });
+      }
+      if (posts.status >= 400) {
+        swal({
+          icon: 'warning',
+          title: posts.error,
+        });
+        dispatch({
+          type: INTEREST_FAILURE,
           payload: posts.error,
         });
       }

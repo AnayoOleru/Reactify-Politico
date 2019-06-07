@@ -36,7 +36,6 @@
     .section-card-register-form-button:hover{
         color:#ffffff;
         background-color: rgb(4, 28, 37);
-
     }
 
 .section-card-register {
@@ -67,3 +66,11 @@
 #section-card-register-title-small{
     font-size: 2rem;
 }
+
+.gov-office-box-register{
+    border: 1px solid rgb(190, 190, 190);
+    width: 50%;
+    height: 170px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    }

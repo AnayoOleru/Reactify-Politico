@@ -46,7 +46,7 @@ export class EditParty extends Component {
     return (
       <Provider store={store}>
         <React.Fragment>
-          <AdminNavBar />
+          <AdminNavBar props={this.props}/>
           <main style={style4}>
             <section className="section-cards">
               <div className="text-cards">

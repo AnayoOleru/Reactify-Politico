@@ -46,7 +46,7 @@ export class Alloffice extends Component {
               <h1 className="heading-primary">
                 Offices
                                                 </h1>
-              <p className="gov-office-details">Click to view election result</p>
+              <p className="gov-office-details">Select an office you want to see result</p>
             </div>
             <div>
               {getOffice}

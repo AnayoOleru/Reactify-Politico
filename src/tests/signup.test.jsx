@@ -28,7 +28,7 @@ const initialState = {
         },
         error: ''
     },
-}
+};
 
 const user = {
     name: 'firstname', value: 'Anayo'

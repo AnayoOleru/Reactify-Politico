@@ -15,12 +15,15 @@ import {
     NEW_SIGNUP_LOADING,
     NEW_SIGNIN_SUCCESS,
     NEW_SIGNIN_FAILURE,
-    NEW_SIGNIN_LOADING
+    NEW_SIGNIN_LOADING,
+    INTEREST_SUCCESS,
+    INTEREST_FAILURE
 } from '../actions/types';
 
 const initialState = {
     items: [],
     item: {},
+    interest: {},
     success: false,
     loading: false,
 };
@@ -38,11 +41,11 @@ export default function (state = initialState, action) {
                 item: action.payload,
                 success: true
             };
-            case NEW_PARTY_LOADING:
-                return {
-                    ...state,
-                    loading: true
-                };
+        case NEW_PARTY_LOADING:
+            return {
+                ...state,
+                loading: true
+            };
         case NEW_PARTY_SUCCESS:
             return {
                 ...state,
@@ -115,6 +118,18 @@ export default function (state = initialState, action) {
                 loading: false,
             };
         case NEW_SIGNIN_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                loading: false,
+            };
+        case INTEREST_SUCCESS:
+            return {
+                ...state,
+                interest: action.payload,
+                loading: false,
+            };
+        case INTEREST_FAILURE:
             return {
                 ...state,
                 error: action.payload,

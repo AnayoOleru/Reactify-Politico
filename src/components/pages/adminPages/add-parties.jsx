@@ -91,7 +91,7 @@ export class AddParty extends Component {
     return (
       <Provider store={store}>
         <React.Fragment>
-          <AdminNavBar props={this.props} focus={focus} focusColor={focusColor}/>
+          <AdminNavBar props={this.props} />
           <main style={style4}>
             <section className="section-cards">
               <div className="text-cards">

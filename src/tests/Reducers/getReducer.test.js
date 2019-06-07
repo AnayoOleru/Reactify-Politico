@@ -9,6 +9,7 @@ describe('Get post reducer', () => {
                 parties: [],
                 users: [],
                 candidates: [],
+                interest: [],
                 offices: [],
                 reducers: [],
                 items: [],

@@ -16,6 +16,7 @@ import RegisterUser from '../components/pages/adminPages/register-candidate.jsx'
 import EditParty from '../components/pages/adminPages/edit-party.jsx';
 import DeleteParty from '../components/pages/adminPages/delete-party.jsx';
 import Signout from '../components/pages/signout-page.jsx';
+import userInterest from '../components/pages/interest-page.jsx';
 import { Provider } from 'react-redux';
 import store  from '../store';
 class App extends Component{
@@ -29,6 +30,7 @@ class App extends Component{
   <Route exact path="/parties" component={UserPartiesPage} />
   <Route exact path="/office/:officeid/result" component={Result} />
   <Route exact path="/add-party" component={AddParties} />
+  <Route exact path="/interest" component={userInterest} />
   <Route exact path="/candidates" component={Candidates} />
   <Route exact path="/add-office" component={AddOffice} />
   <Route exact path="/result" component={OfficesForResult} />
