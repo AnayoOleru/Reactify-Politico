@@ -61,8 +61,5 @@ module.exports = {
       '<rootDir>/src/services',
       '<rootDir>/src/actions',
       '<rootDir>/src/routes',
-      '<rootDir>/src/components/reuseable component/user-navbar.component.jsx',
-      '<rootDir>/src/components/reuseable component/admin-navbar.component.jsx',
-      '<rootDir>/src/components/pages/interest-page.jsx'
     ],
   };
